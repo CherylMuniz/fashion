@@ -1,0 +1,146 @@
+<?php $_items = $this->getItems(); ?>
+<?php if($_items->getSize()): ?>
+<div class="block block-related" id="lenses">
+    <div class="block-content">
+        <div class="mini-products-list" id="block-related">
+            <div class="tbl" id="lensRelatedTable"><div class="tr">
+            <div class="td" >
+        <?php $_item = $_items->getFirstItem(); ?>
+            <span class="item">
+                <?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
+                <input id="related_lens" type="hidden" value="<?php echo $_item->getId() ?>" name="<?php echo $_item->getSku() ?>" />
+                    <?php //oberig #if (!$_item->getRequiredOptions()): ?>
+                        <!-- Warning! class checkbox-1 uses for jQuery -->
+                        <input style="display:none" type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" onClick="toggle_options(this)"/>
+                    <?php //#endif; ?>
+                <?php endif; ?>
+<!-- WTF???? <a href="<?php //echo $_item->getProductUrl() ?>" title="<?php //echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" width="50" height="50" alt="<?php //echo $this->htmlEscape($_item->getName()) ?>" /></a>  -->
+                        <!-- span class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></span><br/ -->
+                        <?php //echo $this->getPriceHtml($_item, true, '-related') ?>
+                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                            <!-- a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a -->
+                        <?php endif; ?>
+                            <span id="lens_options<?php echo $_item->getId() ?>" class="product-options" >
+                            
+                            <!-- lenses attributes ( use modified template from attributes.phtml) --> 
+                                <span>
+                                        <?php //additional information for lenses ( use modifed template from attributes.phtml)
+                                            $_helper = $this->helper('catalog/output');
+                                            $_product = Mage::getModel('catalog/product')->load($_item->getId());
+                                            $block = new Oberig_Lens_Catalog_Block_Product_View_Attributes();
+                                            $block->setProduct($_product);
+                                        ?>
+                                        <?php if($_additional = $block->getAdditionalData()): ?>
+                                            <h2><?php echo $this->__('Additional Information') ?></h2>
+                                            <table class="data-table" id="product-attribute-specs-table">
+                                                <col width="25%" />
+                                                <col />
+                                                <tbody>
+                                                <?php foreach ($_additional as $_data): ?>
+                                                    <tr>
+                                                        <th class="label"><?php echo $this->htmlEscape($this->__($_data['label'])) ?></th>
+                                                        <td class="data <?php echo strtolower($_data['label']); ?>"><?php echo $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                            <script type="text/javascript">decorateTable('product-attribute-specs-table')</script>
+                                        <?php endif;?>
+                                </span>
+                                <!-- end lenses attributes --> 
+                                
+                            <?php // oberig 
+                                $optBlock = Mage::getSingleton('core/layout')->createBlock('catalog/product_view_options');
+                                $optBlock->addOptionRenderer('select', "catalog/product_view_options_type_select", "catalog/product/view/options/type/select.phtml");
+                                $optBlock->setProduct($_item);
+                                //$ops = $p->getOptions(); foreach($ops as $op ){ mage::d($op->getData()); } 
+                                echo $optBlock->setTemplate('catalog/product/view/options.phtml')->toHtml();
+                                
+                            ?>
+                            </span>
+            </span>
+            </div>
+            </div></div>
+        </div>
+        <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
+    </div>
+</div>
+<?php endif ?>
+    <script type="text/javascript">
+    //<![CDATA[
+    $$('.related-checkbox').each(function(elem){
+        Event.observe(elem, 'click', addRelatedToProduct)
+    });
+
+    var relatedProductsCheckFlag = false;
+    function selectAllRelated(txt){
+        if (relatedProductsCheckFlag == false) {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = true;
+            });
+            relatedProductsCheckFlag = true;
+            txt.innerHTML="<?php echo $this->__('unselect all') ?>";
+        } else {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = false;
+            });
+            relatedProductsCheckFlag = false;
+            txt.innerHTML="<?php echo $this->__('select all') ?>";
+        }
+        addRelatedToProduct();
+    }
+
+    function addRelatedToProduct(){
+        var checkboxes = $$('.related-checkbox');
+        var values = [];
+        for(var i=0;i<checkboxes.length;i++){
+            if(checkboxes[i].checked) values.push(checkboxes[i].value);
+        }
+        if($('related-products-field')){
+            $('related-products-field').value = values.join(',');
+        }
+    }
+    
+    /*function toggle_options(obj){
+        //jQuery('#lens_options'+obj.value).toggle();
+        jQuery('#lensOptionsTable').toggle();
+        jQuery('#block-related').find('.item').each( function(key, val){
+            if(val.children[0].value != obj.value){
+               val.toggle();
+            }
+        });
+    }*/
+    function toggle_next_option(obj){
+        jQuery('#lensOptionsTable '+ obj.id).parents('.tr').next().toggle();
+    }
+    function toggle_lenses(){
+        jQuery('#lenses').show();
+        jQuery('.btn-pscart').hide();
+        //jQuery('#lensPrescriptionTable th').first().toggle();
+    }
+    
+
+    // observe for change select-option and display next dropdown.
+jQuery(document).ready(function(){
+    hide_lenses();
+    jQuery('#lens-for-product input').val( jQuery('#general-product').val() ); 
+    //jQuery('#lens-for-product').hide();
+    jQuery('#lensOptionsTable input, #lensOptionsTable select').change(function(){
+        //console.log( jQuery('#'+this.id).attr('sku') );
+
+        // +++++++++++++++++++++++  disable false checked options ++++++++++++++++++++++++//
+        //if current checked option is lens_type, then unchecked all another checked options
+        uncheck_options(this);
+        // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
+        lens_switch(this);
+    });
+
+    jQuery('#lensOptionsTable .tr').first().css('display','table-row');
+
+    if ( '1' == jQuery('#isDesignerFrames').attr('value') ){
+        toggle_lenses();
+    }
+
+    show_i_info();
+});
+    </script>

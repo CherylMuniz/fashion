@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <sales>
+            <children>
+                <items module="prepopulate" translate="title">
+                    <title>PrePopulate Messages</title>
+                    <sort_order>500</sort_order>
+                    <action>prepopulate/adminhtml_prepopulate</action>
+                </items>
+            </children>
+        </sales>
+    </menu>
+    
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<Osdave_PrePopulate>
+						<title>PrePopulate Module</title>
+						<sort_order>10</sort_order>
+					</Osdave_PrePopulate>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

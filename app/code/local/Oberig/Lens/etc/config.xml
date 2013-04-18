@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Oberig_Lens>
+            <version>0.1.0</version>
+        </Oberig_Lens>
+    </modules>
+
+    <global>
+        <blocks>
+            <lens>
+                <class>Oberig_Lens_Catalog_Block</class>
+            </lens>
+        </blocks>
+
+    </global>
+    <admin>
+        <routers>
+        	<adminhtml>
+			 <args>
+			   <modules>
+				 <Oberig_Lens before="Mage_Adminhtml">Oberig_Lens_Adminhtml</Oberig_Lens>
+			   </modules>
+			 </args>
+		   </adminhtml>
+		</routers>
+	</admin>
+
+    <frontend>
+        <routers>
+            <oberigterms>
+				<use>standard</use>
+                <args>
+                    <module>Oberig_Lens</module>
+					<frontName>lensterms</frontName>
+                </args>
+            </oberigterms>
+        </routers>
+        <events>
+            <sales_quote_remove_item>
+                <observers>
+                    <oberig_lens>
+                        <class>Oberig_Lens_Model_Observer</class>
+                        <method>deleteLens</method>
+                    </oberig_lens>
+                </observers>
+            </sales_quote_remove_item>
+        </events>
+    </frontend>
+</config>

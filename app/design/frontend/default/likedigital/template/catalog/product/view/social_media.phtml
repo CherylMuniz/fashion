@@ -1,0 +1,54 @@
+<?php 
+$_parentBlock = $this->getParentBlock();
+$_cutProduct = $_parentBlock->getProduct();
+
+$_pinURL = 'url='.urlencode($_cutProduct->getProductUrl());
+$_pinURL.= '&media='.urlencode($this->helper('catalog/image')->init($_cutProduct, 'image'));
+$_pinURL.= '&description='.urlencode($_cutProduct->getName());
+
+?>
+<div id="social_media">
+	<!-- facebook -->
+	<div class="item" id="item_facebook">
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+		<div class="fb-like" data-send="false" data-layout="button_count" data-width="60" data-show-faces="true" data-href="<?php echo $_cutProduct->getProductUrl();?>"></div>
+	</div>
+	<!-- facebook -->
+	
+	<!-- tweeter -->
+	<div class="item" id="item_twitter">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+	<!-- tweeter -->
+	
+	<!-- pinterest -->
+	<div class="item" id="item_pinterest">				
+		<a href="http://pinterest.com/pin/create/button/?<?php echo $_pinURL;?>" class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+		<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>	
+	</div>
+	<!-- pinterest -->
+	
+	<!-- googleplus -->
+	<div class="item" id="item_googleplus">
+		<g:plusone size="medium" annotation="none"></g:plusone>
+				
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>	
+	</div>
+	<!-- googleplus -->
+	<div style="clear: both;"></div>
+</div>

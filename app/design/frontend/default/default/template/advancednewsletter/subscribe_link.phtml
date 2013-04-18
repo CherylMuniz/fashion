@@ -1,0 +1,45 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ *
+ * @category   AW
+ * @package    AW_Advancednewsletter
+ * @copyright  Copyright (c) 2008-2010 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ */
+?>
+<?php $this->setBlockUniqueId($this->getBlockUniqueId() + 1) ?>
+<?php if (preg_match('/^1.3/', Mage::getVersion())): ?>
+<div class="box base-mini mini-newsletter an-subscribe">
+    <div class="head"><h4><?php echo $this->__('Newsletter') ?></h4></div>
+    <div class="block-content">
+        <div class="an-buttons">
+            <button id="advancednewsletter-button-<?php echo $this->getBlockUniqueId() ?>" type="submit" class="form-button-alt"><span><?php echo $this->__('Subscribe') ?></span></button>
+        </div>
+    </div>
+</div>
+<?php else: ?>
+<div class="block an-subscribe">
+    <div class="block-title"><strong><span><?php echo $this->__('Newsletter') ?></span></strong></div>
+    <div class="block-content">
+        <div class="an-buttons">
+            <button id="advancednewsletter-button-<?php echo $this->getBlockUniqueId() ?>" type="submit" class="button"><span><?php echo $this->__('Subscribe') ?></span></button>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<script type="text/javascript">
+    <!--
+    document.observe('dom:loaded', function () {
+        new Advancednewsletter($('advancednewsletter-button-<?php echo $this->getBlockUniqueId() ?>'), '<?php echo $this->getAjaxUrl() ?>');
+    });
+    //-->
+</script>

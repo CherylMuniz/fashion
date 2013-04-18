@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oberig_Addproduct>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Oberig_Addproduct>
+    </modules>
+</config>

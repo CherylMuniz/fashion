@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <DevNick_RoundPrice>
+            <active>false</active>
+            <codePool>local</codePool>
+        </DevNick_RoundPrice>
+    </modules>
+</config>

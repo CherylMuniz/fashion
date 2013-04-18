@@ -1,0 +1,116 @@
+.carousel {
+    overflow: hidden;
+}
+
+.carousel .inner {  
+}
+.carousel .middle {
+    overflow: hidden;
+}
+
+#big_carousel div.inner div a,
+#mp_carousel div.inner div a{
+opacity:1;
+filter:alpha(opacity=100);
+}
+#mp_carousel div.inner div a:hover{
+opacity:0.7;
+filter:alpha(opacity=70);
+}
+
+#mp_carousel {
+	position:relative;
+	background: #000;
+    width: 971px;
+    height: 179px;
+    margin: 0 0 -2px;
+    line-height: 160px;
+    left: -5px;
+}
+
+#big_carousel {
+	position:relative;
+	background: #000;
+    width: 970px;
+    height: 355px;
+    margin: 0 0 -2px;
+    line-height: 160px;	
+}
+
+#mp_carousel .middle {
+    float: left;
+    width: 970px;
+    height: 204px;
+}
+
+#big_carousel .middle {
+    float: left;
+    width: 969px;
+    height: 354px;
+}
+
+#mp_carousel .inner div {
+    float: left;
+    margin-right: 6px;
+}
+
+#big_carousel .inner div {
+    float: left;
+    margin-right: 2px;
+}
+
+#mp_carousel .carousel-control{
+	position:absolute;
+	top:70px;
+    width: 32px;
+    z-index:1000;
+    text-align: center;
+    text-decoration: none;    
+    font-size: 32px;
+    font-weight:bold;
+    
+}
+
+#big_carousel .carousel-control{
+	position:absolute;
+	top:150px;
+    width: 32px;
+    z-index:1000;
+    text-align: center;
+    text-decoration: none;    
+    font-size: 32px;
+    font-weight:bold;
+    
+}
+
+.bx-prev,.bx-next{
+    height: 31px;
+    text-indent: -999999px;
+    width: 31px;	
+}
+.bx-prev {
+    background: url("../images/icon_arrow_left.png") no-repeat scroll 0 -31px transparent;
+}
+.bx-next {
+    background: url("../images/icon_arrow_right.png") no-repeat scroll 0 -31px transparent;
+}
+.bx-next:hover, .bx-prev:hover {
+    background-position: 0 0;
+}
+
+#big_carousel .next,
+#mp_carousel .next{
+	right:3px;
+}
+#big_carousel .prev,
+#mp_carousel .prev{
+	left:3px;
+}
+#big_carousel a.carousel-control:hover,
+#mp_carousel a.carousel-control:hover {
+    color: #CCC;
+}
+#big_carousel a.carousel-control,
+#mp_carousel a.carousel-control {
+    color: #FFF;
+}

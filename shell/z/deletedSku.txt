@@ -1,0 +1,314 @@
+Deleted from demo
++--------------------------------+
+| sku                            |
++--------------------------------+
+| Adelaide-4                     |
+| BCH242-1                       |
+| Boss 0339/S-2                  |
+| Boss 0339/S-3                  |
+| BV8064-3                       |
+| Bvlgari BV6050B-1              |
+| CH5206-2                       |
+| Chanel CH4193-1                |
+| Chanel CH4193-2                |
+| Chanel CH4193-3                |
+| Chanel CH4193-4                |
+| Chanel CH4193-5                |
+| Dolce & Gabbana DG3096-1       |
+| Dolce & Gabbana DG3096-2       |
+| Dolce & Gabbana DG3096-4       |
+| Dolce & Gabbana DG3096-5       |
+| Essie/S-1                      |
+| Essie/S-2                      |
+| Essie/S-3                      |
+| Gucci GG1637/S-BCB             |
+| Gucci GG1637/S-HGG             |
+| Gucci GG2894-BLH               |
+| Gucci GG2894-BW                |
+| Gucci GG3097/S-BG1             |
+| Gucci GG3097/S-BM              |
+| Gucci GG3097/S-BOB             |
+| Gucci GG3097/S-HBR             |
+| Gucci GG3097/S-SBG             |
+| Gucci GG3097/S-TRB             |
+| Marc By Marc Jacobs MMJ195/S-1 |
+| Marc By Marc Jacobs MMJ195/S-2 |
+| Marc By Marc Jacobs MMJ195/S-3 |
+| Marc By Marc Jacobs MMJ195/S-4 |
+| Marc By Marc Jacobs MMJ202/S-1 |
+| Marc By Marc Jacobs MMJ202/S-2 |
+| Marc By Marc Jacobs MMJ202/S-3 |
+| Marc By Marc Jacobs MMJ202/S-4 |
+| Marc By Marc Jacobs MMJ202/S-5 |
+| Marc By Marc Jacobs MMJ202/S-6 |
+| Marc By Marc Jacobs MMJ202/S-7 |
+| OSC-226                        |
+| OSC-311                        |
+| OSC-324                        |
+| OSC-382                        |
+| OSC-383                        |
+| OSC-385                        |
+| OSC-387                        |
+| OSC-394                        |
+| OSC-395                        |
+| OSC-397                        |
+| OSC-399                        |
+| OSC-407                        |
+| OSC-408                        |
+| OSC-410                        |
+| OSC-411                        |
+| OSC-412                        |
+| OSC-430                        |
+| OSC-432                        |
+| OSC-433                        |
+| OSC-439                        |
+| OSC-441                        |
+| OSC-478                        |
+| OSC-479                        |
+| OSC-490                        |
+| OSC-495                        |
+| OSC-497                        |
+| OSC-501                        |
+| OSC-503                        |
+| OSC-532                        |
+| OSC-540                        |
+| OSC-541                        |
+| OSC-542                        |
+| OSC-579                        |
+| OSC-582                        |
+| OSC-588                        |
+| OSC-622                        |
+| OSC-665                        |
+| OSC-669                        |
+| OSC-670                        |
+| OSC-672                        |
+| OSC-681                        |
+| OSC-682                        |
+| OSC-683                        |
+| OSC-685                        |
+| OSC-688                        |
+| OSC-689                        |
+| OSC-690                        |
+| OSC-691                        |
+| OSC-692                        |
+| OSC-693                        |
+| OSC-694                        |
+| OSC-698                        |
+| OSC-715                        |
+| OSC-716                        |
+| OSC-717                        |
+| OSC-720                        |
+| OSC-721                        |
+| OSC-727                        |
+| OSC-731                        |
+| OSC-734                        |
+| OSC-738                        |
+| OSC-742                        |
+| OSC-743                        |
+| OSC-744                        |
+| OSC-745                        |
+| OSC-746                        |
+| OSC-747                        |
+| OSC-782                        |
+| OSC-785                        |
+| OSC-790                        |
+| OSC-796                        |
+| OSC-802                        |
+| OSC-807                        |
+| OSC-815                        |
+| OSC-835                        |
+| OSC-836                        |
+| OSC-837                        |
+| OSC-842                        |
+| OV5195-1                       |
+| OV5195-2                       |
+| OV5195-4                       |
+| OX3090-4                       |
+| OX3090-5                       |
+| Persol PO2394S-3               |
+| Persol PO2945V-3               |
+| PH1119-3                       |
+| PM8152S-5                      |
+| PO3013V-3                      |
+| PR06PV-5                       |
+| PR18MS-1                       |
+| PR18MS-2                       |
+| Prada PR27LS-1                 |
+| Prada PR27LS-2                 |
+| PS01LS-2                       |
+| psun-2534                      |
+| psun-2650                      |
+| psun-2651                      |
+| psun-2684                      |
+| psun-2686                      |
+| psun-2687                      |
+| psun-2688                      |
+| psun-2689                      |
+| psun-3195                      |
+| psun-3198                      |
+| psun-3199                      |
+| psun-3202                      |
+| psun-3203                      |
+| psun-3204                      |
+| psun-3205                      |
+| psun-3441                      |
+| psun-3442                      |
+| psun-3582                      |
+| psun-3583                      |
+| psun-3584                      |
+| psun-3585                      |
+| psun-3586                      |
+| psun-4555                      |
+| psun-4694                      |
+| psun-615                       |
+| psun-6154                      |
+| psun-6155                      |
+| psun-616                       |
+| psun-617                       |
+| psun-618                       |
+| psun-619                       |
+| psun-620                       |
+| psun-7045                      |
+| Ray Ban Junior RJ9049S-3       |
+| Ray Ban RB3016-1               |
+| Ray Ban RB3025-1               |
+| Ray Ban RB3025-25              |
+| Ray Ban RB5144-1               |
+| Ray Ban RB5144-2               |
+| Ray Ban RB5144-3               |
+| Ray Ban RB5144-6               |
+| Ray Ban RB5150-4               |
+| Ray Ban RB5187-2               |
+| Ray Ban RB5226-1               |
+| Ray Ban RB5226-2               |
+| Ray Ban RB5226-3               |
+| Ray Ban RB5227-1               |
+| Ray Ban RB5227-2               |
+| Ray Ban RB5227-3               |
+| Ray Ban RB5227-4               |
+| Ray Ban RB6182-2               |
+| RB2132-13                      |
+| RB3016-11                      |
+| RB3016-7                       |
+| RB3016-8                       |
+| RB3342-3                       |
+| RB4101-9                       |
+| RB4125-7                       |
+| RB4147-2                       |
+| RB4147-3                       |
+| RB5144-4                       |
+| RB5144-5                       |
+| RB5144-7                       |
+| RB5150-5                       |
+| RB5226-4                       |
+| RB5237-3                       |
+| RB5237-4                       |
+| RB5248-5                       |
+| RB6157-6                       |
+| RB6157-7                       |
+| RB6157-9                       |
+| RX5169-1                       |
+| SC-1005                        |
+| SC-1008                        |
+| SC-1014                        |
+| SC-1020                        |
+| SC-1027                        |
+| SC-1036                        |
+| SC-1132                        |
+| SC-1133                        |
+| SC-1134                        |
+| SC-1138                        |
+| SC-1139                        |
+| SC-1142                        |
+| SC-1146                        |
+| SC-1150                        |
+| SC-1154                        |
+| SC-1157                        |
+| SC-1158                        |
+| SC-1159                        |
+| SC-1160                        |
+| SC-1168                        |
+| SC-1173                        |
+| SC-1177                        |
+| SC-1191                        |
+| SC-1195                        |
+| SC-1199                        |
+| SC-1200                        |
+| SC-1201                        |
+| SC-1202                        |
+| SC-1210                        |
+| SC-1222                        |
+| SC-1227                        |
+| SC-1229                        |
+| SC-1231                        |
+| SC-1232                        |
+| SC-1252                        |
+| SC-1262                        |
+| SC-1266                        |
+| SC-1267                        |
+| SC-1268                        |
+| SC-1269                        |
+| SC-1273                        |
+| SC-1276                        |
+| SC-1277                        |
+| SC-1278                        |
+| SC-1279                        |
+| SC-1283                        |
+| SC-1300                        |
+| SC-1315                        |
+| SC-1316                        |
+| SC-738                         |
+| SC-823                         |
+| SC-908                         |
+| SC-917                         |
+| SC-918                         |
+| SC-919                         |
+| SC-920                         |
+| SC-924                         |
+| SC-926                         |
+| SC-928                         |
+| SC-959                         |
+| SC-960                         |
+| SC-963                         |
+| SC-967                         |
+| SC-968                         |
+| SC-969                         |
+| SC-971                         |
+| SC-972                         |
+| SC-974                         |
+| SC-975                         |
+| SC-977                         |
+| SC-984                         |
+| SC-986                         |
+| SC-990                         |
+| SC-991                         |
+| SC-992                         |
+| SC-993                         |
+| SC-994                         |
+| SC-995                         |
+| Severine/S-2                   |
+| Tag Heuer L-Type TH0113-1      |
+| Tag Heuer L-Type TH0113-2      |
+| Tag Heuer L-Type TH0113-3      |
+| Tag Heuer L-Type TH0113-4      |
+| Tag Heuer L-Type TH0120-5      |
+| TF203-2                        |
+| TF203-3                        |
+| TF2034-3                       |
+| TF2034-4                       |
+| TF2041B-1                      |
+| TF2041B-5                      |
+| TF3022-1                       |
+| TF3022-2                       |
+| TF3022-3                       |
+| TF3022-4                       |
+| Tiffany TF2033-10              |
+| Tiffany TF2033-7               |
+| Tiffany TF2033-8               |
+| Tiffany TF2034-12              |
+| Tiffany TF2034-8               |
+| Tiffany TF2041B-9              |
+| Tom Ford TF203-1               |
++--------------------------------+
+307 rows in set (0.08 sec)
+

@@ -1,0 +1,30 @@
+.option_popup {
+    left: -300px;
+    position: absolute;
+    top: -200px;
+    z-index: 100;
+}
+
+.product-options ul.options-list .i_container{
+    position: relative;
+    display: block;
+}
+
+.i_info{
+    /* position: absolute; 
+    top:80px;
+    right:15px;
+    height:10px; 
+    background: url("../images/i_info_small_black.jpg") no-repeat; */
+    width:10px;
+    font-size:10px;
+    cursor: pointer;
+}
+.s2{
+    top:85px;
+    right:0px;
+}
+.s3{
+    top:82px;
+    right:10px; 
+}

@@ -1,0 +1,29 @@
+<?php
+    $category = Mage::registry('current_category');
+    $product = Mage::registry('current_product');
+    $count = 0;
+    //if ( !empty($category) ){
+        //$count = 10;
+    //if (Mage::getModel('catalog/category')->load($category->parent_id)->getUrlKey() == 'designer-spectacles') {
+        //$count = 3;
+    //} elseif (Mage::getModel('catalog/category')->load($category->parent_id)->getUrlKey() == 'featured') {
+        //$count = 6;
+    //}
+    if( !empty($product) ){
+        $count = 3;
+    }elseif( !empty($category) ){
+        $count = 10;
+        if ( in_array($category->getUrlKey(), array( 'in-stock-sunglasses','designer-spectacles','clearance','varifocal-glasses')) ){
+            $count = 10;
+        }
+    }
+?>
+
+<?php if( $count ){ ?>
+<div class="tp_-_box" data-tp-settings="domainId:906580,height:1000,width:<?php echo ( !empty($category) ) ? '153' : '147'; ?>,numOfReviews:<?php echo $count ?>">
+    <a href="http://www.trustpilot.co.uk/review/fashioneyewear.co.uk"; rel="nofollow" hidden>FashionEyewear.co.uk Reviews</a> 
+</div>
+<script type="text/javascript">
+    (function(){var a="https:"==document.location.protocol?"https://ssl.trustpilot.com":"http://s.trustpilot.com",b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=a+"/tpelements/tp_elements_all.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)})();
+</script>
+<?php } ?>

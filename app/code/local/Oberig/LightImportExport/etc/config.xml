@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oberig_LightImportExport>
+            <version>0.1.0</version>
+        </Oberig_LightImportExport>
+    </modules>
+    <admin>
+		<routers>
+			<lightimportexport>
+			<use>admin</use>
+			<args>
+				<module>Oberig_LightImportExport</module>
+				<frontName>lightimportexport</frontName>
+			</args>
+			</lightimportexport>
+		</routers>
+    </admin>
+    <adminhtml>
+		<menu>			
+		    <system translate="title" module="adminhtml">
+				<children>
+				    <lightimportexport translate="title">
+						<title>Light Import/Export</title>
+						<children>
+						    <lightexport module="lightimportexport">
+								<title>Export</title>
+								<action>lightimportexport/adminhtml_export</action>
+								<sort_order>1</sort_order>
+						    </lightexport>
+						    <lightimport module="lightimportexport">
+								<title>Import</title>
+								<action>lightimportexport/adminhtml_import</action>
+								<sort_order>2</sort_order>
+						    </lightimport>
+						</children>
+						<sort_order>45</sort_order>
+				    </lightimportexport>
+				</children>
+		    </system>						
+		</menu>
+		<layout>
+	    	<updates>
+                <tracker>
+                    <file>lightimportexport.xml</file>
+                </tracker>
+            </updates>
+        </layout>		
+    </adminhtml>
+    <global>
+        <helpers>
+            <lightimportexport>
+                <class>Oberig_LightImportExport_Helper</class>
+            </lightimportexport>
+        </helpers>
+        <blocks>
+            <lightimportexport>
+                <class>Oberig_LightImportExport_Block</class>
+            </lightimportexport>
+        </blocks>
+        <models>
+            <lightimportexport>
+                <class>Oberig_LightImportExport_Model</class>
+            </lightimportexport>
+        </models>                
+    </global>
+</config>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oberig_Shipmentmass>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Oberig_Shipmentmass>
+    </modules>
+</config>

@@ -1,0 +1,92 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $_product = $this->getProduct(); ?>
+<?php $buttonTitle = $this->__('CHECKOUT'); ?>
+<?php $buttonTitle2 = 'ADD <br> PRESCRIPTION'; ?>
+
+<?php if($_product->isSaleable()): ?>
+    <div class="add-to-cart">
+        <table id = "btns-addtocart"><tr>
+                <?php if(!$_product->isGrouped()): ?>
+                    <td  style="vertical-align:middle;" >
+                <span id="add-to-cart-lens">
+                        <label for="qty"><?php echo $this->__('Qty:') ?></label>
+                        <input type="text" name="qty" id="qty" maxlength="12" value="1<?php //echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+                </span>
+                    </td>
+                <?php endif; ?>
+                    <?php if ( $_product->getRelatedProductIds() ): ?>
+                        <td><button type="button" title="<?php echo 'ADD PRESCRIPTION' ?>" class="button btn-pscart" id="btn-pscart" onclick="toggle_lenses()"><span><span><?php echo $buttonTitle2 ?></span></span></button><span style="float:left">&nbsp;&nbsp;</span></td>
+                    <?php endif; ?>
+                    <td><button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" id="btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button></td>
+
+                <?php echo $this->getChildHtml('', true, true) ?>
+        </tr></table>
+    </div>
+<?php endif; ?>
+<?php
+// don't try extract category by name. Name isn't unique.
+$carCat1 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'chanel-glasses')->getFirstItem()->getId();
+$catProdIds1 = mage::getModel('catalog/category')->load($carCat1)->getProductCollection()->getAllIds();
+$carCat2 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'tom-ford-glasses')->getFirstItem()->getId();
+$catProdIds2 = mage::getModel('catalog/category')->load($carCat2)->getProductCollection()->getAllIds();
+
+$carCat3 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'chanel-sunglasses')->getFirstItem()->getId();
+$catProdIds3 = mage::getModel('catalog/category')->load($carCat3)->getProductCollection()->getAllIds();
+$carCat4 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'tom-ford-sunglasses')->getFirstItem()->getId();
+$catProdIds4 = mage::getModel('catalog/category')->load($carCat4)->getProductCollection()->getAllIds();
+
+$carCat5 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'chanel-prescription-sunglasses')->getFirstItem()->getId();
+$catProdIds5 = mage::getModel('catalog/category')->load($carCat5)->getProductCollection()->getAllIds();
+$carCat6 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'tom-ford-prescription-sunglasses')->getFirstItem()->getId();
+$catProdIds6 = mage::getModel('catalog/category')->load($carCat6)->getProductCollection()->getAllIds();
+
+$carCat7 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'lindberg-glasses')->getFirstItem()->getId();
+$catProdIds7 = mage::getModel('catalog/category')->load($carCat7)->getProductCollection()->getAllIds();
+
+if( !in_array($_product->getId(), $catProdIds1) && 
+    !in_array($_product->getId(), $catProdIds2) && 
+    !in_array($_product->getId(), $catProdIds3) &&
+    !in_array($_product->getId(), $catProdIds4) &&
+    !in_array($_product->getId(), $catProdIds5) &&
+    !in_array($_product->getId(), $catProdIds6) &&
+    !in_array($_product->getId(), $catProdIds7)) { ?>
+
+<?php }else{
+     ?>
+        <div id="order-by-phone"><span><?= ( in_array($_product->getId(), $catProdIds7) ) ? 'This product can only be bought in the Farnborough store<br />Call 01276 35087 Now For A Consultation' : 'These frames can only be ordered by phone - please call 0208 987 2400'; ?></span></div>
+                    <?php if ( $_product->getRelatedProductIds() ): ?>
+                        <button type="button" title="<?php echo 'ADD PRESCRIPTION' ?>" class="button btn-pscart" id="btn-pscart" onclick="toggle_lenses()"><span><span><?php echo $buttonTitle2 ?></span></span></button><span style="float:left">&nbsp;&nbsp;</span>
+                    <?php endif; ?>
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('.product-options-bottom').find('.price-box, .add-to-links, .add-to-cart').remove();
+            jQuery('.product-options-bottom').css('text-align','center');
+            jQuery('.product-options-bottom').css('padding','15px 0px');
+        });
+    </script>
+<?php } ?>

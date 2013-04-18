@@ -1,0 +1,457 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php $imgUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB)."skin/frontend/default/likedigital/images/tick-box.png"; 
+
+            $brandLogo = $_product->getData();
+            $opts = Mage::getSingleton('eav/config')->getAttribute('catalog_product', 'manufacturer' )->getSource()->getAllOptions();
+            foreach($opts as $op){
+                if($_product->getManufacturer() == $op['value']){
+                    $brandLogo = str_replace(' ','', $op['label']);
+                }
+            }
+?>
+<link rel="stylesheet" href="<?php echo($this->getSkinUrl('css/lenses.css')) ?>" type="text/css">
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+    <div class="product-name product-name-view tbl">
+        <div class="tr">
+            <div class="td vmiddle"> <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1> </div>
+            <div id="brandlogo" class="td" ><img src="<?php echo Mage::getBaseUrl('skin').'frontend/default/likedigital/images/logos/Logos_'.$brandLogo.'.jpg'; ?>" /></div>
+        </div>
+    </div>
+<div class="product-view">
+    <div class="product-essential">
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+    <?php if ( in_array($_product->getSku(), array('lens-fullyrimmed','lens-rimless','lens-specialty','lens-standard','lens-oakley')) ) { 
+        ?><p />
+        <div class="block" id="lenses" style="display:block" >
+        <div class="tbl" id="lensRelatedTable">
+            <div class="tr">
+                <div class="td">
+                    <span class="item">
+                        <input id="related_lens" type="hidden" value="<?php echo $_product->getId() ?>" name="<?php echo $_product->getSku() ?>" />
+                            <!-- Warning! class checkbox-1 uses for jQuery -->
+                            <input style="display:none" type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_product->getId() ?>" name="related_products[]" value="<?php echo $_product->getId() ?>" onClick="toggle_options(this)"/>
+                                <span id="lens_options<?php echo $_product->getId() ?>" class="product-options" >
+                                <?php // oberig 
+                                    $optBlock = Mage::getSingleton('core/layout')->createBlock('catalog/product_view_options');
+                                    $optBlock->addOptionRenderer('select', "catalog/product_view_options_type_select", "catalog/product/view/options/type/select.phtml");
+                                    //#$p =Mage::getModel('catalog/product')->load($_product->getId());
+                                    //#$optBlock->setProduct($p);
+                                    //$ops = $p->getOptions(); foreach($ops as $op ){ mage::d($op->getData()); } 
+                                    echo ($optBlock->setTemplate('catalog/product/view/options.phtml')->toHtml());
+                                ?>
+                                </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+</form></div></div>
+<?php echo $this->getChildHtml('product_options_wrapper_bottom');?>
+        <script>
+            // observe for change select-option and display next dropdown.
+        lens_switch(this);
+        //console.log(1);
+        jQuery(document).ready(function(){
+            jQuery('#lensOptionsTable input, #lensOptionsTable select').change(function(){
+                uncheck_options(this);
+                lens_switch(this);
+            });
+        });
+        jQuery('#lensOptionsTable .tr').first().css('display','table-row');
+
+        if ( '1' == jQuery('#isDesignerFrames').attr('value') ){
+            toggle_lenses();
+        }
+        show_i_info();
+        jQuery('#terms-conds').parents('table').first().remove();
+        jQuery('[sku=frame_only]').parent().remove();
+        </script><?
+         } else{ ?>
+
+
+        <div class="product-shop">
+            <!-- div class="product-name">
+                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+            </div -->
+            <?php $DesignerFramesId = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('name')->addAttributeToFilter('name', 'Designer Frames')->getFirstItem()->getId();
+            $isDesignerFrames = false; 
+            
+            //don't use $_product->getCategoryId(), so as it returns not product cat, but merely category from registry. It's wrong for "Search"
+            foreach ($_product->getCategoryIds() as $catId){
+                $parentCats = Mage::getModel('catalog/category')->load( $catId )->getParentIds();
+                if ( in_array($DesignerFramesId, $parentCats) || $catId === $DesignerFramesId ){ $isDesignerFrames = true; break; }
+            }
+            ?>
+                <?php if ( $isDesignerFrames ): ?>
+                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) ?>skin/frontend/default/likedigital/images/bullets_glasses.png" />
+                <?php else: ?>
+                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) ?>skin/frontend/default/likedigital/images/bullets_sunglasses.png" />
+                 <?php endif ?>
+                <!-- ul class="product-advertisement">
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('FREE UK DELIVERY') ?></li>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('FREE Anti-Scratch Coating') ?></li>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('FREE Anti-Glare Coating') ?></li>
+            <?php if ( $isDesignerFrames ): ?>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('Designer Case and Cloth') ?></li>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('14 Day Return Policy*') ?></li>
+            <?php else: ?>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('Original Designer Case and Cloth') ?></li>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('1 Year Warranty') ?></li>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('100% Authentic') ?></li>
+            <?php endif ?>
+                </ul -->
+                    <!-- li><div id="pricematch"><img src="<?php echo Mage::getBaseUrl('skin').'frontend/default/likedigital/images/PriceMatch.png'; ?>" /></div></li -->
+            <div id="isDesignerFrames" value ="<?=$isDesignerFrames ?>"></div>
+            <?php if ($this->canEmailToFriend() && false): ?>
+                <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
+            <?php endif; ?>
+
+            <?php //echo $this->getReviewsSummaryHtml($_product, false, true)?>
+            <?php //echo $this->getChildHtml('alert_urls') ?>
+            <?php //echo $this->getChildHtml('product_type_data') ?>
+            <?php //echo $this->getTierPriceHtml() ?>
+            <?php //echo $this->getChildHtml('extrahint') ?>
+
+            <?php if (!$this->hasOptions()):?>
+                <div class="add-to-box">
+                    <?php if($_product->isSaleable()): ?>
+                        <?php echo $this->getChildHtml('addtocart') ?>
+                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                            <span class="or"><?php echo $this->__('OR') ?></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+                <?php echo $this->getChildHtml('extra_buttons') ?>
+            <?php elseif (!$_product->isSaleable()): ?>
+                <div class="add-to-box">
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($_product->getShortDescription() && false):?>
+                <div class="short-description">
+                    <h2><?php echo $this->__('Quick Overview') ?></h2>
+                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                </div>
+            <?php endif;?>
+
+            <?php echo $this->getChildHtml('other');?>
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php endif;?>
+
+        </div>
+
+        <div class="product-img-box">
+            <?php echo $this->getChildHtml('media') ?>
+        </div>
+        <div class="clearer"></div>
+        <div id="price-and-social">
+            <div class="product-price"><?php echo $this->getChildHtml('product_type_data') ?></div>
+            <?php 
+            $_cutProduct = $_product;
+            $_pinURL = 'url='.urlencode($_cutProduct->getProductUrl());
+            $_pinURL.= '&media='.urlencode($this->helper('catalog/image')->init($_cutProduct, 'image'));
+            $_pinURL.= '&description='.urlencode($_cutProduct->getName());
+            ?>
+            <div class="social_media">
+                <?php // facebook ?>
+                <div class="item" id="item_facebook1">
+                    <div id="fb-root1"></div>
+                    <script>(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    
+                    <div class="fb-like" data-send="false" data-layout="button_count" data-width="60" data-show-faces="true" data-href="<?php echo $_cutProduct->getProductUrl();?>"></div>
+                </div>
+                <?php // facebook ?>
+                
+                <?php // tweeter ?>
+                <div class="item" id="item_twitter1">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+                <?php // tweeter ?>
+                
+                <?php // pinterest ?>
+                <div class="item" id="item_pinterest1">				
+                    <a href="http://pinterest.com/pin/create/button/?<?php echo $_pinURL;?>" class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+                    <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>	
+                </div>
+                <?php // pinterest ?>
+                
+                <?php // googleplus ?>
+                <div class="item" id="item_googleplus1">
+                    <g:plusone size="medium" annotation="none"></g:plusone>
+                            
+                    <script type="text/javascript">
+                      (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/plusone.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                      })();
+                    </script>	
+                </div>
+                <?php // googleplus  ?>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <div class="clearer"></div>
+    <div class="product-collateral">
+        <table  width=100% >
+            <tr>
+                 <div style="width:100%">
+                    <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+                        <td>
+                            <div class="box-collateral <?php echo "box-{$alias}"?>" <?php //#if('description' == $alias){ echo ' style="float:left;width:400px"'; }elseif( 'additional' == $alias ){ echo ' style="float:right;"'; } ?> >
+                                <?php if ($title = $this->getChildData($alias, 'title')):?>
+                                    <h2><?php echo $this->escapeHtml($title); ?></h2>
+                                <?php endif;?>
+                                <?php echo $html; ?>
+                            </div>
+                        <td>
+                    <?php endforeach;?>
+                 </div>
+            </tr>
+         </table>
+        <?php echo $this->getChildHtml('upsell_products') ?>
+        <?php echo $this->getChildHtml('product_additional_data') ?>
+    </div>
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+        <?php // oberig 
+            $optBlock = Mage::getSingleton('core/layout')->createBlock('catalog/product_view_options');
+            $optBlock->addOptionRenderer('select', "catalog/product_view_options_type_select", "catalog/product/view/options/type/select.phtml");
+            $optBlock->setProduct($_product);
+            echo ($optBlock->setTemplate('catalog/product/view/options.phtml')->toHtml());
+        ?>
+        <?php endif;?>
+<!-- Oberig code add related products (lens) --->
+<input type="hidden" id="general-product" value="<?=$_product->getName() ?>" />
+<?php if(
+            'cart' !== Mage::app()->getFrontController()->getRequest()->getControllerName() &&
+            'configure' !== Mage::app()->getFrontController()->getRequest()->getActionName()
+      ){  echo $this->getChildHtml('related_products');  }
+?>
+<!-- Oberig code  --->
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+        <?php endif;?>
+    </form>
+    </div>
+</div>
+<?php } ?>
+<script type="text/javascript">
+//<![CDATA[
+    var productAddToCartForm = new VarienForm('product_addtocart_form');
+    
+    productAddToCartForm.submit = function(button, url) {
+        addProducts();
+        //return;
+        if (this.validator.validate()) {
+            var form = this.form;
+            var oldUrl = form.action;
+
+            if (url) {
+               form.action = url;
+            }
+            var e = null;
+            try {
+                this.form.submit();
+            } catch (e) {
+            }
+            this.form.action = oldUrl;
+            if (e) {
+                throw e;
+            }
+
+            if (button && button != 'undefined') {
+                button.disabled = true;
+            }
+             jQuery('#frame_type_option .block-title').css("background", "");
+             jQuery('#frame_type_option .block-title strong').css({"color":"","font-weight":""}); 
+             jQuery('#frame_type_option .block-title strong em').css({"color":"", "font-weight":""});
+        }else{
+             jQuery('#frame_type_option .block-title').css("background", "red");
+             jQuery('#frame_type_option .block-title strong').css({"color":"white","font-weight":"bolder"}); 
+             jQuery('#frame_type_option .block-title strong em').css({"color":"white", "font-weight":"bolder"});
+        }
+    }.bind(productAddToCartForm);
+
+    productAddToCartForm.submitLight = function(button, url){
+        if(this.validator) {
+            var nv = Validation.methods;
+            delete Validation.methods['required-entry'];
+            delete Validation.methods['validate-one-required'];
+            delete Validation.methods['validate-one-required-by-name'];
+            // Remove custom datetime validators
+            for (var methodName in Validation.methods) {
+                if (methodName.match(/^validate-datetime-.*/i)) {
+                    delete Validation.methods[methodName];
+                }
+            }
+
+            if (this.validator.validate()) {
+                if (url) {
+                    this.form.action = url;
+                }
+                this.form.submit();
+            }
+            Object.extend(Validation.methods, nv);
+        }
+    }.bind(productAddToCartForm);
+//]]>
+</script>
+<script type="text/javascript">
+    
+    /*
+    * return Object { product1_Id =  { option1_Id = "value", option2_Id = "value", ...} }
+    */
+    function product_ids(){
+        var productId = [];
+        
+        var lensId = jQuery("#related_lens").val();                     //var lensId = jQuery(".checkbox-1:checked").attr('value');
+        
+        if( jQuery("#lens_type input:checked").length === 0 || jQuery("#lens_type input:checked").attr('sku') === 'frame_only' ) { return false; }
+        
+        var opts_div = jQuery("#lens_options" + lensId + " select, #lens_options" + lensId + " input,  #lens_options" + lensId + " textarea");
+        var opts = new Array(opts_div.length);
+        productId[lensId] = new Object();
+        
+        var checked; var tmp; var dataOpt = false;
+        for( var j=0; j < opts_div.length; j++ ){
+            tmp = opts_div[j].id.replace(/options_/, "").replace(/select_/,"").replace(/_text/, "");                  // opts[0] = 123; opts[1] = 456;   //.replace(/_month/, "").replace(/_day/,"").replace(/_year/, "");
+            checked = jQuery("#select_"+tmp + " option:checked, #options_"+tmp+":checked, #options_"+tmp+"_text").val();       // get checked option value id from "select" or "radio"  //#options_"+tmp+"_month, #options_"+tmp+"_day, #options_"+tmp+"_year
+            if(checked){
+                //if( !jQuery("#options_"+tmp+"_text") ){                 //as option value is not from text or textarea field
+                    tmp = tmp.replace(/_\d+/,'');                           //need, so as it have view some as 12345_0 or 6789_1 for radio button options. _0, _1 must delete.
+                //}
+
+                //console.log(tmp);
+                productId[lensId][tmp] = checked;
+                
+                /* add data option as exists */
+                /*if ( !opts_div[j].id.match(/_month/) && !opts_div[j].id.match(/_day/) && !opts_div[j].id.match(/_year/) ) {
+                    continue;
+                }
+                productId[lensId][tmp] = new Object();
+                productId[lensId][tmp]['month'] = jQuery("#options_"+tmp+"_month").val();
+                productId[lensId][tmp]['day'] = jQuery("#options_"+tmp+"_day").val();
+                productId[lensId][tmp]['year'] = jQuery("#options_"+tmp+"_year").val();*/
+
+            }
+        }
+        //console.log(productId[lensId]);
+        return productId;
+    }
+    
+    function addProducts(){
+        if(  !productAddToCartForm.validator.validate() ) { scroll_to_elem(); return true; }
+        if( 'none' == jQuery('#lenses').css('display') ){ jQuery('#lenses').hide(); return true; } // hide lenses, for avoid errors required fields
+        if( jQuery("#terms-and-cons:checked").val() != 'on' ) { return true; }
+        var isSelectedFrameSize = false;
+        jQuery(".frameOptions input").each( function(i,k){ 
+            if( jQuery(k).attr('checked') == 'checked' )
+               isSelectedFrameSize = true; 
+        } )
+        
+        if( jQuery("#lens_type .frame_only").attr('checked') =='checked' || !isSelectedFrameSize ) { return true; } // if select 'Frame only' or not select frame_size - don't add lens to cart
+        var products = product_ids();
+        if( !products ){ return true; }
+        var product; 
+        var qty = 1;
+        for( var key in products ){
+            product = key;
+            var options = new Object();
+            for( var k in products[key] ){
+                options[k] = products[key][k];
+            }
+            var ajaxret = ajaxAddProduct(product, options, 1);
+            //console.log("ajaxret="+ajaxret);
+            return ajaxret;
+        }
+        return true;
+    }
+    
+    function isSelectedFrameSize(){
+        var isSelected = false;
+        jQuery(".frameOptions input").each( function(i,k){ 
+            if( jQuery(k).attr('checked') == 'checked' )
+               isSelected =  true;
+        } )
+        return isSelected;
+    }
+    
+    function ajaxAddProduct(productId, opts, q){
+        var addUrl = 'http://' + window.location.host + '/index.php/addproduct/cart/add/';
+        var jqxhr = false;
+            jqxhr = jQuery.ajax({
+                async: false,
+                url: addUrl,
+                data: { product: productId, options: opts, qty: q},
+                dataType: "html",
+                type: "POST",
+                success: function(data){
+                }
+            });
+        if(jqxhr) { return true; }
+        return false;
+    }
+    function scroll_to_elem() {
+        var id = jQuery('.validation-failed').first().attr('id');
+        var speed = 100;
+        if( !id ){ return; }
+        
+        if(document.getElementById(id)) {
+            var destination = jQuery('#'+id).offset().top;
+            jQuery("html,body").animate({scrollTop: destination}, speed);
+        }
+    }
+    
+</script>

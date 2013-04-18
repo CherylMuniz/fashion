@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <courier_resource translate="title" module="madcapsule_dpd">
+            <title>Courier Connect</title>
+            <model>dpd/consignment_api</model>
+            <methods>
+                <getConsignment translate="title" module="madcapsule_dpd">
+                    <title>Get Consignment</title>
+                </getConsignment>
+                <getConfiguration translate="title" module="madcapsule_dpd">
+                    <title>Get Configuration</title>
+                </getConfiguration>
+                <receiveConsignment translate="title" module="madcapsule_dpd">
+                    <title>Receive Consignment</title>
+                </receiveConsignment>
+                <returnConsignment translate="title" module="madcapsule_dpd">
+                    <title>Return Consignment</title>
+                </returnConsignment>
+                <returnVersion translate="title" module="madcapsule_dpd">
+                    <title>Return Version</title>
+                </returnVersion>
+            </methods>
+            </courier_resource>
+        </resources>
+    </api>
+</config>

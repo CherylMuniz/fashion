@@ -1,0 +1,82 @@
+<div class="box-right">
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-shipping-method"><?php echo $this->helper('sales')->__('DPD') ?></h4>
+        </div>
+<fieldset>
+<div class="field-row grid" id="shipment_tracking_info">
+
+
+<?php
+			$shipment_id = $this->getRequest()->getParam('shipment_id');
+          	$shipment = Mage::getModel('sales/order_shipment')->load($shipment_id);
+         	$shipment_details = $shipment->getIncrementId();
+			$resource = Mage::getSingleton('core/resource');
+			$read= $resource->getConnection('core_read');
+			$dpdTable = $resource->getTableName('madcap_dpd_consignments');
+			
+			$select = $read->select()
+			   ->from($dpdTable,array('email','status','consignment','shipment_id'))
+			   ->where('shipment_id = '.$shipment_details.'');
+
+			$consignment = $read->fetchRow($select);
+
+		  if(isset($consignment['shipment_id'])){$queue=true;}else{$queue=false;}	
+		  if(!is_null($consignment['consignment'])){$consignmentNo=true;}else{$consignmentNo=false;}	
+		  if(!is_null($consignment['email'])){$email=true;}else{$email=false;}
+		  $status = $consignment['status'];
+
+		  if(Mage::getStoreConfig('dpd/misc/allowedservices'))
+			{
+				$deliveryOptions=explode(",", Mage::getStoreConfig('dpd/misc/allowedservices'));
+			}else{
+				$deliveryOptions[] = Mage::getStoreConfig('dpd/misc/servicecode');
+			}
+?>
+
+
+<div class="field-row grid" id="shipment_delivery_options">
+
+<?php if($queue){?>
+<font style="color:green; font-weight:bold;">This shipment has been sent to Ship@Ease</font>
+<?php }else{?>
+
+<form id="deliveryOptions" name="deliveryOptions" method="GET" action="<?php echo $this->getUrl('dpd/adminhtml_index/queue');?>">
+<input type="hidden" name="id" value="<?php echo $shipment_id;?>">
+<table cellspacing="0" class="data">
+    <col width="100" />
+    <col />
+    <col />
+    <col width="80" />
+    <thead>
+        <tr class="headings">
+            <th><?php echo Mage::helper('sales')->__('Delivery Service Code') ?></th>
+			<th><?php echo Mage::helper('sales')->__('Shipment Weight') ?></th>
+            <th class="last"><?php echo Mage::helper('sales')->__('Action') ?></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td>
+                <select name="delOption" class="select" id="delOption" style="width:110px">
+                    <?php foreach ($deliveryOptions as $_servCode): ?>
+                    <option value="<?php echo $_servCode ?>"><?php echo Mage::helper('dpd')->niceServiceNames($_servCode);?></option>
+                    <?php endforeach; ?>
+                </select>
+            </td>
+            <td><input name="overWeight" id="overWeight" value="<?php echo Mage::helper('dpd')->getWeight($shipment_details);?>" size="6"></td>
+            <td class="last"><a href="javascript:document.deliveryOptions.submit();">Send to Ship@Ease</a></td>
+        </tr>
+    </tfoot>
+</table>
+</form>
+<?php }?>
+
+</div>
+
+
+</div>
+
+
+</fieldset></div>
+</div>

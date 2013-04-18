@@ -1,0 +1,134 @@
+# LANGUAGE (LOCALE) translation for Related Posts via Categories.
+# Copyright (C) alphasis ( http://alphasis.info/ ).
+# This file is distributed under the same license as the WordPress package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Related Posts via Categories 1.0.0\n"
+"POT-Creation-Date: 2011/02/17\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: alphasis.info\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-Country: JAPAN\n"
+
+msgid "Related Posts via Categories"
+msgstr "カテゴリ抽出関連記事"
+
+msgid "Official page"
+msgstr "公式ページ"
+
+msgid "English"
+msgstr "英語"
+
+msgid "Japanese"
+msgstr "日本語"
+
+msgid "Updated Failed"
+msgstr "更新失敗"
+
+msgid "Updated"
+msgstr "更新しました"
+
+msgid "Related Posts via Categories - Settings"
+msgstr "Related Posts via Categories - 設定"
+
+msgid "Display Settings"
+msgstr "表示設定"
+
+msgid "Auto display"
+msgstr "自動表示"
+
+msgid "This option automatically displays related posts after the content on the single post page."
+msgstr "このオプションを有効にすると、投稿ページの内容の後に、自動的に表示します。"
+
+msgid "If this option is off, you will need to manually insert \"display_related_posts_via_categories()\" into your theme files."
+msgstr "このオプションを無効にした場合、投稿記事を個別表示させるテーマファイルに、\"display_related_posts_via_categories()\"を挿入する必要があります。"
+
+msgid "Maximum number of related posts"
+msgstr "表示する関連記事の最大数"
+
+msgid "If you do not enter anything"
+msgstr "何も入力しなかった場合"
+
+msgid "For example"
+msgstr "例"
+
+msgid "Related posts title"
+msgstr "タイトル"
+
+msgid "Before related posts title and related posts"
+msgstr "全体を覆う前のタグ"
+
+msgid "After related posts title and related posts"
+msgstr "全体を覆う後のタグ"
+
+msgid "Before related posts title"
+msgstr "タイトルの前のタグ"
+
+msgid "After related posts title"
+msgstr "タイトルの後のタグ"
+
+msgid "Before related posts"
+msgstr "関連記事群の前のタグ"
+
+msgid "After related posts"
+msgstr "関連記事群の後のタグ"
+
+msgid "Before each related post"
+msgstr "各関連記事タイトルの前のタグ"
+
+msgid "After each related post"
+msgstr "各関連記事タイトルの後のタグ"
+
+msgid "Other Settings"
+msgstr "その他の設定"
+
+msgid "Order By"
+msgstr "並び順"
+
+msgid " Related Scores : High"
+msgstr " 関連スコア : 高い"
+
+msgid " Related Scores : Low"
+msgstr " 関連スコア : 低い"
+
+msgid " Date Published : New"
+msgstr " 公開日 : 新しい"
+
+msgid " Date Published : Old"
+msgstr " 公開日 : 古い"
+
+msgid " Date Modified : New"
+msgstr " 更新日 : 新しい"
+
+msgid " Date Modified : Old"
+msgstr " 更新日 : 古い"
+
+msgid "Exclude (Posts)"
+msgstr "除外（投稿）"
+
+msgid "The IDs of any posts you want to exclude, separated by commas."
+msgstr "除外したい投稿のIDを、カンマ区切りで。"
+
+msgid "Exclude (Categories)"
+msgstr "除外（カテゴリ）"
+
+msgid "The IDs of any categories you want to exclude, separated by commas."
+msgstr "除外したいカテゴリのIDを、カンマ区切りで。"
+
+msgid "Maximum extraction number"
+msgstr "最大抽出数"
+
+msgid "The maximum extraction number of posts from the each category."
+msgstr "各カテゴリから抽出する記事の最大数。"
+
+msgid "Save changes"
+msgstr "変更を保存"
+
+msgid "Please pay if you like \"Related Posts via Categories\"."
+msgstr "\"Related Posts via Categories\"を気に入って頂けましたら、お気持ちの金額を、お支払下さい。"
+

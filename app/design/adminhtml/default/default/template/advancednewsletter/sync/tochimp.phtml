@@ -1,0 +1,72 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ *
+ * @category   AW
+ * @package    AW_Advancednewsletter
+ * @copyright  Copyright (c) 2008-2010 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ */
+?>
+<?php
+    $syncIsRunning = Mage::getModel('advancednewsletter/cache')->loadCache('aw_advancednewsletter_mailchimp_to_params');
+    if (!is_null($syncIsRunning) && $syncIsRunning != ''):
+?>
+<div id="messages">
+    <ul class="messages">
+        <li class="an-working-msg">
+            <ul><li>
+                <?php echo Mage::helper('advancednewsletter')->__('Sync to MailChimp is processing'); ?>
+            </li></ul>
+        </li>
+    </ul>
+</div>
+<?php endif; ?>
+<div class="content-header">
+    <h3><?php echo Mage::helper('adminhtml')->__('Synchronization To MailChimp') ?></h3>
+    <button onclick="setLocation('<?php echo $this->getBackUrl() ?>')" class="scalable back" style="float:right">Back</button>
+</div>
+<form action="<?php echo $this->getUrl('*/*/sync', array('type' => AW_Advancednewsletter_Block_Adminhtml_Synchronization::SYNC_TO_MAILCHIMP)) ?>" method="post" enctype="multipart/form-data" name="apply_sync_to_mailchimp" id="apply_sync_to_mailchimp">
+    <input type="hidden" value="<?php echo $this->getFormKey() ?>" name="form_key">
+    <table class="form-list">
+        <colgroup class="label"></colgroup>
+        <colgroup class="value"></colgroup>
+        <tbody>
+            <tr>
+                <td class="label">
+                    <label for="sync_for">Synchronize: </label>
+                </td>
+                <td class="value">
+                    <select id="sync_for" name="sync_for">
+                        <option selected="selected" value="<?php echo AW_Advancednewsletter_Block_Adminhtml_Synchronization::SYNC_SUBSCRIBED?>">Subscribed</option>
+                        <option value="<?php echo AW_Advancednewsletter_Block_Adminhtml_Synchronization::SYNC_UNSUBSCRIBED?>">Unsubscribed</option>
+                        <option value="<?php echo AW_Advancednewsletter_Block_Adminhtml_Synchronization::SYNC_SUBSCRIBED_AND_UNSUBSCRIBED?>">Subscribed & Unsubscribed</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label for="include_names">Update users names: </label>
+                </td>
+                <td class="value">
+                    <select id="include_names" name="include_names">
+                        <option value="1">Yes</option>
+                        <option selected="selected" value="0">No</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="scope-label">
+                    <button type="submit" class="scalable"><span><?php echo Mage::helper('advancednewsletter')->__('Sync to MailChimp') ?></span></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

@@ -1,0 +1,143 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php $imgUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB)."skin/frontend/default/likedigital/images/tick-box.png"; 
+
+            $brandLogo = $_product->getData();
+            $opts = Mage::getSingleton('eav/config')->getAttribute('catalog_product', 'manufacturer' )->getSource()->getAllOptions();
+            foreach($opts as $op){
+                if($_product->getManufacturer() == $op['value']){
+                    $brandLogo = str_replace(' ','', $op['label']);
+                }
+            }
+?>
+<link rel="stylesheet" href="<?php echo($this->getSkinUrl('css/lenses.css')) ?>" type="text/css">
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+    <div class="product-name product-name-view tbl">
+        <div class="tr">
+            <div class="td vmiddle"> <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1> </div>
+            <div id="brandlogo" class="td" ><img src="<?php echo Mage::getBaseUrl('skin').'frontend/default/likedigital/images/logos/Logos_'.$brandLogo.'.jpg'; ?>" /></div>
+        </div>
+    </div>
+    <div id="price-and-social">
+        <div class="product-price"><?php mage::cs($this->helper('catalog/product')); echo $this->getChildHtml('product_type_data') ?></div>
+    </div>
+<div class="product-view">
+    <div class="product-essential">
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+    <?php if ( in_array($_product->getSku(), array('lens-fullyrimmed','lens-rimless','lens-specialty','lens-standard','lens-oakley')) ) { 
+        ?><p />
+        <div class="block" id="lenses" style="display:block" >
+        <div class="tbl" id="lensRelatedTable">
+            <div class="tr">
+                <div class="td">
+                    <span class="item">
+                        <input id="related_lens" type="hidden" value="<?php echo $_product->getId() ?>" name="<?php echo $_product->getSku() ?>" />
+                            <!-- Warning! class checkbox-1 uses for jQuery -->
+                            <input style="display:none" type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_product->getId() ?>" name="related_products[]" value="<?php echo $_product->getId() ?>" onClick="toggle_options(this)"/>
+                                <span id="lens_options<?php echo $_product->getId() ?>" class="product-options" >
+                                <?php // oberig 
+                                    $optBlock = Mage::getSingleton('core/layout')->createBlock('catalog/product_view_options');
+                                    $optBlock->addOptionRenderer('select', "catalog/product_view_options_type_select", "catalog/product/view/options/type/select.phtml");
+                                    //#$p =Mage::getModel('catalog/product')->load($_product->getId());
+                                    //#$optBlock->setProduct($p);
+                                    //$ops = $p->getOptions(); foreach($ops as $op ){ mage::d($op->getData()); } 
+                                    echo ($optBlock->setTemplate('catalog/product/view/options.phtml')->toHtml());
+                                ?>
+                                </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+</form></div></div>
+<?php echo $this->getChildHtml('product_options_wrapper_bottom');?>
+        <script>
+            // observe for change select-option and display next dropdown.
+        lens_switch(this);
+        //console.log(1);
+        jQuery(document).ready(function(){
+            jQuery('#lensOptionsTable input, #lensOptionsTable select').change(function(){
+                uncheck_options(this);
+                lens_switch(this);
+            });
+        });
+        jQuery('#lensOptionsTable .tr').first().css('display','table-row');
+
+        if ( '1' == jQuery('#isDesignerFrames').attr('value') ){
+            toggle_lenses();
+        }
+        show_i_info();
+        jQuery('#terms-conds').parents('table').first().remove();
+        jQuery('[sku=frame_only]').parent().remove();
+        </script><?
+         } else{ ?>
+
+
+        <div class="product-shop">
+            <!-- div class="product-name">
+                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+            </div -->
+            <?php $DesignerFramesId = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('name')->addAttributeToFilter('name', 'Designer Frames')->getFirstItem()->getId();
+            $isDesignerFrames = false; 
+            
+            //don't use $_product->getCategoryId(), so as it returns not product cat, but merely category from registry. It's wrong for "Search"
+            foreach ($_product->getCategoryIds() as $catId){
+                $parentCats = Mage::getModel('catalog/category')->load( $catId )->getParentIds();
+                if ( in_array($DesignerFramesId, $parentCats) || $catId === $DesignerFramesId ){ $isDesignerFrames = true; break; }
+            }
+            ?>
+                <?php if ( $isDesignerFrames ): ?>
+                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) ?>skin/frontend/default/likedigital/images/bullets_glasses.png" />
+                <?php else: ?>
+                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) ?>skin/frontend/default/likedigital/images/bullets_sunglasses.png" />
+                 <?php endif ?>
+                <!-- ul class="product-advertisement">
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('FREE UK DELIVERY') ?></li>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('FREE Anti-Scratch Coating') ?></li>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('FREE Anti-Glare Coating') ?></li>
+            <?php if ( $isDesignerFrames ): ?>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('Designer Case and Cloth') ?></li>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('14 Day Return Policy*') ?></li>
+            <?php else: ?>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('Original Designer Case and Cloth') ?></li>
+                    <li><img src="<?php echo $imgUrl ?>"/>&nbsp;&nbsp;<?php echo $this->__('1 Year 

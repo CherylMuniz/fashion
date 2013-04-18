@@ -1,0 +1,78 @@
+
+<?php
+/**
+ * Category layered navigation
+ *
+ * @see Mage_Catalog_Block_Layer_View
+ */
+$category = Mage::registry('current_category');
+?>
+<?php if($this->canShowBlock()): ?>
+<div class="block block-layered-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Shop By') ?></span></strong>
+    </div>
+    <div class="block-content">
+        <?php echo $this->getStateHtml() ?>
+        <?php if($this->canShowOptions()): ?>
+            <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
+            <dl id="narrow-by-list">
+<?php
+$afilters = array();
+$_filters = $this->getFilters();
+$i = 2;
+foreach ($_filters as $_filter) {
+	switch ($_filter->getName()) {
+	case 'Gender' :
+		$afilters[0] = $_filter;
+		break;
+	case 'Price' :
+		$afilters[1] = $_filter;
+		break;
+	default :
+		$afilters[$i] = $_filter;
+		$i++;
+	}
+}
+ksort($afilters);
+?>
+                <?php foreach ($afilters as $_filter): ?>
+                <?php if($_filter->getItemsCount()): ?>
+		<?php if ($_filter->getName() == 'Manufacturer' && !empty($category) && $category->getUrlKey() != 'in-stock-sunglasses'): ?>
+		<!--cheat-->
+		<?php else: ?>
+                    <dt><?php echo $this->__($_filter->getName()) ?></dt>
+                    <dd><?php echo $_filter->getHtml() ?></dd>
+                <?php endif; ?>
+		<?php endif; ?>
+                <?php endforeach; ?>
+            </dl>
+            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+        <?php endif; ?>
+    </div>
+</div>
+<script type="text/javascript">
+document.observe('dom:loaded', function(){
+	var ddArray = $('narrow-by-list').select('ol');
+	/*
+	// for each block
+	ddArray.each(function(item){
+		dHeight = item.getHeight();
+		if(dHeight>300){		
+			item.addClassName('layered-nav-limited');
+		}				
+	});	
+	*/
+	// only for last (Extra title)
+	oLastDD = ddArray.last();
+	if(oLastDD){
+		dHeight = oLastDD.getHeight();
+		if(dHeight>280){		
+			oLastDD.addClassName('layered-nav-limited');	
+		}	
+	}
+})
+</script>
+
+
+<?php endif; ?>

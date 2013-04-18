@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <DevNick_AsknFeedback>
+            <version>0.1.0</version>
+        </DevNick_AsknFeedback>
+    </modules>
+    <frontend>
+        <routers>
+            <asknfeedback>
+                <use>standard</use>
+                <args>
+                    <module>DevNick_AsknFeedback</module>
+                    <frontName>asknfeedback</frontName>
+                </args>
+            </asknfeedback>
+        </routers>
+        <layout>
+            <updates>
+                <quickcontact>
+                    <file>asknfeedback.xml</file>
+                </quickcontact>
+            </updates>
+        </layout>
+    </frontend>
+</config>

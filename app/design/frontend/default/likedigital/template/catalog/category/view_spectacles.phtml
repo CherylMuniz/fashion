@@ -1,0 +1,17 @@
+<?php
+    $_helper    = $this->helper('catalog/output');
+    $_category  = $this->getCurrentCategory();
+    $_description = $this->getCurrentCategory()->getDescription();
+    $tmpArr = explode('****', $_description);
+    $_decsr_url = (isset($tmpArr[1])) ? trim($tmpArr[1]) : '' ;
+    if ($_imgUrl = $_category->getImageUrl()) {
+        $_imgHtml = '<p class="category-image"><a href="'.$this->getURL().$_decsr_url.'"><img width="685" src="'.$_imgUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" title="'.$this->htmlEscape($_category->getName()).'" /></a></p>';
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+    }
+    if($_imgUrl) echo $_imgHtml;
+    $showDescription = !Mage::app()->getRequest()->getParam('p', false) && !Mage::getSingleton('catalog/layer')->getState()->getFilters();
+    if($_description && $showDescription): ?>
+    <div class="category-description std">
+        <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
+    </div>
+<?php endif; ?>

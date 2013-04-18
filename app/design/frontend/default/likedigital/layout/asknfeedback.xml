@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>devnick/img360/front/jQuery.js</script></action>
+            <action method="addJs"><script>devnick/fancybox/jquery.mousewheel-3.0.4.pack.js</script></action>
+            <action method="addJs"><script>devnick/fancybox/jquery.fancybox-1.3.4.pack.js</script></action>
+            <action method="addJs"><script>devnick/asknfeed.js</script></action>
+            <action method="addCss"><name>devnick/fancybox/jquery.fancybox-1.3.4.css</name></action>
+            <action method="addCss"><name>devnick/style.css</name></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="fancy.box" template="devnick/sidetabs.phtml"/>
+        </reference>
+    </default>
+    <contacts_index_index>
+        <!--<reference name="head">
+            <action method="addCss"><name>devnick/style.css</name></action>
+        </reference>-->
+         <!--<reference name="content">
+            <remove name="fancy.box"/>
+        </reference>-->
+    </contacts_index_index>
+    <asknfeedback_index_ask>
+        <block type="core/template" name="root" template="devnick/askus.phtml"/>
+    </asknfeedback_index_ask>
+    
+    <asknfeedback_index_feedback>
+        <block type="core/template" name="root" template="devnick/feedback.phtml"/>
+    </asknfeedback_index_feedback>
+</layout>

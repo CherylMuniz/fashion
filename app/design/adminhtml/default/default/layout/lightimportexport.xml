@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout>
+    <lightimportexport_adminhtml_export_index>
+        <reference name="content">            
+			<block type="lightimportexport/adminhtml_export_edit" name="lightexport.form"/>
+        </reference>		
+    </lightimportexport_adminhtml_export_index>
+    <lightimportexport_adminhtml_import_index>
+        <reference name="content">            
+			<block type="lightimportexport/adminhtml_import_edit" name="lightimport.form"/>
+        </reference>		
+    </lightimportexport_adminhtml_import_index>	
+</layout>

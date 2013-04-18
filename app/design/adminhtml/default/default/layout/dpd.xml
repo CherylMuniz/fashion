@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout>
+	<adminhtml_system_config_edit>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<name>madcapsule/css/dpd.css</name>
+			</action>
+		</reference>
+	</adminhtml_system_config_edit>
+    <interlink_adminhtml_dpd_index>
+        <reference name="content">
+            <block type="interlink/adminhtml_dpd" name="dpd" />
+        </reference>
+    </interlink_adminhtml_dpd_index>
+    <dpd_adminhtml_consignment_index>
+        <update handle="dpd_consignment_index"/>
+        <reference name="content">
+            <block type="adminhtml/template" name="consignment" template="dpd/consignment.phtml"/>
+        </reference>
+    </dpd_adminhtml_consignment_index>
+    <adminhtml_sales_order_shipment_view>
+        <reference name="content">
+            <block type="adminhtml/template" name="madcapsule_dpd_consignment" after="shipment_tracking" template="dpd/consignment.phtml"></block>
+        </reference>
+    </adminhtml_sales_order_shipment_view>
+</layout>
+

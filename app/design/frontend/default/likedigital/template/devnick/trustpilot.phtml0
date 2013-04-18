@@ -1,0 +1,20 @@
+<?php
+    $category = Mage::registry('current_category');
+    //if (Mage::getModel('catalog/category')->load($category->parent_id)->getUrlKey() == 'designer-spectacles') {
+        //$count = 3;
+    //} else {
+        //$count = 10;
+    //}
+    $count = 4;
+    //if ($category->parent_id != 3 || $category->getUrlKey() == 'in-stock-sunglasses' || ($category->getUrlKey() == 'designer-spectacles') || ($category->getUrlKey() == 'clearance')
+        //|| $category->getUrlKey() == 'varifocal-glasses'):
+        $product = mage::registry('product');
+?>
+
+<div class="tp_-_box" data-tp-settings="domainId:906580,width:147<?php //echo ( is_object($product) ) ? '155' : '195'; //172 ?>,numOfReviews:<?php echo $count ?>">
+    <a href="http://www.trustpilot.co.uk/review/fashioneyewear.co.uk"; rel="nofollow" hidden>FashionEyewear.co.uk Reviews</a> 
+</div>
+<script type="text/javascript">
+    (function(){var a="https:"==document.location.protocol?"https://ssl.trustpilot.com":"http://s.trustpilot.com",b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=a+"/tpelements/tp_elements_all.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)})();
+</script>
+<?php //endif; ?>

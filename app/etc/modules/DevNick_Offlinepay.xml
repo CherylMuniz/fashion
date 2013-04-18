@@ -1,0 +1,11 @@
+<config>
+    <modules>
+        <DevNick_Offlinepay>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment />
+            </depends>
+        </DevNick_Offlinepay>
+    </modules>
+</config>

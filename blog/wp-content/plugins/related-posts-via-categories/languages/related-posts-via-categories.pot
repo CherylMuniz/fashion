@@ -1,0 +1,131 @@
+# LANGUAGE (LOCALE) translation for Related Posts via Categories.
+# Copyright (C) alphasis ( http://alphasis.info/ ).
+# This file is distributed under the same license as the WordPress package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Related Posts via Categories 1.0.0 \n"
+"POT-Creation-Date: 2011/02/17 \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Related Posts via Categories"
+msgstr ""
+
+msgid "Official page"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "Japanese"
+msgstr ""
+
+msgid "Updated Failed"
+msgstr ""
+
+msgid "Updated"
+msgstr ""
+
+msgid "Related Posts via Categories - Settings"
+msgstr ""
+
+msgid "Display Settings"
+msgstr ""
+
+msgid "Auto display"
+msgstr ""
+
+msgid "This option automatically displays related posts after the content on the single post page."
+msgstr ""
+
+msgid "If this option is off, you will need to manually insert \"display_related_posts_via_categories()\" into your theme files."
+msgstr ""
+
+msgid "Maximum number of related posts"
+msgstr ""
+
+msgid "If you do not enter anything"
+msgstr ""
+
+msgid "For example"
+msgstr ""
+
+msgid "Related posts title"
+msgstr ""
+
+msgid "Before related posts title and related posts"
+msgstr ""
+
+msgid "After related posts title and related posts"
+msgstr ""
+
+msgid "Before related posts title"
+msgstr ""
+
+msgid "After related posts title"
+msgstr ""
+
+msgid "Before related posts"
+msgstr ""
+
+msgid "After related posts"
+msgstr ""
+
+msgid "Before each related post"
+msgstr ""
+
+msgid "After each related post"
+msgstr ""
+
+msgid "Other Settings"
+msgstr ""
+
+msgid "Order By"
+msgstr ""
+
+msgid " Related Scores : High"
+msgstr ""
+
+msgid " Related Scores : Low"
+msgstr ""
+
+msgid " Date Published : New"
+msgstr ""
+
+msgid " Date Published : Old"
+msgstr ""
+
+msgid " Date Modified : New"
+msgstr ""
+
+msgid " Date Modified : Old"
+msgstr ""
+
+msgid "Exclude (Posts)"
+msgstr ""
+
+msgid "The IDs of any posts you want to exclude, separated by commas."
+msgstr ""
+
+msgid "Exclude (Categories)"
+msgstr ""
+
+msgid "The IDs of any categories you want to exclude, separated by commas."
+msgstr ""
+
+msgid "Maximum extraction number"
+msgstr ""
+
+msgid "The maximum extraction number of posts from the each category."
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Please pay if you like \"Related Posts via Categories\"."
+msgstr ""
+

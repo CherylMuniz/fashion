@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Osdave_PrePopulate>
+			<version>0.1.0</version>
+		</Osdave_PrePopulate>
+	</modules>
+
+	<admin>
+		<routers>
+			<prepopulate>
+				<use>admin</use>
+				<args>
+					<module>Osdave_PrePopulate</module>
+					<frontName>prepopulate</frontName>
+				</args>
+			</prepopulate>
+		</routers>
+	</admin>
+
+	<adminhtml>
+		<layout>
+			<updates>
+				<prepopulate>
+					<file>osdave/prepopulate.xml</file>
+				</prepopulate>
+			</updates>
+		</layout>
+
+		<events>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <add_messages_dropdown_to_comment_area>
+                        <type>singleton</type>
+                        <class>prepopulate/observer</class>
+                        <method>addUpdateOrderCommentsBlock</method>
+                    </add_messages_dropdown_to_comment_area>
+                </observers>
+            </core_block_abstract_to_html_after>
+		</events>
+	</adminhtml>
+
+	<global>
+		<models>
+			<prepopulate>
+				<class>Osdave_PrePopulate_Model</class>
+				<resourceModel>prepopulate_mysql4</resourceModel>
+			</prepopulate>
+			<prepopulate_mysql4>
+				<class>Osdave_PrePopulate_Model_Mysql4</class>
+				<entities>
+					<messages>
+						<table>messages</table>
+					</messages>
+				</entities>
+			</prepopulate_mysql4>
+		</models>
+		
+		<resources>
+			<prepopulate_setup>
+				<setup>
+					<module>Osdave_PrePopulate</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</prepopulate_setup>
+			<prepopulate_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</prepopulate_write>
+			<prepopulate_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</prepopulate_read>
+		</resources>
+		
+		<blocks>
+			<prepopulate>
+				<class>Osdave_PrePopulate_Block</class>
+			</prepopulate>
+		</blocks>
+		
+		<helpers>
+			<prepopulate>
+				<class>Osdave_PrePopulate_Helper</class>
+			</prepopulate>
+		</helpers>
+	</global>
+</config>

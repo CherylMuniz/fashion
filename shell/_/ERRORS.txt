@@ -1,0 +1,11 @@
+****  Integrity constraint violation: 1062 Duplicate entry ‘T00008286’ for key ‘UNQ_SALES_FLAT_ORDER_INCREMENT_ID’ ****
+
+
+http://www.magentocommerce.com/boards/v/viewthread/279588/#t419039
+I had the same error code. the increment number and the last order number are not synchronize anymore. what we did is the following:
+
+go to admin->sales-> orders and look up the highest order number (for each store view!)
+
+Then look at your database. In the table eav_entity_type you will find all entity types listed. The one of interest to change is where the order number starts, ie. order sales/order. Remember the entity_type_id.\” (in my install it is 24)
+
+Next go to the table eav_entity_store. Look up the entity_type_id. Now you can change the value of increment_last_id to your last actual order number. (That is, if you wanted to have your next orderId to be 15000 set increment_last_id to 14999.)

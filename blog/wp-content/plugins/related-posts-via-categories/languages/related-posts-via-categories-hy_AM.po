@@ -1,0 +1,135 @@
+# LANGUAGE (LOCALE) translation for Related Posts via Categories.
+# Copyright (C) alphasis ( http://alphasis.info/ ).
+# This file is distributed under the same license as the WordPress package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Related Posts via Categories 1.0.0\n"
+"POT-Creation-Date: 2011/02/17\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Artak Kolyan <hanumanum@gmail.com>\n"
+"Language-Team: Armenian Translation Team <hanumanum@gmail.com>\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Armenian\n"
+"X-Poedit-Country: ARMENIA\n"
+
+msgid "Related Posts via Categories"
+msgstr "Համանման Նյութեր ըստ Բաժինների (Related Posts via Categories)"
+
+msgid "Official page"
+msgstr "Օֆիցիալ Էջը"
+
+msgid "English"
+msgstr "Անգլերեն"
+
+msgid "Japanese"
+msgstr "Ճապոներեն"
+
+msgid "Updated Failed"
+msgstr "Թարմացումը չստացվեց"
+
+msgid "Updated"
+msgstr "Թարմացված է"
+
+msgid "Related Posts via Categories - Settings"
+msgstr "Համանման Նյութեր Ըստ Բաժինների (Related Posts via Categories) - Կարգավորումներ"
+
+msgid "Display Settings"
+msgstr "Ցուցադրել Կարգավորումները"
+
+msgid "Auto display"
+msgstr "Ավտոմատ ցուցադրում"
+
+msgid "This option automatically displays related posts after the content on the single post page."
+msgstr "Համանման նյութերի ավտոմատ ցուցադրում , նյութի բովանդակությունից հետո:"
+
+msgid "If this option is off, you will need to manually insert \"display_related_posts_via_categories()\" into your theme files."
+msgstr "Եթե այս կարգավորումը անջատված է, ապա անհրաժեշտ է ձեռքով ներմուծել \"display_related_posts_via_categories()\" ձեր թեմայի ֆայլերում:"
+
+msgid "Maximum number of related posts"
+msgstr "Համանման նյութերի առավելագույն քանակ"
+
+msgid "If you do not enter anything"
+msgstr "Եթե ոչինչ չներմուծեք"
+
+msgid "For example"
+msgstr "Օրինակի համար"
+
+msgid "Related posts title"
+msgstr "Համանաման նութերի անվանումը"
+
+msgid "Before related posts title and related posts"
+msgstr "Համանման նյութերի անվանումից ու համանման նյութերի ցանկից առաջ"
+
+msgid "After related posts title and related posts"
+msgstr "Համանման նյութերի անվանումից և նյութերի ցանկից հետո"
+
+msgid "Before related posts title"
+msgstr "Համանման նյութերի անվանումից առաջ"
+
+msgid "After related posts title"
+msgstr "Համանաման նյութերի անվանումից հետո"
+
+msgid "Before related posts"
+msgstr "Համանման նյութերից առաջ"
+
+msgid "After related posts"
+msgstr "Համանման նյութերց հետո"
+
+msgid "Before each related post"
+msgstr "Ամեն մի համանման նյութից առաջ"
+
+msgid "After each related post"
+msgstr "Ամեն մի համանման նյութից հետո"
+
+msgid "Other Settings"
+msgstr "Այլ կարգավորումներ"
+
+msgid "Order By"
+msgstr "Դասավորել"
+
+msgid " Related Scores : High"
+msgstr "Միավորներ: Բարձր"
+
+msgid " Related Scores : Low"
+msgstr "Միավորներ: Ցածր"
+
+msgid " Date Published : New"
+msgstr "Հրապարակման ամսաթիվ: Նոր"
+
+msgid " Date Published : Old"
+msgstr "Հրապարակման ամսաթիվ: Հին"
+
+msgid " Date Modified : New"
+msgstr "Փոփոխության ամսաթիվ: Նոր"
+
+msgid " Date Modified : Old"
+msgstr "Փոփոխության ամսաթիվ : Հին"
+
+msgid "Exclude (Posts)"
+msgstr "Բացառել (Գրառումներ)"
+
+msgid "The IDs of any posts you want to exclude, separated by commas."
+msgstr "Բացառվող նյութերի ID-ները, բաժանված ստորակետերով"
+
+msgid "Exclude (Categories)"
+msgstr "Բացառել (Բաժիններ)"
+
+msgid "The IDs of any categories you want to exclude, separated by commas."
+msgstr "Բացառվող բաժինների ID-ները, առանձնացված ստորակետերով"
+
+msgid "Maximum extraction number"
+msgstr "Առավելագույն քանակ"
+
+msgid "The maximum extraction number of posts from the each category."
+msgstr "Նյութերի առավելագույն քանակը ամեն բաժնի համար"
+
+msgid "Save changes"
+msgstr "Պահպանել փոփոխությունները"
+
+msgid "Please pay if you like \"Related Posts via Categories\"."
+msgstr "Խնդրում ենք վճարեք, եթե հավանում եք \"Related Posts via Categories\"."
+

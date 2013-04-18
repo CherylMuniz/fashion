@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <MadCapsule_Dpd>
+            <active>true</active>
+            <codePool>local</codePool>
+        </MadCapsule_Dpd>
+    </modules>
+</config>

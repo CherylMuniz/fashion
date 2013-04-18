@@ -1,0 +1,88 @@
+/* frame options */
+.frameOptions{ padding: 0 0 15px; }
+.frameOptions dd { position:relative; width:100%; text-align:center; }
+.frameOptions ul li { display:inline; margin:0 5px;}
+.frameOptions {border:1px solid #b2dbf4}
+.frameOptions select{width:100%; margin-bottom:2%}
+.frameOptions ul span label { font-family:Arial; font-size:12px; }
+.frameOptions input[type="radio"]:checked ~ span label { background-color:#66CCFF; }
+.frameOptions .block-title {border-bottom:1px solid #b2dbf4; padding: 5px 0;}
+
+
+/* lenses */
+#block-related { text-align:left }
+#lenses{display:none}
+#lenses label{font-size:12px; font-weight:bold; }
+#lenses dt label{padding-left:1%}
+#lenses .block-content { background:none; }
+#lenses {border-color:#b2dbf4; border-top:0;}
+
+#frame_type_option { border:0px none; }
+#lensRelatedTable{ width:100%}
+#lensRelatedTable .block-title {border-bottom:0; }
+
+#lensOptionsTable { /*float:left;*/ width:100%;}
+#lensOptionsTable .tr {display:none} 
+#lensOptionsTable .input-box { position:relative; text-align:left; }
+#lensOptionsTable ul { list-style:none; width:100%; text-align:center; } /* display:table; */
+#lensOptionsTable ul li{ display:inline-block; vertical-align:top; width:auto; position:relative; }
+#lensOptionsTable ul li label{ /*font-size: 145%*/ }
+#lensOptionsTable ul .td {text-align:center}
+#lensOptionsTable ul .td .price-notice {padding:0}
+#lensOptionsTable input[type="radio"]:checked ~ span { background-color:#66CCFF; }
+/* #lensOptionsTable input[type="radio"] {display:none;} */
+#lensOptionsTable ul span label { font-family:Arial; font-size:12px; }
+#lensOptionsTable .block-title {border-bottom:0;}
+
+
+#lensPrescriptionTable {float:left; padding:0 20px 0 40px; width:100%; }
+#lensPrescriptionTable th{display:none}
+#lensPrescriptionTable .eyes td{ width:25%; font-size:12px;}
+#lensPrescriptionTable .eyestitle span label{ margin: 5px 0; }
+#lensPrescriptionTable .eyestitle td{ padding: 10px 0; }
+#lensPrescriptionTable .prescr-note { font-size:12px; }
+#lensPrescriptionTable select {font-size:12px; font-weight:bold;}
+#lensPrescriptionTable dd select { width: 100%; }
+#lensPrescriptionTable dd { margin: 0 0 5px; padding: 5px 20px 15px 0; }
+
+#lensPD{float:left;width:100%;}
+#lensPD .input-box{ /*border-top:2px solid #b2dbf4;*/ padding-top:10px; }
+#pd_info{font-size:12px; }
+/* .prescription_options { float:left; width:150px; }*/ 
+
+/* prescription preview table */
+#prescription_preview {width:100%; border-left: 1px solid #C8C8C8; border-right: 1px solid #C8C8C8; border-top: 1px solid #C8C8C8;}
+#prescription_preview td {vertical-align:middle; border-bottom: 1px solid #C8C8C8; padding:5px; }
+#prescription_preview thead{ valign: middle; font-size:14px; font-weight:bold}
+#prescription_preview tbody{ font-size:14px; font-weight:bold}
+
+/* div tables */
+.tbl { display:table; position:relative; width:100%}
+.tr { display:table-row; }
+.td { display:table-cell; }
+.center{ text-align:center; }
+.vmiddle { vertical-align:middle; }
+.vtop { vertical-align:top; }
+.vbottom { vertical-align:bottom; }
+
+
+/* other */
+.block .block-title strong {
+    color: #000000;
+    display: block;
+    font: bold 14px Arial;
+    min-height: 16px;
+    padding: 1px 0;
+    text-transform: uppercase;
+}
+.block .block-title {
+    background: none repeat scroll 0 0 #DEEFFA;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 2px 9px;
+    text-align: center;
+}
+#lensOptionsTable ul.options-list .label {
+    display: block;
+    margin-left: 18px;
+    text-align: left;
+}

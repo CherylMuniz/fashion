@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oberig_CsvExport>
+            <version>0.1.0</version>
+        </Oberig_CsvExport>
+    </modules>
+    <admin>
+        <routers>
+            <csvexport>
+                <use>admin</use>
+                <args>
+                    <module>Oberig_CsvExport</module>
+                    <frontName>csvexport</frontName>
+                </args>
+            </csvexport>
+        </routers>
+    </admin>
+	<adminhtml>
+		<menu>
+			<system translate="title" module="adminhtml">
+				<children>
+					<convert>
+						<children>
+							<csvexport_all translate="title">
+								<title>Google CVS(All products)</title>
+								<action>csvexport/get/index</action>
+								<sort_order>102</sort_order>
+							</csvexport_all>
+							<csvexport_glasses translate="title">
+								<title>Google CVS(Designer Sunglasses)</title>
+								<action>csvexport/get/index/attribute_set/10</action>
+								<sort_order>103</sort_order>
+							</csvexport_glasses>
+							<csvexport_sunglasses translate="title">
+								<title>Google CVS(Designer Frames)</title>
+								<action>csvexport/get/index/attribute_set/9</action>
+								<sort_order>104</sort_order>
+							</csvexport_sunglasses>
+						</children>
+					</convert>
+				</children>
+			</system>
+		</menu>
+	</adminhtml>
+    <global>
+        <resources>
+			<csvexport_setup>
+                <setup>
+                    <module>Oberig_CsvExport</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </csvexport_setup>
+		    <csvexport_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+		    </csvexport_write>
+		    <csvexport_read>
+			   <connection>
+				<use>core_read</use>
+			   </connection>
+			</csvexport_read>
+       </resources>
+        <helpers>
+            <csvexport>
+                <class>Oberig_CsvExport_Helper</class>
+            </csvexport>
+        </helpers>
+    </global>
+</config>

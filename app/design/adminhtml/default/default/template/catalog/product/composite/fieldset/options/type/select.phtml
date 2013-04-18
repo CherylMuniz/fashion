@@ -1,0 +1,96 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<?php /* @var $this Mage_Catalog_Block_Product_View_Options_Type_Select */ ?>
+<?php $_option = $this->getOption(); ?>
+
+<div <?php 
+if( $_option->getSku() == 'pupil_distance' ) : 
+    echo ' id="lensPD"';
+elseif ( strpos($_option->getTitle(), 'frame size') !== false ) : 
+    echo ' class="frameOptions"';
+endif;
+?> >
+
+<?php if(  strpos($_option->getTitle(), 'frame size') !== false ) : ?>
+    <div class="block" id="frame_type_option">
+        <div class="block-title"><strong><span><em>*</em><?php echo $this->__('PLEASE CHOOSE YOUR FRAME SIZE') ?></span></strong></div>
+    </div>
+<?php elseif( in_array($_option->getSku(), array('lens_type','lens_thickness','lens_varifocal_type','lens_coating','lens_tint','lens_glasses_for','lens_color')) ) : ?>
+<?php else : ?> <!-- need for PRESCRIPTION section -->
+    <dt><label<?php if ($_option->getIsRequire()) echo ' class="required"' ?>><?php if ($_option->getIsRequire()) echo '<em>*</em>' ?><?php echo  $this->htmlEscape($_option->getTitle()) ?></label></dt>
+<?php endif ?>
+
+<dd<?php if ($_option->decoratedIsLast){?> class="last"<?php }?>>
+    <div class="input-box">
+        <?php 
+        
+        
+        switch( $_option->getSku() ) {
+            
+            case 'lens_varifocal_type' :
+            case 'lens_thickness' :
+                //$imgs = array( 'thicnkess_standard.jpg', 'thickness_thin.jpg', 'thickness_thinner.jpg', 'thickness_thinnest.jpg', 'thicnkess_standard.jpg', 'thickness_thin.jpg', 'thickness_thinner.jpg', 'thickness_thinnest.jpg', 'thicnkess_standard.jpg', 'thickness_thin.jpg', 'thickness_thinner.jpg', 'thickness_thinnest.jpg' );
+                //$popups = array( '1.5lens.jpg', '1.6lens.jpg', '1.67lens.jpg', '1.74lens.jpg', '1.5lens.jpg', '1.6lens.jpg', '1.67lens.jpg', '1.74lens.jpg', '1.5lens.jpg', '1.6lens.jpg', '1.67lens.jpg', '1.74lens.jpg', );
+                echo $this->getValuesHtmlImg();
+                break;
+            case 'lens_tint' :
+                //$imgs = array( 'tint_none.jpg', 'tint_photo_brown.jpg', 'tint_phto_grey.jpg', 'tint_trans_brown.jpg', 'tint_trans_grey.jpg', );
+                //$popups = array( 'FE_popup_coatings.jpg', 'FE_popup_photochromic_72dpi.jpg', 'FE_popup_photochromic_72dpi.jpg', 'FE_popup_transitions_72dpi.jpg', 'FE_popup_transitions_72dpi.jpg', );
+                echo $this->getValuesHtmlImg();
+                break;
+            case 'lens_coating' :
+                //$imgs = array( 'coating_anti.jpg', 'coating_premium.jpg', 'coating_elite.jpg',);
+                //$popups = array( 'FE_popup_coatings.jpg', 'FE_popup_coatings.jpg', 'FE_popup_coatings.jpg', 'FE_popup_coatings.jpg', );
+                echo $this->getValuesHtmlImg();
+                break;
+            case 'lens_color' :
+                //$imgs = array( 'coating_anti.jpg', 'coating_premium.jpg', 'coating_elite.jpg',);
+                //$popups = array( 'FE_popup_coatings.jpg', 'FE_popup_coatings.jpg', 'FE_popup_coatings.jpg', 'FE_popup_coatings.jpg', );
+                echo $this->getValuesHtmlImg();
+                break;
+            case 'lens_tint_depth' :
+                //$imgs = array( 'coating_anti.jpg', 'coating_premium.jpg', 'coating_elite.jpg',);
+                //$popups = array( 'FE_popup_coatings.jpg', 'FE_popup_coatings.jpg', 'FE_popup_coatings.jpg', 'FE_popup_coatings.jpg', );
+                echo $this->getValuesHtmlImg();
+                break;
+            default :
+                echo $this->getValuesHtml();
+            }
+        
+        
+        
+        
+        ?>
+        <?php if ($_option->getIsRequire()): ?>
+            <?php if ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_RADIO || $_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_CHECKBOX): ?>
+                <span id="options-<?php echo $_option->getId() ?>-container"></span>
+            <?php endif; ?>
+        <?php endif;?>
+    </div>
+</dd>
+</div>

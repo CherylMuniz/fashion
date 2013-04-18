@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mageness_Tweaks>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mageness_Tweaks>
+    </modules>
+</config>

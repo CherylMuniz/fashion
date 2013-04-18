@@ -1,0 +1,134 @@
+# LANGUAGE (LOCALE) translation for Related Posts via Categories.
+# Copyright (C) alphasis ( http://alphasis.info/ ).
+# This file is distributed under the same license as the WordPress package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Related Posts via Categories 1.0.0\n"
+"POT-Creation-Date: 2011/02/17\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Omid Sheerkavand <o.sheerkavand@gmail.com>\n"
+"Language-Team: \n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+
+msgid "Related Posts via Categories"
+msgstr "Related Posts via Categories"
+
+msgid "Official page"
+msgstr "صفحه رسمی"
+
+msgid "English"
+msgstr "انگلیسی"
+
+msgid "Japanese"
+msgstr "ژاپنی"
+
+msgid "Updated Failed"
+msgstr "بروزرسانی انجام نشد"
+
+msgid "Updated"
+msgstr "بروزرسانی انجام شد"
+
+msgid "Related Posts via Categories - Settings"
+msgstr "Related Posts via Categories - تنظیمات <a href=\"http://omidsh.ir\"><img src=\"http://www.omidsh.ir/images/logo.png\" alt=\"فارسی و بهینه سازی توسط کانال\" align=\"left\" title=\"فارسی و بهینه سازی توسط کانال\"></a>"
+
+msgid "Display Settings"
+msgstr "نمایش تنظیمات"
+
+msgid "Auto display"
+msgstr "نمایش خودکار"
+
+msgid "This option automatically displays related posts after the content on the single post page."
+msgstr "این گزینه به طور خودکار مطالب مرتبط را بعد از متن مطلب به صفحه حاوی مطلب اضافه می‌کند."
+
+msgid "If this option is off, you will need to manually insert \"display_related_posts_via_categories()\" into your theme files."
+msgstr "اگر این گزینه را غیرفعال کنید، شما باید به صورت دستی display_related_posts_via_categories() را به پوسته اضافه کنید."
+
+msgid "Maximum number of related posts"
+msgstr "بیشینه تعداد مطالب مرتبط"
+
+msgid "If you do not enter anything"
+msgstr "اگر چیزی وارد نکنید"
+
+msgid "For example"
+msgstr "برای مثال"
+
+msgid "Related posts title"
+msgstr "عنوان مطالب مرتبط"
+
+msgid "Before related posts title and related posts"
+msgstr "قبل از عنوان مطالب مرتبط و مطالب مرتبط"
+
+msgid "After related posts title and related posts"
+msgstr "بعد از عنوان مطالب مرتبط و مطالب مرتبط"
+
+msgid "Before related posts title"
+msgstr "قبل از عنوان مطالب مرتبط"
+
+msgid "After related posts title"
+msgstr "بعد از عنوان مطالب مرتبط"
+
+msgid "Before related posts"
+msgstr "قبل از مطالب مرتبط"
+
+msgid "After related posts"
+msgstr "بعد از مطالب مرتبط"
+
+msgid "Before each related post"
+msgstr "قبل از هر مطلب مرتبط"
+
+msgid "After each related post"
+msgstr "بعد از هر مطلب مرتبط"
+
+msgid "Other Settings"
+msgstr "دیگر تنظیمات"
+
+msgid "Order By"
+msgstr "مرتب کردن بر اساس"
+
+msgid " Related Scores : High"
+msgstr "امتیاز مرتبط: زیاد"
+
+msgid " Related Scores : Low"
+msgstr "امتیاز مرتبط: کم"
+
+msgid " Date Published : New"
+msgstr "تاریخ نشر: جدید"
+
+msgid " Date Published : Old"
+msgstr "تاریخ نشر: قدیمی"
+
+msgid " Date Modified : New"
+msgstr "تاریخ اصلاح: جدید"
+
+msgid " Date Modified : Old"
+msgstr "تاریخ اصلاح: قدیمی"
+
+msgid "Exclude (Posts)"
+msgstr "نمایش ندادن (مطالب)"
+
+msgid "The IDs of any posts you want to exclude, separated by commas."
+msgstr "شناسه مطالبی که می‌خواهید نشان داده نشوند، با , جدا کنید."
+
+msgid "Exclude (Categories)"
+msgstr "نشان ندادن (دسته‌ها)"
+
+msgid "The IDs of any categories you want to exclude, separated by commas."
+msgstr "شناسه دسته‌هایی که می‌خواهید نشان داده نشوند، با , جدا کنید."
+
+msgid "Maximum extraction number"
+msgstr "بیشینه تعداد استخراج"
+
+msgid "The maximum extraction number of posts from the each category."
+msgstr "بیشینه تعداد استخراج مطالب از هر دسته."
+
+msgid "Save changes"
+msgstr "ذخیره"
+
+msgid "Please pay if you like \"Related Posts via Categories\"."
+msgstr "لطفاً پرداخت کنید اگر این افزونه را دوست دارید."
+

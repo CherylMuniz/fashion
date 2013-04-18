@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oberig_Addproduct>
+            <version>1.0.33</version>
+        </Oberig_Addproduct>
+    </modules>
+    <frontend>
+        <routers>
+            <oberigaddproduct>
+                <use>standard</use>
+                <args>
+                    <module>Oberig_Addproduct</module>
+                    <frontName>addproduct</frontName>
+                </args>
+            </oberigaddproduct>
+        </routers>
+    </frontend>
+</config>

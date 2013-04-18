@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+   <cms_index_index>
+      <reference name="head">
+          <action method="addItem">
+          	<type>skin_css</type>
+          	<name>css/carousel.css</name>
+          </action>
+		  <action method="addItem">
+	       	<type>skin_js</type>
+	       	<name>js/carousel.js</name>
+	      </action>          
+      </reference>
+    </cms_index_index>
+   <checkout_onepage_success>
+      <reference name="content">
+	 <block type="core/template" name="bing" template="devnick/bing.phtml"/>
+      </reference>
+   </checkout_onepage_success>
+</layout>

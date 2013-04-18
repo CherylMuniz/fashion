@@ -1,0 +1,2012 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="product-view">
+  <div class="product-essential">
+
+<?php
+//-------------------------------------------------------
+// Like Digital Options Start
+//-------------------------------------------------------            
+?>  	
+	<img src="<?php echo($this->getSkinUrl('images/prescription/prescription_header.gif')) ?>" alt="Our features" class="prescription_header_banner"/>
+<?php
+//-------------------------------------------------------
+// Like Digital Options End
+//-------------------------------------------------------            
+?>  	
+    
+    
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+      <div class="no-display">
+        <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+        <input type="hidden" name="related_product" id="related-products-field" value="" />
+      </div>
+      <div class="product-shop">
+        <div class="product-name">
+          <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+        </div>
+        <?php if ($this->canEmailToFriend()): ?>
+        <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
+        <?php endif; ?>
+        <?php echo $this->getReviewsSummaryHtml($_product, false, true)?> <?php echo $this->getChildHtml('alert_urls') ?> <?php echo $this->getChildHtml('product_type_data') ?> <?php echo $this->getTierPriceHtml() ?> <?php echo $this->getChildHtml('extrahint') ?>
+        <?php if (!$this->hasOptions()):?>
+        <div class="add-to-box">
+          <?php if($_product->isSaleable()): ?>
+          <?php echo $this->getChildHtml('addtocart') ?>
+          <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+          <span class="or"><?php echo $this->__('OR') ?></span>
+          <?php endif; ?>
+          <?php endif; ?>
+          <?php echo $this->getChildHtml('addto') ?> </div>
+        <?php echo $this->getChildHtml('extra_buttons') ?>
+        <?php endif; ?>
+        <?php if ($_product->getShortDescription()):?>
+        <div class="short-description">
+          <h2><?php echo $this->__('Quick Overview') ?></h2>
+          <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+        </div>
+        
+        <div class="product-collateral">
+    <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+    <div class="box-collateral <?php echo "box-{$alias}"?>">
+      <?php if ($title = $this->getChildData($alias, 'title')):?>
+      <h2><?php echo $this->escapeHtml($title); ?></h2>
+      <?php endif;?>
+      <?php echo $html; ?> </div>
+    <?php endforeach;?>
+    <?php //echo $this->getChildHtml('upsell_products') ?> <?php echo $this->getChildHtml('product_additional_data') ?> </div>
+
+        
+        
+        <?php endif;?>
+        <?php echo $this->getChildHtml('other');?>
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+        <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+        <?php endif;?>
+      </div>
+      <div class="product-img-box"> <?php echo $this->getChildHtml('media') ?>
+      
+<?php 
+//-------------------------------------------------------
+// Like Digital Options Start
+//-------------------------------------------------------            
+?>
+      <?php echo $this->getChildHtml('related_colours') ?>
+      
+	<div class="lens_buttons">
+    <img src="<?php echo($this->getSkinUrl('images/prescription/prescription_add_lenses.gif')) ?>" alt="Add Lenses" class="button_add_lenses" id="but_add_lenses"/>
+	<img src="<?php echo($this->getSkinUrl('images/prescription/prescription_no_lenses.gif')) ?>" alt="No Lenses" class="button_no_lenses"  id="but_no_lenses"/>
+	</div>
+    
+<?php 
+//-------------------------------------------------------
+// Like Digital Options End
+//-------------------------------------------------------            
+?>
+      
+      </div>
+      <div class="clearer"></div>
+      <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+<?php 
+//-------------------------------------------------------
+// Like Digital Options Start
+//-------------------------------------------------------            
+?>
+      
+	<img src="<?php echo($this->getSkinUrl('images/prescription/prescription_advice.gif')) ?>" alt="Our features" class="prescription_advice_banner" id="prescription_advice_banner"/>
+
+      <div class="product-options" id="product-options-wrapper-prescription"> 
+        <script type="text/javascript">
+//<![CDATA[
+var DateOption = Class.create({
+
+    getDaysInMonth: function(month, year)
+    {
+        var curDate = new Date();
+        if (!month) {
+            month = curDate.getMonth();
+        }
+        if (2 == month && !year) { // leap year assumption for unknown year
+            return 29;
+        }
+        if (!year) {
+            year = curDate.getFullYear();
+        }
+        return 32 - new Date(year, month - 1, 32).getDate();
+    },
+
+    reloadMonth: function(event)
+    {
+        var selectEl = event.findElement();
+        var idParts = selectEl.id.split("_");
+        if (idParts.length != 3) {
+            return false;
+        }
+        var optionIdPrefix = idParts[0] + "_" + idParts[1];
+        var month = parseInt($(optionIdPrefix + "_month").value);
+        var year = parseInt($(optionIdPrefix + "_year").value);
+        var dayEl = $(optionIdPrefix + "_day");
+
+        var days = this.getDaysInMonth(month, year);
+
+        //remove days
+        for (var i = dayEl.options.length - 1; i >= 0; i--) {
+            if (dayEl.options[i].value > days) {
+                dayEl.remove(dayEl.options[i].index);
+            }
+        }
+
+        // add days
+        var lastDay = parseInt(dayEl.options[dayEl.options.length-1].value);
+        for (i = lastDay + 1; i <= days; i++) {
+            this.addOption(dayEl, i, i);
+        }
+    },
+
+    addOption: function(select, text, value)
+    {
+        var option = document.createElement('OPTION');
+        option.value = value;
+        option.text = text;
+
+        if (select.options.add) {
+            select.options.add(option);
+        } else {
+            select.appendChild(option);
+        }
+    }
+});
+dateOption = new DateOption();
+//]]>
+</script> 
+    
+	<script type="text/javascript">
+    //<![CDATA[
+    var optionFileUpload = {
+        productForm : $('product_addtocart_form'),
+        formAction : '',
+        formElements : {},
+        upload : function(element){
+            this.formElements = this.productForm.select('input', 'select', 'textarea', 'button');
+            this.removeRequire(element.readAttribute('id').sub('option_', ''));
+
+            template = '<iframe id="upload_target" name="upload_target" style="width:0; height:0; border:0;"><\/iframe>';
+
+            Element.insert($('option_'+element.readAttribute('id').sub('option_', '')+'_uploaded_file'), {after: template});
+
+            this.formAction = this.productForm.action;
+
+            var baseUrl = 'http://95.131.67.20/~fashione/shop/index.php/catalog/product/upload/';
+            var urlExt = 'option_id/'+element.readAttribute('id').sub('option_', '');
+
+            this.productForm.action = parseSidUrl(baseUrl, urlExt);
+            this.productForm.target = 'upload_target';
+            this.productForm.submit();
+            this.productForm.target = '';
+            this.productForm.action = this.formAction;
+        },
+        removeRequire : function(skipElementId){
+            for(var i=0; i<this.formElements.length; i++){
+                if (this.formElements[i].readAttribute('id') != 'option_'+skipElementId+'_file' && this.formElements[i].type != 'button') {
+                    this.formElements[i].disabled='disabled';
+                }
+            }
+        },
+        addRequire : function(skipElementId){
+            for(var i=0; i<this.formElements.length; i++){
+                if (this.formElements[i].readAttribute('name') != 'options_'+skipElementId+'_file' && this.formElements[i].type != 'button') {
+                    this.formElements[i].disabled='';
+                }
+            }
+        },
+        uploadCallback : function(data){
+            this.addRequire(data.optionId);
+            $('upload_target').remove();
+
+            if (data.error) {
+
+            } else {
+                $('option_'+data.optionId+'_uploaded_file').value = data.fileName;
+                $('option_'+data.optionId+'_file').value = '';
+                $('option_'+data.optionId+'_file').hide();
+                $('option_'+data.optionId+'').hide();
+                template = '<div id="option_'+data.optionId+'_file_box"><a href="#"><img src="var/options/'+data.fileName+'" alt=""><\/a><a href="#" onclick="optionFileUpload.removeFile('+data.optionId+')" title="Remove file" \/>Remove file<\/a>';
+
+                Element.insert($('option_'+data.optionId+'_uploaded_file'), {after: template});
+            }
+        },
+        removeFile : function(optionId)
+        {
+            $('option_'+optionId+'_uploaded_file').value= '';
+            $('option_'+optionId+'_file').show();
+            $('option_'+optionId+'').show();
+
+            $('option_'+optionId+'_file_box').remove();
+        }
+    }
+    var optionTextCounter = {
+        count : function(field,cntfield,maxlimit){
+            if (field.value.length > maxlimit){
+                field.value = field.value.substring(0, maxlimit);
+            } else {
+                cntfield.innerHTML = maxlimit - field.value.length;
+            }
+        }
+    }
+
+    Product.Options = Class.create();
+    Product.Options.prototype = {
+        initialize : function(config){
+            this.config = config;
+            this.reloadPrice();			
+            document.observe("dom:loaded", this.reloadPrice.bind(this));
+        },
+        reloadPrice : function(){
+            
+			//like digital custom
+						updateCustomOptionsFrames(9);
+			
+			price = new Number();
+            config = this.config;
+            skipIds = [];
+            $$('.product-custom-option').each(function(element){
+                var optionId = 0;
+                element.name.sub(/[0-9]+/, function(match){
+                    optionId = match[0];
+                });
+                if (this.config[optionId]) {
+                    if (element.type == 'checkbox' || element.type == 'radio') {
+                        if (element.checked) {
+                            if (config[optionId][element.getValue()]) {
+                                price += parseFloat(config[optionId][element.getValue()]);
+                            }
+                        }
+                    } else if(element.hasClassName('datetime-picker') && !skipIds.include(optionId)) {
+                        dateSelected = true;
+                        $$('.product-custom-option[id^="options_' + optionId + '"]').each(function(dt){
+                            if (dt.getValue() == '') {
+                                dateSelected = false;
+                            }
+                        });
+                        if (dateSelected) {
+                            price += parseFloat(this.config[optionId]);
+                            skipIds[optionId] = optionId;
+                        }
+                    } else if(element.type == 'select-one' || element.type == 'select-multiple') {
+                        if (element.options) {
+                            $A(element.options).each(function(selectOption){
+                                if (selectOption.selected) {
+                                    if (this.config[optionId][selectOption.value]) {
+                                        price += parseFloat(this.config[optionId][selectOption.value]);
+                                    }
+                                }
+                            });
+                        }
+                    } else {
+                        if (element.getValue().strip() != '') {
+                            price += parseFloat(this.config[optionId]);
+                        }
+                    }
+                }
+            });
+            try {
+                optionsPrice.changePrice('options', price);
+                optionsPrice.changePrice('optionsPriceInclTax', price);
+                optionsPrice.reload();
+            } catch (e) {
+
+            }
+        }
+    }
+    function validateOptionsCallback(elmId, result){
+        var container = $(elmId).up('ul.options-list');
+        if (result == 'failed') {
+            container.removeClassName('validation-passed');
+            container.addClassName('validation-failed');
+        } else {
+            container.removeClassName('validation-failed');
+            container.addClassName('validation-passed');
+        }
+    }
+    var opConfig = new Product.Options({"98695":{"4646609":0,"4646610":0},"98696":{"4646611":0,"4646612":0,"4646613":0,"4646614":0},"98697":{"4646615":0,"4646616":0,"4646617":0,"4646618":0},"98698":{"4646619":0,"4646620":24,"4646621":34,"4646622":45,"4646623":104,"4646624":54,"4646625":71,"4646626":134,"4646627":135,"4646628":0},"98699":{"4646629":0,"4646630":44,"4646631":74,"4646632":88,"4646633":94,"4646634":114,"4646635":140,"4646636":134,"4646637":138,"4646638":144,"4646639":188,"4646640":194,"4646641":210,"4646642":234,"4646643":0},"98700":{"4646644":15,"4646645":29,"4646646":45,"4646647":15,"4646648":29,"4646649":45,"4646650":25,"4646651":35,"4646652":38,"4646653":45,"4646654":49,"4646655":55,"4646656":65,"4646657":95,"4646658":25,"4646659":35,"4646660":38,"4646661":45,"4646662":49,"4646663":55,"4646664":65,"4646665":95,"4646666":0},"98701":{"4646667":0,"4646668":5,"4646669":10,"4646670":15,"4646671":20,"4646672":25,"4646673":0,"4646674":11,"4646675":15,"4646676":20,"4646677":25,"4646678":30,"4646679":40,"4646680":50,"4646681":10,"4646682":14,"4646683":16,"4646684":20,"4646685":30,"4646686":31,"4646687":35,"4646688":40,"4646689":50,"4646690":55,"4646691":60,"4646692":70,"4646693":0,"4646694":15,"4646695":19,"4646696":20,"4646697":26,"4646698":30,"4646699":33,"4646700":34,"4646701":36,"4646702":40,"4646703":45,"4646704":46,"4646705":50,"4646706":55,"4646707":65,"4646708":70,"4646709":80,"4646710":0},"98702":{"4646711":0,"4646712":0,"4646713":0,"4646714":0,"4646715":0,"4646716":0,"4646717":0,"4646718":0,"4646719":0,"4646720":0,"4646721":0,"4646722":0,"4646723":0,"4646724":0,"4646725":0,"4646726":0,"4646727":0,"4646728":0,"4646729":0,"4646730":0,"4646731":0,"4646732":0,"4646733":0,"4646734":0,"4646735":0,"4646736":0,"4646737":0,"4646738":0,"4646739":0,"4646740":0,"4646741":0,"4646742":0,"4646743":0,"4646744":0,"4646745":0,"4646746":0,"4646747":0,"4646748":0,"4646749":0,"4646750":0,"4646751":0,"4646752":0,"4646753":0,"4646754":0,"4646755":0,"4646756":0,"4646757":0,"4646758":0,"4646759":0,"4646760":0,"4646761":0,"4646762":0,"4646763":0,"4646764":0,"4646765":0,"4646766":0,"4646767":0,"4646768":0,"4646769":0,"4646770":0,"4646771":0,"4646772":0,"4646773":0,"4646774":0,"4646775":0,"4646776":0,"4646777":0,"4646778":0},"98703":{"4646779":15,"4646780":15,"4646781":15,"4646782":15,"4646783":15,"4646784":15,"4646785":15,"4646786":15,"4646787":15,"4646788":15,"4646789":15,"4646790":15,"4646791":15,"4646792":15,"4646793":15,"4646794":15,"4646795":0,"4646796":0,"4646797":0,"4646798":0,"4646799":0,"4646800":0,"4646801":0,"4646802":0,"4646803":0,"4646804":0,"4646805":0,"4646806":0,"4646807":0,"4646808":0,"4646809":0,"4646810":0,"4646811":0,"4646812":0,"4646813":0,"4646814":0,"4646815":0,"4646816":15,"4646817":15,"4646818":15,"4646819":15,"4646820":15,"4646821":15,"4646822":15,"4646823":15,"4646824":15,"4646825":15,"4646826":15,"4646827":15,"4646828":15,"4646829":15,"4646830":15,"4646831":15},"98704":{"4646832":0,"4646833":0,"4646834":0,"4646835":0,"4646836":0,"4646837":0,"4646838":0,"4646839":0,"4646840":0,"4646841":0,"4646842":0,"4646843":0,"4646844":0,"4646845":0,"4646846":0,"4646847":0,"4646848":0,"4646849":0,"4646850":0,"4646851":0,"4646852":0,"4646853":0,"4646854":0,"4646855":0,"4646856":0,"4646857":0,"4646858":0,"4646859":0,"4646860":0,"4646861":0,"4646862":0,"4646863":0,"4646864":0,"4646865":0,"4646866":0,"4646867":0,"4646868":0,"4646869":0,"4646870":0,"4646871":0,"4646872":0,"4646873":0,"4646874":0,"4646875":0,"4646876":0,"4646877":0,"4646878":0,"4646879":0,"4646880":0,"4646881":0,"4646882":0,"4646883":0,"4646884":0,"4646885":0,"4646886":0,"4646887":0,"4646888":0,"4646889":0,"4646890":0,"4646891":0,"4646892":0,"4646893":0,"4646894":0,"4646895":0,"4646896":0,"4646897":0,"4646898":0,"4646899":0,"4646900":0,"4646901":0,"4646902":0,"4646903":0,"4646904":0,"4646905":0,"4646906":0,"4646907":0,"4646908":0,"4646909":0,"4646910":0,"4646911":0,"4646912":0,"4646913":0,"4646914":0,"4646915":0,"4646916":0,"4646917":0,"4646918":0,"4646919":0,"4646920":0,"4646921":0,"4646922":0,"4646923":0,"4646924":0,"4646925":0,"4646926":0,"4646927":0,"4646928":0,"4646929":0,"4646930":0,"4646931":0,"4646932":0,"4646933":0,"4646934":0,"4646935":0,"4646936":0,"4646937":0,"4646938":0,"4646939":0,"4646940":0,"4646941":0,"4646942":0,"4646943":0,"4646944":0,"4646945":0,"4646946":0,"4646947":0,"4646948":0,"4646949":0,"4646950":0,"4646951":0,"4646952":0,"4646953":0,"4646954":0,"4646955":0,"4646956":0,"4646957":0,"4646958":0,"4646959":0,"4646960":0,"4646961":0,"4646962":0,"4646963":0,"4646964":0,"4646965":0,"4646966":0,"4646967":0,"4646968":0,"4646969":0,"4646970":0,"4646971":0,"4646972":0,"4646973":0,"4646974":0,"4646975":0,"4646976":0,"4646977":0,"4646978":0,"4646979":0,"4646980":0,"4646981":0,"4646982":0,"4646983":0,"4646984":0,"4646985":0,"4646986":0,"4646987":0,"4646988":0,"4646989":0,"4646990":0,"4646991":0,"4646992":0,"4646993":0,"4646994":0,"4646995":0,"4646996":0,"4646997":0,"4646998":0,"4646999":0,"4647000":0,"4647001":0,"4647002":0,"4647003":0,"4647004":0,"4647005":0,"4647006":0,"4647007":0,"4647008":0,"4647009":0,"4647010":0,"4647011":0,"4647012":0},"98705":{"4647013":0,"4647014":0,"4647015":0,"4647016":0,"4647017":0,"4647018":0,"4647019":0,"4647020":0,"4647021":0,"4647022":0,"4647023":0,"4647024":0,"4647025":0,"4647026":0,"4647027":0,"4647028":0,"4647029":0},"98706":{"4647030":0,"4647031":0,"4647032":0,"4647033":0,"4647034":0,"4647035":0,"4647036":0,"4647037":0,"4647038":0,"4647039":0,"4647040":0,"4647041":0,"4647042":0,"4647043":0,"4647044":0,"4647045":0,"4647046":0,"4647047":0,"4647048":0,"4647049":0,"4647050":0,"4647051":0,"4647052":0,"4647053":0,"4647054":0,"4647055":0,"4647056":0,"4647057":0,"4647058":0,"4647059":0,"4647060":0,"4647061":0,"4647062":0,"4647063":0,"4647064":0,"4647065":0,"4647066":0,"4647067":0,"4647068":0,"4647069":0,"4647070":0,"4647071":0,"4647072":0,"4647073":0,"4647074":0,"4647075":0,"4647076":0,"4647077":0,"4647078":0,"4647079":0,"4647080":0,"4647081":0,"4647082":0,"4647083":0,"4647084":0,"4647085":0,"4647086":0,"4647087":0,"4647088":0,"4647089":0,"4647090":0,"4647091":0,"4647092":0,"4647093":0,"4647094":0,"4647095":0,"4647096":0,"4647097":0},"98707":{"4647098":15,"4647099":15,"4647100":15,"4647101":15,"4647102":15,"4647103":15,"4647104":15,"4647105":15,"4647106":15,"4647107":15,"4647108":15,"4647109":15,"4647110":15,"4647111":15,"4647112":15,"4647113":15,"4647114":0,"4647115":0,"4647116":0,"4647117":0,"4647118":0,"4647119":0,"4647120":0,"4647121":0,"4647122":0,"4647123":0,"4647124":0,"4647125":0,"4647126":0,"4647127":0,"4647128":0,"4647129":0,"4647130":0,"4647131":0,"4647132":0,"4647133":0,"4647134":0,"4647135":15,"4647136":15,"4647137":15,"4647138":15,"4647139":15,"4647140":15,"4647141":15,"4647142":15,"4647143":15,"4647144":15,"4647145":15,"4647146":15,"4647147":15,"4647148":15,"4647149":15,"4647150":15},"98708":{"4647151":0,"4647152":0,"4647153":0,"4647154":0,"4647155":0,"4647156":0,"4647157":0,"4647158":0,"4647159":0,"4647160":0,"4647161":0,"4647162":0,"4647163":0,"4647164":0,"4647165":0,"4647166":0,"4647167":0,"4647168":0,"4647169":0,"4647170":0,"4647171":0,"4647172":0,"4647173":0,"4647174":0,"4647175":0,"4647176":0,"4647177":0,"4647178":0,"4647179":0,"4647180":0,"4647181":0,"4647182":0,"4647183":0,"4647184":0,"4647185":0,"4647186":0,"4647187":0,"4647188":0,"4647189":0,"4647190":0,"4647191":0,"4647192":0,"4647193":0,"4647194":0,"4647195":0,"4647196":0,"4647197":0,"4647198":0,"4647199":0,"4647200":0,"4647201":0,"4647202":0,"4647203":0,"4647204":0,"4647205":0,"4647206":0,"4647207":0,"4647208":0,"4647209":0,"4647210":0,"4647211":0,"4647212":0,"4647213":0,"4647214":0,"4647215":0,"4647216":0,"4647217":0,"4647218":0,"4647219":0,"4647220":0,"4647221":0,"4647222":0,"4647223":0,"4647224":0,"4647225":0,"4647226":0,"4647227":0,"4647228":0,"4647229":0,"4647230":0,"4647231":0,"4647232":0,"4647233":0,"4647234":0,"4647235":0,"4647236":0,"4647237":0,"4647238":0,"4647239":0,"4647240":0,"4647241":0,"4647242":0,"4647243":0,"4647244":0,"4647245":0,"4647246":0,"4647247":0,"4647248":0,"4647249":0,"4647250":0,"4647251":0,"4647252":0,"4647253":0,"4647254":0,"4647255":0,"4647256":0,"4647257":0,"4647258":0,"4647259":0,"4647260":0,"4647261":0,"4647262":0,"4647263":0,"4647264":0,"4647265":0,"4647266":0,"4647267":0,"4647268":0,"4647269":0,"4647270":0,"4647271":0,"4647272":0,"4647273":0,"4647274":0,"4647275":0,"4647276":0,"4647277":0,"4647278":0,"4647279":0,"4647280":0,"4647281":0,"4647282":0,"4647283":0,"4647284":0,"4647285":0,"4647286":0,"4647287":0,"4647288":0,"4647289":0,"4647290":0,"4647291":0,"4647292":0,"4647293":0,"4647294":0,"4647295":0,"4647296":0,"4647297":0,"4647298":0,"4647299":0,"4647300":0,"4647301":0,"4647302":0,"4647303":0,"4647304":0,"4647305":0,"4647306":0,"4647307":0,"4647308":0,"4647309":0,"4647310":0,"4647311":0,"4647312":0,"4647313":0,"4647314":0,"4647315":0,"4647316":0,"4647317":0,"4647318":0,"4647319":0,"4647320":0,"4647321":0,"4647322":0,"4647323":0,"4647324":0,"4647325":0,"4647326":0,"4647327":0,"4647328":0,"4647329":0,"4647330":0,"4647331":0},"98709":{"4647332":0,"4647333":0,"4647334":0,"4647335":0,"4647336":0,"4647337":0,"4647338":0,"4647339":0,"4647340":0,"4647341":0,"4647342":0,"4647343":0,"4647344":0,"4647345":0,"4647346":0,"4647347":0,"4647348":0},"98710":{"4647349":0,"4647350":0,"4647351":0,"4647352":0,"4647353":0,"4647354":0,"4647355":0,"4647356":0,"4647357":0,"4647358":0,"4647359":0,"4647360":0,"4647361":0,"4647362":0,"4647363":0,"4647364":0,"4647365":0,"4647366":0,"4647367":0,"4647368":0,"4647369":0,"4647370":0,"4647371":0,"4647372":0}});
+    //]]>
+    </script>
+        <dl>
+          <dt>
+            <label class="required presc_form_header"><em>*</em>Please choose your lens type:</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <ul id="options-98696-list" class="options-list">
+                <li>
+                  <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[98696][]" id="options_98696_2" value="4646611"  price="0" />
+                  <span class="label">
+                  <label for="options_98696_2">Single Vision </label>
+                  </span><script type="text/javascript">$('options_98696_2').advaiceContainer = 'options-98696-container';$('options_98696_2').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li>
+                  <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[98696][]" id="options_98696_3" value="4646612"  price="0" />
+                  <span class="label">
+                  <label for="options_98696_3">Bifocal </label>
+                  </span><script type="text/javascript">$('options_98696_3').advaiceContainer = 'options-98696-container';$('options_98696_3').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li>
+                  <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[98696][]" id="options_98696_4" value="4646613"  price="0" />
+                  <span class="label">
+                  <label for="options_98696_4">Varifocal </label>
+                  </span><script type="text/javascript">$('options_98696_4').advaiceContainer = 'options-98696-container';$('options_98696_4').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li>
+                  <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[98696][]" id="options_98696_5" value="4646614"  price="0" />
+                  <span class="label">
+                  <label for="options_98696_5">Frame Only </label>
+                  </span><script type="text/javascript">$('options_98696_5').advaiceContainer = 'options-98696-container';$('options_98696_5').callbackFunction = 'validateOptionsCallback';</script></li>
+              </ul>
+              <span id="options-98696-container"></span> </div>
+          </dd>
+          <dt>
+            <label class="required presc_form_header"><em>*</em>What are your glasses for?</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <ul id="options-98697-list" class="options-list">
+                <li>
+                  <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[98697][]" id="options_98697_2" value="4646615"  price="0" />
+                  <span class="label">
+                  <label for="options_98697_2">Distance/General Use </label>
+                  </span><script type="text/javascript">$('options_98697_2').advaiceContainer = 'options-98697-container';$('options_98697_2').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li>
+                  <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[98697][]" id="options_98697_3" value="4646616"  price="0" />
+                  <span class="label">
+                  <label for="options_98697_3">Reading </label>
+                  </span><script type="text/javascript">$('options_98697_3').advaiceContainer = 'options-98697-container';$('options_98697_3').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li>
+                  <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[98697][]" id="options_98697_4" value="4646617"  price="0" />
+                  <span class="label">
+                  <label for="options_98697_4">Computer/VDU </label>
+                  </span><script type="text/javascript">$('options_98697_4').advaiceContainer = 'options-98697-container';$('options_98697_4').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li>
+                  <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[98697][]" id="options_98697_5" value="4646618"  price="0" />
+                  <span class="label">
+                  <label for="options_98697_5">Not applicable </label>
+                  </span><script type="text/javascript">$('options_98697_5').advaiceContainer = 'options-98697-container';$('options_98697_5').callbackFunction = 'validateOptionsCallback';</script></li>
+              </ul>
+              <span id="options-98697-container"></span> </div>
+          </dd>
+          <dt>
+            <label class="required presc_form_header"><em>*</em>Select Lens Thickness / Material<br />
+</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <ul id="options-98698-list" class="options-list presc_ul">
+                
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98698_2"><img src="<?php echo($this->getSkinUrl('images/prescription/lens_material_standard.jpg')) ?>" alt="Standard" id="lens_thickness_image_standard2"/><br />
+1.5 - Standard </label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_2" value="4646619"  price="0" />
+      <script type="text/javascript">$('options_98698_2').advaiceContainer = 'options-98698-container';$('options_98698_2').callbackFunction = 'validateOptionsCallback';</script></li>
+      
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98698_3"><img src="<?php echo($this->getSkinUrl('images/prescription/lens_material_standard.jpg')) ?>" alt="Standard" id="lens_thickness_image_standard3"/><br />
+            1.5 - Standard<br />
+            <span>+<span class="price_presc">£24.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_3" value="4646620"  price="24" />
+      <script type="text/javascript">$('options_98698_3').advaiceContainer = 'options-98698-container';$('options_98698_3').callbackFunction = 'validateOptionsCallback';</script></li>
+
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98698_4">
+            <img src="<?php echo($this->getSkinUrl('images/prescription/lens_material_thin.jpg')) ?>" alt="Thin" id="lens_thickness_image_thin2"/><br />
+            1.6 - Thin
+            <br />
+            <span>+<span class="price_presc">£34.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_4" value="4646621"  price="34" />
+      <script type="text/javascript">$('options_98698_4').advaiceContainer = 'options-98698-container';$('options_98698_4').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98698_5"><img src="<?php echo($this->getSkinUrl('images/prescription/lens_material_thin.jpg')) ?>" alt="Thin" id="lens_thickness_image_thin3"/><br />
+            1.6 - Thin
+              <br />
+            <span>+<span class="price_presc">£45.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_5" value="4646622"  price="45" />
+      <script type="text/javascript">$('options_98698_5').advaiceContainer = 'options-98698-container';$('options_98698_5').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98698_6">
+            <img src="<?php echo($this->getSkinUrl('images/prescription/lens_material_thin.jpg')) ?>" alt="Thin" id="lens_thickness_image_thin4"/><br />
+            1.6 - Thin
+            <br />
+            <span>+<span class="price_presc">£104.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_6" value="4646623"  price="104" />
+      <script type="text/javascript">$('options_98698_6').advaiceContainer = 'options-98698-container';$('options_98698_6').callbackFunction = 'validateOptionsCallback';</script></li>
+
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98698_7">
+            <img src="<?php echo($this->getSkinUrl('images/prescription/lens_material_thinner.jpg')) ?>" alt="Thinner" id="lens_thickness_image_thinner2"/><br />
+            1.67 - Thinner
+            <br />
+            <span>+<span class="price_presc">£54.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_7" value="4646624"  price="54" />
+      <script type="text/javascript">$('options_98698_7').advaiceContainer = 'options-98698-container';$('options_98698_7').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98698_8">
+            <img src="<?php echo($this->getSkinUrl('images/prescription/lens_material_thinner.jpg')) ?>" alt="Thinner" id="lens_thickness_image_thinner3"/><br />
+            1.67 - Thinner
+            <br />
+            <span>+<span class="price_presc">£71.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_8" value="4646625"  price="71" />
+      <script type="text/javascript">$('options_98698_8').advaiceContainer = 'options-98698-container';$('options_98698_8').callbackFunction = 'validateOptionsCallback';</script></li>
+
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98698_9">
+            <img src="<?php echo($this->getSkinUrl('images/prescription/lens_material_thinnest.jpg')) ?>" alt="Thinnest" id="lens_thickness_image_thinnest2"/><br />
+            1.74 - Thinnest
+            <br />
+            <span>+<span class="price_presc">£134.00</span></span></label>
+          <br />
+      </span>
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_9" value="4646626"  price="134" />
+      <script type="text/javascript">$('options_98698_9').advaiceContainer = 'options-98698-container';$('options_98698_9').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98698_10">
+            <img src="<?php echo($this->getSkinUrl('images/prescription/lens_material_thinnest.jpg')) ?>" alt="Thinnest" id="lens_thickness_image_thinnest3"/><br />
+            1.74 - Thinnest
+            <br />
+            <span>+<span class="price_presc">£135.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_10" value="4646627"  price="135" />
+      <script type="text/javascript">$('options_98698_10').advaiceContainer = 'options-98698-container';$('options_98698_10').callbackFunction = 'validateOptionsCallback';</script></li>
+                                    
+                <li><span class="label">
+                  <label for="options_98698_11">Not applicable </label>
+                  </span>
+                  <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option" onclick="opConfig.reloadPrice()" name="options[98698][]" id="options_98698_11" value="4646628"  price="0" />
+                <script type="text/javascript">$('options_98698_11').advaiceContainer = 'options-98698-container';$('options_98698_11').callbackFunction = 'validateOptionsCallback';</script></li>
+              </ul>
+              <span id="options-98698-container"></span>
+              
+            <div class="clearit"></div>  
+            </div>
+              
+          </dd>
+          <dt>
+            <label class="required presc_form_header"><em>*</em>Please Choose Varifocal Type</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <ul id="options-98699-list" class="options-list presc_ul">
+              
+      
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_2"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_standard.jpg')) ?>" alt="Standard"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_standard_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Basic </label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_" id="options_98699_2" value="4646629"  price="0" />
+      <script type="text/javascript">$('options_98699_2').advaiceContainer = 'options-98699-container';$('options_98699_2').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_3"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_standard.jpg')) ?>" alt="Standard" name="varifocals_image"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_standard_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Basic <span><br />
+            +<span class="price_presc">£44.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_2" id="options_98699_3" value="4646630"  price="44" />
+      <script type="text/javascript">$('options_98699_3').advaiceContainer = 'options-98699-container';$('options_98699_3').callbackFunction = 'validateOptionsCallback';</script></li>
+      
+      
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_4"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_advanced.jpg')) ?>" alt="Thin" class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_advanced_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Advanced 
+            <br />
+            <span>+<span class="price_presc">£74.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_3" id="options_98699_4" value="4646631"  price="74" />
+      <script type="text/javascript">$('options_98699_4').advaiceContainer = 'options-98699-container';$('options_98699_4').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_5"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_advanced.jpg')) ?>" alt="Thin"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_advanced_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Advanced 
+            <br />
+            <span>+<span class="price_presc">£88.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_4" id="options_98699_5" value="4646632"  price="88" />
+      <script type="text/javascript">$('options_98699_5').advaiceContainer = 'options-98699-container';$('options_98699_5').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_6"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_advanced.jpg')) ?>" alt="Thin"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_advanced_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Advanced 
+            <br />
+            <span>+<span class="price_presc">£94.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_5" id="options_98699_6" value="4646633"  price="94" />
+      <script type="text/javascript">$('options_98699_6').advaiceContainer = 'options-98699-container';$('options_98699_6').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_7"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_advanced.jpg')) ?>" alt="Thin"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_advanced_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Advanced 
+            <br />
+            <span>+<span class="price_presc">£114.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_6" id="options_98699_7" value="4646634"  price="114" />
+      <script type="text/javascript">$('options_98699_7').advaiceContainer = 'options-98699-container';$('options_98699_7').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_8"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_advanced.jpg')) ?>" alt="Thin"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_advanced_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Advanced 
+            <br />
+            <span>+<span class="price_presc">£140.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_7" id="options_98699_8" value="4646635"  price="140" />
+      <script type="text/javascript">$('options_98699_8').advaiceContainer = 'options-98699-container';$('options_98699_8').callbackFunction = 'validateOptionsCallback';</script></li>
+      
+      
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_9"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_premium.jpg')) ?>" alt="Thinner"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_premium_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Premium 
+            <br />
+            <span>+<span class="price_presc">£134.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_8" id="options_98699_9" value="4646636"  price="134" />
+      <script type="text/javascript">$('options_98699_9').advaiceContainer = 'options-98699-container';$('options_98699_9').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_10"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_premium.jpg')) ?>" alt="Thinner"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_premium_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Premium 
+            <br />
+            <span>+<span class="price_presc">£138.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_9" id="options_98699_10" value="4646637"  price="138" />
+      <script type="text/javascript">$('options_98699_10').advaiceContainer = 'options-98699-container';$('options_98699_10').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_11"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_premium.jpg')) ?>" alt="Thinner"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_premium_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+Premium 
+            <br />
+            <span>+<span class="price_presc">£144.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_10" id="options_98699_11" value="4646638"  price="144" />
+      <script type="text/javascript">$('options_98699_11').advaiceContainer = 'options-98699-container';$('options_98699_11').callbackFunction = 'validateOptionsCallback';</script></li>
+      
+      
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_12"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_elite.jpg')) ?>" alt="Thinnest"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_elite_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Elite 
+            <br />
+            <span>+<span class="price_presc">£188.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_11" id="options_98699_12" value="4646639"  price="188" />
+      <script type="text/javascript">$('options_98699_12').advaiceContainer = 'options-98699-container';$('options_98699_12').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_13"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_elite.jpg')) ?>" alt="Thinnest"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_elite_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Elite 
+            <br />
+            <span>+<span class="price_presc">£194.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_12" id="options_98699_13" value="4646640"  price="194" />
+      <script type="text/javascript">$('options_98699_13').advaiceContainer = 'options-98699-container';$('options_98699_13').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class="label"><br />
+          <label for="options_98699_14"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_elite.jpg')) ?>" alt="Thinnest"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_elite_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Elite 
+            <br />
+            <span>+<span class="price_presc">£210.00</span></span></label>
+          </span>
+          <span class="label">
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_13" id="options_98699_14" value="4646641"  price="210" />
+          </span><script type="text/javascript">$('options_98699_14').advaiceContainer = 'options-98699-container';$('options_98699_14').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_15"><img src="<?php echo($this->getSkinUrl('images/prescription/varifocals_elite.jpg')) ?>" alt="Thinnest"  class="varifocals_image"/><div class="varifocal_popup"><img src="<?php echo($this->getSkinUrl('images/prescription/FE_popup_varifocal_elite_72dpi.jpg')) ?>" alt="Standard" /></div><br />
+            Elite <br />
+            <span>+<span class="price_presc">£234.00</span></span></label>
+          </span>
+          <br />
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options_98699_14" id="options_98699_15" value="4646642"  price="234" />
+      <script type="text/javascript">$('options_98699_15').advaiceContainer = 'options-98699-container';$('options_98699_15').callbackFunction = 'validateOptionsCallback';</script></li>
+      <li class="presc_li"><span class=""><br />
+          <label for="options_98699_16">Not applicable </label>
+          </span>
+          <input type="checkbox" class="checkbox  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98699][]" id="options_98699_16" value="4646643"  price="0" />
+      <script type="text/javascript">$('options_98699_16').advaiceContainer = 'options-98699-container';$('options_98699_16').callbackFunction = 'validateOptionsCallback';</script></li>
+             
+              </ul>
+              <span id="options-98699-container"></span>
+              
+            <div class="clearit"></div>  
+            </div>
+          </dd>
+          <dt>
+            <label class="required presc_form_header"><em>*</em>Choose Lens Tint (if required)</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <ul id="options-98700-list" class="options-list presc_ul">
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_2"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Brown Photochromic<br />
+                  <span class="">+<span class="price_presc">£15.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_2" value="4646644"  price="15" />
+                <script type="text/javascript">$('options_98700_2').advaiceContainer = 'options-98700-container';$('options_98700_2').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li">
+                  <span class="label">
+                  <label for="options_98700_3"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Brown Photochromic<br />
+                  <span class="">+<span class="price_presc">£29.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_3" value="4646645"  price="29" />
+                <script type="text/javascript">$('options_98700_3').advaiceContainer = 'options-98700-container';$('options_98700_3').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li">
+                  <span class="label">
+                  <label for="options_98700_4"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Brown Photochromic<br />
+                  <span class="">+<span class="price_presc">£45.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_4" value="4646646"  price="45" />
+                <script type="text/javascript">$('options_98700_4').advaiceContainer = 'options-98700-container';$('options_98700_4').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_5"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Grey Photochromic<br />
+                  <span class="">+<span class="price_presc">£15.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_5" value="4646647"  price="15" />
+                <script type="text/javascript">$('options_98700_5').advaiceContainer = 'options-98700-container';$('options_98700_5').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_6"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Photochromic<br />
+                  <span class="">+<span class="price_presc">£29.00</span></span></label>
+                  </span>
+
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_6" value="4646648"  price="29" />
+                 <script type="text/javascript">$('options_98700_6').advaiceContainer = 'options-98700-container';$('options_98700_6').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_7"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Photochromic
+                    <br />
+                  <span class="">+<span class="price_presc">£45.00</span></span></label>
+                  </span>
+                  <span class="label">
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_7" value="4646649"  price="45" />
+                  </span><script type="text/javascript">$('options_98700_7').advaiceContainer = 'options-98700-container';$('options_98700_7').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_8"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Brown Transitions<br />
+                  <span class="">+<span class="price_presc">£25.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_8" value="4646650"  price="25" />
+                <script type="text/javascript">$('options_98700_8').advaiceContainer = 'options-98700-container';$('options_98700_8').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_9"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Brown Transitions<br />
+                  <span class="">+<span class="price_presc">£35.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_9" value="4646651"  price="35" />
+                <script type="text/javascript">$('options_98700_9').advaiceContainer = 'options-98700-container';$('options_98700_9').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_10"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Brown Transitions<br />
+                  <span class="">+<span class="price_presc">£38.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_10" value="4646652"  price="38" />
+                <script type="text/javascript">$('options_98700_10').advaiceContainer = 'options-98700-container';$('options_98700_10').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li">
+                  <span class="label">
+                  <label for="options_98700_11"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Brown Transitions<br />
+                  <span class="">+<span class="price_presc">£45.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_11" value="4646653"  price="45" />
+                <script type="text/javascript">$('options_98700_11').advaiceContainer = 'options-98700-container';$('options_98700_11').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_12"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Brown Transitions<br />
+                  <span class="">+<span class="price_presc">£49.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_12" value="4646654"  price="49" />
+                <script type="text/javascript">$('options_98700_12').advaiceContainer = 'options-98700-container';$('options_98700_12').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_13"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Brown Transitions<br />
+                  <span class="">+<span class="price_presc">£55.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_13" value="4646655"  price="55" />
+                <script type="text/javascript">$('options_98700_13').advaiceContainer = 'options-98700-container';$('options_98700_13').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_14"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Brown Transitions<br />
+                  <span class="">+<span class="price_presc">£65.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_14" value="4646656"  price="65" />
+                <script type="text/javascript">$('options_98700_14').advaiceContainer = 'options-98700-container';$('options_98700_14').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_15"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Brown Transitions<br />
+                  <span class="">+<span class="price_presc">£95.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_15" value="4646657"  price="95" />
+                <script type="text/javascript">$('options_98700_15').advaiceContainer = 'options-98700-container';$('options_98700_15').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li">
+                  <span class="label">
+                  <label for="options_98700_16"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Transitions<br />
+                  <span class="">+<span class="price_presc">£25.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_16" value="4646658"  price="25" />
+                <script type="text/javascript">$('options_98700_16').advaiceContainer = 'options-98700-container';$('options_98700_16').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_17"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Transitions<br />
+                  <span class="">+<span class="price_presc">£35.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_17" value="4646659"  price="35" />
+               <script type="text/javascript">$('options_98700_17').advaiceContainer = 'options-98700-container';$('options_98700_17').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_18"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Transitions<br />
+                  <span class="">+<span class="price_presc">£38.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_18" value="4646660"  price="38" />
+                <script type="text/javascript">$('options_98700_18').advaiceContainer = 'options-98700-container';$('options_98700_18').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_19"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Transitions<br />
+                  <span class="">+<span class="price_presc">£45.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_19" value="4646661"  price="45" />
+                <script type="text/javascript">$('options_98700_19').advaiceContainer = 'options-98700-container';$('options_98700_19').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_20"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Transitions<br />
+                  <span class="">+<span class="price_presc">£49.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_20" value="4646662"  price="49" />
+                <script type="text/javascript">$('options_98700_20').advaiceContainer = 'options-98700-container';$('options_98700_20').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_21"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Transitions<br />
+                  <span class="">+<span class="price_presc">£55.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_21" value="4646663"  price="55" />
+                <script type="text/javascript">$('options_98700_21').advaiceContainer = 'options-98700-container';$('options_98700_21').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_22"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Transitions<br />
+                  <span class="">+<span class="price_presc">£65.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_22" value="4646664"  price="65" />
+                <script type="text/javascript">$('options_98700_22').advaiceContainer = 'options-98700-container';$('options_98700_22').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li">
+                  <span class="label">
+                  <label for="options_98700_23"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                    Grey Transitions<br />
+                  <span class="">+<span class="price_presc">£95.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_23" value="4646665"  price="95" />
+                <script type="text/javascript">$('options_98700_23').advaiceContainer = 'options-98700-container';$('options_98700_23').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98700_24"><img src="<?php echo($this->getSkinUrl('images/prescription/tint.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  None </label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98700]" id="options_98700_24" value="4646666"  price="0" />
+                <script type="text/javascript">$('options_98700_24').advaiceContainer = 'options-98700-container';$('options_98700_24').callbackFunction = 'validateOptionsCallback';</script></li>
+              </ul>
+              <span id="options-98700-container"></span> 
+            <div class="clearit"></div>  
+            </div>
+          </dd>
+          <dt>
+            <label class="required presc_form_header"><em>*</em>Choose Lens Coating</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <ul id="options-98701-list" class="options-list presc_ul">
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_2"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Scratch Resistant </label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_2" value="4646667"  price="0" />
+                <script type="text/javascript">$('options_98701_2').advaiceContainer = 'options-98701-container';$('options_98701_2').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_3"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Scratch Resistant <span class="">+<span class="price">£5.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_3" value="4646668"  price="5" />
+                <script type="text/javascript">$('options_98701_3').advaiceContainer = 'options-98701-container';$('options_98701_3').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_4"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Scratch Resistant <span class="">+<span class="price_presc">£10.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_4" value="4646669"  price="10" />
+                <script type="text/javascript">$('options_98701_4').advaiceContainer = 'options-98701-container';$('options_98701_4').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_5"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Scratch Resistant <span class="">+<span class="price_presc">£15.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_5" value="4646670"  price="15" />
+                <script type="text/javascript">$('options_98701_5').advaiceContainer = 'options-98701-container';$('options_98701_5').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_6"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Scratch Resistant <span class="">+<span class="price_presc">£20.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_6" value="4646671"  price="20" />
+                <script type="text/javascript">$('options_98701_6').advaiceContainer = 'options-98701-container';$('options_98701_6').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_7"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Scratch Resistant <span class="">+<span class="price_presc">£25.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_7" value="4646672"  price="25" />
+                <script type="text/javascript">$('options_98701_7').advaiceContainer = 'options-98701-container';$('options_98701_7').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_8"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Anti-scratch/Anti-glare </label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_8" value="4646673"  price="0" />
+                <script type="text/javascript">$('options_98701_8').advaiceContainer = 'options-98701-container';$('options_98701_8').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_9"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Anti-scratch/Anti-glare <span class="">+<span class="price_presc">£11.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_9" value="4646674"  price="11" />
+                <script type="text/javascript">$('options_98701_9').advaiceContainer = 'options-98701-container';$('options_98701_9').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_10"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Anti-scratch/Anti-glare <span class="">+<span class="price_presc">£15.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_10" value="4646675"  price="15" />
+                <script type="text/javascript">$('options_98701_10').advaiceContainer = 'options-98701-container';$('options_98701_10').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_11"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Anti-scratch/Anti-glare <span class="">+<span class="price_presc">£20.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_11" value="4646676"  price="20" />
+                <script type="text/javascript">$('options_98701_11').advaiceContainer = 'options-98701-container';$('options_98701_11').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_12"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Anti-scratch/Anti-glare <span class="">+<span class="price_presc">£25.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_12" value="4646677"  price="25" />
+                <script type="text/javascript">$('options_98701_12').advaiceContainer = 'options-98701-container';$('options_98701_12').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_13"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Anti-scratch/Anti-glare <span class="">+<span class="price_presc">£30.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_13" value="4646678"  price="30" />
+                <script type="text/javascript">$('options_98701_13').advaiceContainer = 'options-98701-container';$('options_98701_13').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_14"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Anti-scratch/Anti-glare <span class="">+<span class="price_presc">£40.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_14" value="4646679"  price="40" />
+                <script type="text/javascript">$('options_98701_14').advaiceContainer = 'options-98701-container';$('options_98701_14').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_15"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Anti-scratch/Anti-glare <span class="">+<span class="price_presc">£50.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_15" value="4646680"  price="50" />
+                <script type="text/javascript">$('options_98701_15').advaiceContainer = 'options-98701-container';$('options_98701_15').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_16"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£10.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_16" value="4646681"  price="10" />
+                <script type="text/javascript">$('options_98701_16').advaiceContainer = 'options-98701-container';$('options_98701_16').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_17"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£14.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_17" value="4646682"  price="14" />
+                <script type="text/javascript">$('options_98701_17').advaiceContainer = 'options-98701-container';$('options_98701_17').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_18"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£16.00</span></span></label>
+                </span>
+                  <span class="label">
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_18" value="4646683"  price="16" />
+                  </span><script type="text/javascript">$('options_98701_18').advaiceContainer = 'options-98701-container';$('options_98701_18').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_19"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£20.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_19" value="4646684"  price="20" />
+                <script type="text/javascript">$('options_98701_19').advaiceContainer = 'options-98701-container';$('options_98701_19').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_20"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£30.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_20" value="4646685"  price="30" />
+                <script type="text/javascript">$('options_98701_20').advaiceContainer = 'options-98701-container';$('options_98701_20').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_21"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£31.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_21" value="4646686"  price="31" />
+                <script type="text/javascript">$('options_98701_21').advaiceContainer = 'options-98701-container';$('options_98701_21').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_22"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£35.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_22" value="4646687"  price="35" />
+                <script type="text/javascript">$('options_98701_22').advaiceContainer = 'options-98701-container';$('options_98701_22').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_23"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£40.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_23" value="4646688"  price="40" />
+                <script type="text/javascript">$('options_98701_23').advaiceContainer = 'options-98701-container';$('options_98701_23').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_24"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£50.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_24" value="4646689"  price="50" />
+                <script type="text/javascript">$('options_98701_24').advaiceContainer = 'options-98701-container';$('options_98701_24').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_25"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£55.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_25" value="4646690"  price="55" />
+                <script type="text/javascript">$('options_98701_25').advaiceContainer = 'options-98701-container';$('options_98701_25').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_26"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£60.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_26" value="4646691"  price="60" />
+                <script type="text/javascript">$('options_98701_26').advaiceContainer = 'options-98701-container';$('options_98701_26').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_27"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Premium Coatings <span class="">+<span class="price_presc">£70.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_27" value="4646692"  price="70" />
+                <script type="text/javascript">$('options_98701_27').advaiceContainer = 'options-98701-container';$('options_98701_27').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_28"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Elite Coatings </label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_28" value="4646693"  price="0" />
+                <script type="text/javascript">$('options_98701_28').advaiceContainer = 'options-98701-container';$('options_98701_28').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_29"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Elite Coatings <span class="">+<span class="price_presc">£15.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_29" value="4646694"  price="15" />
+                <script type="text/javascript">$('options_98701_29').advaiceContainer = 'options-98701-container';$('options_98701_29').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_30"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Elite Coatings <span class="">+<span class="price_presc">£19.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_30" value="4646695"  price="19" />
+                <script type="text/javascript">$('options_98701_30').advaiceContainer = 'options-98701-container';$('options_98701_30').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_31"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Elite Coatings <span class="">+<span class="price_presc">£20.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_31" value="4646696"  price="20" />
+                <script type="text/javascript">$('options_98701_31').advaiceContainer = 'options-98701-container';$('options_98701_31').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_32"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Elite Coatings <span class="">+<span class="price_presc">£26.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_32" value="4646697"  price="26" />
+                <script type="text/javascript">$('options_98701_32').advaiceContainer = 'options-98701-container';$('options_98701_32').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_33"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Elite Coatings <span class="">+<span class="price_presc">£30.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_33" value="4646698"  price="30" />
+                <script type="text/javascript">$('options_98701_33').advaiceContainer = 'options-98701-container';$('options_98701_33').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_34"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Elite Coatings <span class="">+<span class="price_presc">£33.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_34" value="4646699"  price="33" />
+                <script type="text/javascript">$('options_98701_34').advaiceContainer = 'options-98701-container';$('options_98701_34').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_35"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>Elite Coatings <span class="">+<span class="price_presc">£34.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_35" value="4646700"  price="34" />
+                <script type="text/javascript">$('options_98701_35').advaiceContainer = 'options-98701-container';$('options_98701_35').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_36"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>
+                  Elite Coatings <span class="">+<span class="price_presc">£36.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_36" value="4646701"  price="36" />
+                <script type="text/javascript">$('options_98701_36').advaiceContainer = 'options-98701-container';$('options_98701_36').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_37"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>
+                  Elite Coatings <span class="">+<span class="price_presc">£40.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_37" value="4646702"  price="40" />
+                <script type="text/javascript">$('options_98701_37').advaiceContainer = 'options-98701-container';$('options_98701_37').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_38"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>
+                  Elite Coatings <span class="">+<span class="price_presc">£45.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_38" value="4646703"  price="45" />
+                <script type="text/javascript">$('options_98701_38').advaiceContainer = 'options-98701-container';$('options_98701_38').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_39"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>
+                  Elite Coatings <span class="">+<span class="price_presc">£46.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_39" value="4646704"  price="46" />
+                <script type="text/javascript">$('options_98701_39').advaiceContainer = 'options-98701-container';$('options_98701_39').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_40"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>
+                  Elite Coatings <span class="">+<span class="price_presc">£50.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_40" value="4646705"  price="50" />
+                <script type="text/javascript">$('options_98701_40').advaiceContainer = 'options-98701-container';$('options_98701_40').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_41"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>
+                  Elite Coatings <span class="">+<span class="price_presc">£55.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_41" value="4646706"  price="55" />
+                <script type="text/javascript">$('options_98701_41').advaiceContainer = 'options-98701-container';$('options_98701_41').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_42"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>
+                  Elite Coatings <span class="">+<span class="price_presc">£65.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_42" value="4646707"  price="65" />
+                <script type="text/javascript">$('options_98701_42').advaiceContainer = 'options-98701-container';$('options_98701_42').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_43"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br/>
+                  Elite Coatings <span class="">+<span class="price_presc">£70.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_43" value="4646708"  price="70" />
+                <script type="text/javascript">$('options_98701_43').advaiceContainer = 'options-98701-container';$('options_98701_43').callbackFunction = 'validateOptionsCallback';</script></li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_44"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Elite Coatings <span class="">+<span class="price_presc">£80.00</span></span></label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_44" value="4646709"  price="80" />
+               <script type="text/javascript">$('options_98701_44').advaiceContainer = 'options-98701-container';$('options_98701_44').callbackFunction = 'validateOptionsCallback';</script> </li>
+                <li class="presc_li"><span class="label">
+                  <label for="options_98701_45"><img src="<?php echo($this->getSkinUrl('images/prescription/coatings.jpg')) ?>" width="89" height="71" alt="Tint" /><br />
+                  Not applicable </label>
+                  </span>
+                  <input type="radio" class="radio  validate-one-required-by-name product-custom-option in_table" onclick="opConfig.reloadPrice()" name="options[98701]" id="options_98701_45" value="4646710"  price="0" />
+                <script type="text/javascript">$('options_98701_45').advaiceContainer = 'options-98701-container';$('options_98701_45').callbackFunction = 'validateOptionsCallback';</script></li>
+              </ul>
+              <span id="options-98701-container"></span>
+ 
+            <div class="clearit"></div>  
+            </div>
+          </dd>
+          
+          <div class="presc_header_text">
+          <p class="presc_form_header"><strong>When ready, please input your prescription below:</strong></p>
+          <p class="values_warning">Please ensure all + or - values are correct</p>
+          </div>
+          
+          <div id="right_eye_presc">
+          <p class="eye_label"><strong>Right Eye:</strong></p>
+
+          <div class="sph">          
+          <dt>
+            <label class="required"><em>*</em>SPH (Sphere)</label>
+          </dt>
+          <dd>
+          
+            <div class="input-box">
+              <select name="options[98702]" id="select_98702" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+                <option value="" >-- Please Select --</option>
+                <option value="4646711"  price="0" >+8.00 </option>
+                <option value="4646712"  price="0" >+7.75 </option>
+                <option value="4646713"  price="0" >+7.50 </option>
+                <option value="4646714"  price="0" >+7.25 </option>
+                <option value="4646715"  price="0" >+7.00 </option>
+                <option value="4646716"  price="0" >+6.75 </option>
+                <option value="4646717"  price="0" >+6.50 </option>
+                <option value="4646718"  price="0" >+6.25 </option>
+                <option value="4646719"  price="0" >+6.00 </option>
+                <option value="4646720"  price="0" >+5.75 </option>
+                <option value="4646721"  price="0" >+5.50 </option>
+                <option value="4646722"  price="0" >+5.25 </option>
+                <option value="4646723"  price="0" >+5.00 </option>
+                <option value="4646724"  price="0" >+4.75 </option>
+                <option value="4646725"  price="0" >+4.50 </option>
+                <option value="4646726"  price="0" >+4.25 </option>
+                <option value="4646727"  price="0" >+4.00 </option>
+                <option value="4646728"  price="0" >+3.75 </option>
+                <option value="4646729"  price="0" >+3.50 </option>
+                <option value="4646730"  price="0" >+3.25 </option>
+                <option value="4646731"  price="0" >+3.00 </option>
+                <option value="4646732"  price="0" >+2.75 </option>
+                <option value="4646733"  price="0" >+2.50 </option>
+                <option value="4646734"  price="0" >+2.25 </option>
+                <option value="4646735"  price="0" >+2.00 </option>
+                <option value="4646736"  price="0" >+1.75 </option>
+                <option value="4646737"  price="0" >+1.50 </option>
+                <option value="4646738"  price="0" >+1.25 </option>
+                <option value="4646739"  price="0" >+1.00 </option>
+                <option value="4646740"  price="0" >+0.75 </option>
+                <option value="4646741"  price="0" >+0.50 </option>
+                <option value="4646742"  price="0" >+0.25 </option>
+                <option value="4646743"  price="0" >0.00 </option>
+                <option value="4646744"  price="0" >Plano </option>
+                <option value="4646745"  price="0" >Infinity </option>
+                <option value="4646746"  price="0" >~ </option>
+                <option value="4646747"  price="0" >-0.25 </option>
+                <option value="4646748"  price="0" >-0.50 </option>
+                <option value="4646749"  price="0" >-0.75 </option>
+                <option value="4646750"  price="0" >-1.00 </option>
+                <option value="4646751"  price="0" >-1.25 </option>
+                <option value="4646752"  price="0" >-1.50 </option>
+                <option value="4646753"  price="0" >-1.75 </option>
+                <option value="4646754"  price="0" >-2.00 </option>
+                <option value="4646755"  price="0" >-2.25 </option>
+                <option value="4646756"  price="0" >-2.50 </option>
+                <option value="4646757"  price="0" >-2.75 </option>
+                <option value="4646758"  price="0" >-3.00 </option>
+                <option value="4646759"  price="0" >-3.25 </option>
+                <option value="4646760"  price="0" >-3.50 </option>
+                <option value="4646761"  price="0" >-3.75 </option>
+                <option value="4646762"  price="0" >-4.00 </option>
+                <option value="4646763"  price="0" >-4.25 </option>
+                <option value="4646764"  price="0" >-4.50 </option>
+                <option value="4646765"  price="0" >-4.75 </option>
+                <option value="4646766"  price="0" >-5.00 </option>
+                <option value="4646767"  price="0" >-5.25 </option>
+                <option value="4646768"  price="0" >-5.50 </option>
+                <option value="4646769"  price="0" >-5.75 </option>
+                <option value="4646770"  price="0" >-6.00 </option>
+                <option value="4646771"  price="0" >-6.25 </option>
+                <option value="4646772"  price="0" >-6.50 </option>
+                <option value="4646773"  price="0" >-6.75 </option>
+                <option value="4646774"  price="0" >-7.00 </option>
+                <option value="4646775"  price="0" >-7.25 </option>
+                <option value="4646776"  price="0" >-7.50 </option>
+                <option value="4646777"  price="0" >-7.75 </option>
+                <option value="4646778"  price="0" >-8.00 </option>
+              </select>
+            </div>
+          </dd>
+          </div>
+          
+          <div class="cyl">          
+          <dt>
+            <label class="required"><em>*</em>CYL (Cylinder)</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <select name="options[98703]" id="select_98703" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+                <option value="" >-- Please Select --</option>
+                <option value="4646779"  price="15" >+6.00 +£15.00</option>
+                <option value="4646780"  price="15" >+5.75 +£15.00</option>
+                <option value="4646781"  price="15" >+5.50 +£15.00</option>
+                <option value="4646782"  price="15" >+5.25 +£15.00</option>
+                <option value="4646783"  price="15" >+5.00 +£15.00</option>
+                <option value="4646784"  price="15" >+4.75 +£15.00</option>
+                <option value="4646785"  price="15" >+4.50 +£15.00</option>
+                <option value="4646786"  price="15" >+4.25 +£15.00</option>
+                <option value="4646787"  price="15" >+4.00 +£15.00</option>
+                <option value="4646788"  price="15" >+3.75 +£15.00</option>
+                <option value="4646789"  price="15" >+3.50 +£15.00</option>
+                <option value="4646790"  price="15" >+3.25 +£15.00</option>
+                <option value="4646791"  price="15" >+3.00 +£15.00</option>
+                <option value="4646792"  price="15" >+2.75 +£15.00</option>
+                <option value="4646793"  price="15" >+2.50 +£15.00</option>
+                <option value="4646794"  price="15" >+2.25 +£15.00</option>
+                <option value="4646795"  price="0" >+2.00 </option>
+                <option value="4646796"  price="0" >+1.75 </option>
+                <option value="4646797"  price="0" >+1.50 </option>
+                <option value="4646798"  price="0" >+1.25 </option>
+                <option value="4646799"  price="0" >+1.00 </option>
+                <option value="4646800"  price="0" >+0.75 </option>
+                <option value="4646801"  price="0" >+0.50 </option>
+                <option value="4646802"  price="0" >+0.25 </option>
+                <option value="4646803"  price="0" >None </option>
+                <option value="4646804"  price="0" >DS </option>
+                <option value="4646805"  price="0" >Plano </option>
+                <option value="4646806"  price="0" >Infinity </option>
+                <option value="4646807"  price="0" >~ </option>
+                <option value="4646808"  price="0" >-0.25 </option>
+                <option value="4646809"  price="0" >-0.50 </option>
+                <option value="4646810"  price="0" >-0.75 </option>
+                <option value="4646811"  price="0" >-1.00 </option>
+                <option value="4646812"  price="0" >-1.25 </option>
+                <option value="4646813"  price="0" >-1.50 </option>
+                <option value="4646814"  price="0" >-1.75 </option>
+                <option value="4646815"  price="0" >-2.00 </option>
+                <option value="4646816"  price="15" >-2.25 +£15.00</option>
+                <option value="4646817"  price="15" >-2.50 +£15.00</option>
+                <option value="4646818"  price="15" >-2.75 +£15.00</option>
+                <option value="4646819"  price="15" >-3.00 +£15.00</option>
+                <option value="4646820"  price="15" >-3.25 +£15.00</option>
+                <option value="4646821"  price="15" >-3.50 +£15.00</option>
+                <option value="4646822"  price="15" >-3.75 +£15.00</option>
+                <option value="4646823"  price="15" >-4.00 +£15.00</option>
+                <option value="4646824"  price="15" >-4.25 +£15.00</option>
+                <option value="4646825"  price="15" >-4.50 +£15.00</option>
+                <option value="4646826"  price="15" >-4.75 +£15.00</option>
+                <option value="4646827"  price="15" >-5.00 +£15.00</option>
+                <option value="4646828"  price="15" >-5.25 +£15.00</option>
+                <option value="4646829"  price="15" >-5.50 +£15.00</option>
+                <option value="4646830"  price="15" >-5.75 +£15.00</option>
+                <option value="4646831"  price="15" >-6.00 +£15.00</option>
+              </select>
+            </div>
+          </dd>
+          </div>
+          
+          <div class="axis">          
+          <dt>
+            <label class="required"><em>*</em>Axis</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <select name="options[98704]" id="select_98704" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+                <option value="" >-- Please Select --</option>
+                <option value="4646832"  price="0" >0 </option>
+                <option value="4646833"  price="0" >1 </option>
+                <option value="4646834"  price="0" >2 </option>
+                <option value="4646835"  price="0" >3 </option>
+                <option value="4646836"  price="0" >4 </option>
+                <option value="4646837"  price="0" >5 </option>
+                <option value="4646838"  price="0" >6 </option>
+                <option value="4646839"  price="0" >7 </option>
+                <option value="4646840"  price="0" >8 </option>
+                <option value="4646841"  price="0" >9 </option>
+                <option value="4646842"  price="0" >10 </option>
+                <option value="4646843"  price="0" >11 </option>
+                <option value="4646844"  price="0" >12 </option>
+                <option value="4646845"  price="0" >13 </option>
+                <option value="4646846"  price="0" >14 </option>
+                <option value="4646847"  price="0" >15 </option>
+                <option value="4646848"  price="0" >16 </option>
+                <option value="4646849"  price="0" >17 </option>
+                <option value="4646850"  price="0" >18 </option>
+                <option value="4646851"  price="0" >19 </option>
+                <option value="4646852"  price="0" >20 </option>
+                <option value="4646853"  price="0" >21 </option>
+                <option value="4646854"  price="0" >22 </option>
+                <option value="4646855"  price="0" >23 </option>
+                <option value="4646856"  price="0" >24 </option>
+                <option value="4646857"  price="0" >25 </option>
+                <option value="4646858"  price="0" >26 </option>
+                <option value="4646859"  price="0" >27 </option>
+                <option value="4646860"  price="0" >28 </option>
+                <option value="4646861"  price="0" >29 </option>
+                <option value="4646862"  price="0" >30 </option>
+                <option value="4646863"  price="0" >31 </option>
+                <option value="4646864"  price="0" >32 </option>
+                <option value="4646865"  price="0" >33 </option>
+                <option value="4646866"  price="0" >34 </option>
+                <option value="4646867"  price="0" >35 </option>
+                <option value="4646868"  price="0" >36 </option>
+                <option value="4646869"  price="0" >37 </option>
+                <option value="4646870"  price="0" >38 </option>
+                <option value="4646871"  price="0" >39 </option>
+                <option value="4646872"  price="0" >40 </option>
+                <option value="4646873"  price="0" >41 </option>
+                <option value="4646874"  price="0" >42 </option>
+                <option value="4646875"  price="0" >43 </option>
+                <option value="4646876"  price="0" >44 </option>
+                <option value="4646877"  price="0" >45 </option>
+                <option value="4646878"  price="0" >46 </option>
+                <option value="4646879"  price="0" >47 </option>
+                <option value="4646880"  price="0" >48 </option>
+                <option value="4646881"  price="0" >49 </option>
+                <option value="4646882"  price="0" >50 </option>
+                <option value="4646883"  price="0" >51 </option>
+                <option value="4646884"  price="0" >52 </option>
+                <option value="4646885"  price="0" >53 </option>
+                <option value="4646886"  price="0" >54 </option>
+                <option value="4646887"  price="0" >55 </option>
+                <option value="4646888"  price="0" >56 </option>
+                <option value="4646889"  price="0" >57 </option>
+                <option value="4646890"  price="0" >58 </option>
+                <option value="4646891"  price="0" >59 </option>
+                <option value="4646892"  price="0" >60 </option>
+                <option value="4646893"  price="0" >61 </option>
+                <option value="4646894"  price="0" >62 </option>
+                <option value="4646895"  price="0" >63 </option>
+                <option value="4646896"  price="0" >64 </option>
+                <option value="4646897"  price="0" >65 </option>
+                <option value="4646898"  price="0" >66 </option>
+                <option value="4646899"  price="0" >67 </option>
+                <option value="4646900"  price="0" >68 </option>
+                <option value="4646901"  price="0" >69 </option>
+                <option value="4646902"  price="0" >70 </option>
+                <option value="4646903"  price="0" >71 </option>
+                <option value="4646904"  price="0" >72 </option>
+                <option value="4646905"  price="0" >73 </option>
+                <option value="4646906"  price="0" >74 </option>
+                <option value="4646907"  price="0" >75 </option>
+                <option value="4646908"  price="0" >76 </option>
+                <option value="4646909"  price="0" >77 </option>
+                <option value="4646910"  price="0" >78 </option>
+                <option value="4646911"  price="0" >79 </option>
+                <option value="4646912"  price="0" >80 </option>
+                <option value="4646913"  price="0" >81 </option>
+                <option value="4646914"  price="0" >82 </option>
+                <option value="4646915"  price="0" >83 </option>
+                <option value="4646916"  price="0" >84 </option>
+                <option value="4646917"  price="0" >85 </option>
+                <option value="4646918"  price="0" >86 </option>
+                <option value="4646919"  price="0" >87 </option>
+                <option value="4646920"  price="0" >88 </option>
+                <option value="4646921"  price="0" >89 </option>
+                <option value="4646922"  price="0" >90 </option>
+                <option value="4646923"  price="0" >91 </option>
+                <option value="4646924"  price="0" >92 </option>
+                <option value="4646925"  price="0" >93 </option>
+                <option value="4646926"  price="0" >94 </option>
+                <option value="4646927"  price="0" >95 </option>
+                <option value="4646928"  price="0" >96 </option>
+                <option value="4646929"  price="0" >97 </option>
+                <option value="4646930"  price="0" >98 </option>
+                <option value="4646931"  price="0" >99 </option>
+                <option value="4646932"  price="0" >100 </option>
+                <option value="4646933"  price="0" >101 </option>
+                <option value="4646934"  price="0" >102 </option>
+                <option value="4646935"  price="0" >103 </option>
+                <option value="4646936"  price="0" >104 </option>
+                <option value="4646937"  price="0" >105 </option>
+                <option value="4646938"  price="0" >106 </option>
+                <option value="4646939"  price="0" >107 </option>
+                <option value="4646940"  price="0" >108 </option>
+                <option value="4646941"  price="0" >109 </option>
+                <option value="4646942"  price="0" >110 </option>
+                <option value="4646943"  price="0" >111 </option>
+                <option value="4646944"  price="0" >112 </option>
+                <option value="4646945"  price="0" >113 </option>
+                <option value="4646946"  price="0" >114 </option>
+                <option value="4646947"  price="0" >115 </option>
+                <option value="4646948"  price="0" >116 </option>
+                <option value="4646949"  price="0" >117 </option>
+                <option value="4646950"  price="0" >118 </option>
+                <option value="4646951"  price="0" >119 </option>
+                <option value="4646952"  price="0" >120 </option>
+                <option value="4646953"  price="0" >121 </option>
+                <option value="4646954"  price="0" >122 </option>
+                <option value="4646955"  price="0" >123 </option>
+                <option value="4646956"  price="0" >124 </option>
+                <option value="4646957"  price="0" >125 </option>
+                <option value="4646958"  price="0" >126 </option>
+                <option value="4646959"  price="0" >127 </option>
+                <option value="4646960"  price="0" >128 </option>
+                <option value="4646961"  price="0" >129 </option>
+                <option value="4646962"  price="0" >130 </option>
+                <option value="4646963"  price="0" >131 </option>
+                <option value="4646964"  price="0" >132 </option>
+                <option value="4646965"  price="0" >133 </option>
+                <option value="4646966"  price="0" >134 </option>
+                <option value="4646967"  price="0" >135 </option>
+                <option value="4646968"  price="0" >136 </option>
+                <option value="4646969"  price="0" >137 </option>
+                <option value="4646970"  price="0" >138 </option>
+                <option value="4646971"  price="0" >139 </option>
+                <option value="4646972"  price="0" >140 </option>
+                <option value="4646973"  price="0" >141 </option>
+                <option value="4646974"  price="0" >142 </option>
+                <option value="4646975"  price="0" >143 </option>
+                <option value="4646976"  price="0" >144 </option>
+                <option value="4646977"  price="0" >145 </option>
+                <option value="4646978"  price="0" >146 </option>
+                <option value="4646979"  price="0" >147 </option>
+                <option value="4646980"  price="0" >148 </option>
+                <option value="4646981"  price="0" >149 </option>
+                <option value="4646982"  price="0" >150 </option>
+                <option value="4646983"  price="0" >151 </option>
+                <option value="4646984"  price="0" >152 </option>
+                <option value="4646985"  price="0" >153 </option>
+                <option value="4646986"  price="0" >154 </option>
+                <option value="4646987"  price="0" >155 </option>
+                <option value="4646988"  price="0" >156 </option>
+                <option value="4646989"  price="0" >157 </option>
+                <option value="4646990"  price="0" >158 </option>
+                <option value="4646991"  price="0" >159 </option>
+                <option value="4646992"  price="0" >160 </option>
+                <option value="4646993"  price="0" >161 </option>
+                <option value="4646994"  price="0" >162 </option>
+                <option value="4646995"  price="0" >163 </option>
+                <option value="4646996"  price="0" >164 </option>
+                <option value="4646997"  price="0" >165 </option>
+                <option value="4646998"  price="0" >166 </option>
+                <option value="4646999"  price="0" >167 </option>
+                <option value="4647000"  price="0" >168 </option>
+                <option value="4647001"  price="0" >169 </option>
+                <option value="4647002"  price="0" >170 </option>
+                <option value="4647003"  price="0" >171 </option>
+                <option value="4647004"  price="0" >172 </option>
+                <option value="4647005"  price="0" >173 </option>
+                <option value="4647006"  price="0" >174 </option>
+                <option value="4647007"  price="0" >175 </option>
+                <option value="4647008"  price="0" >176 </option>
+                <option value="4647009"  price="0" >177 </option>
+                <option value="4647010"  price="0" >178 </option>
+                <option value="4647011"  price="0" >179 </option>
+                <option value="4647012"  price="0" >180 </option>
+              </select>
+            </div>
+          </dd>
+          </div>
+          
+          <div class="near_add">          
+          <dt>
+            <label class="required"><em>*</em>Near / Add</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <select name="options[98705]" id="select_98705" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+                <option value="" >-- Please Select --</option>
+                <option value="4647013"  price="0" >+0.00 </option>
+                <option value="4647014"  price="0" >+0.25 </option>
+                <option value="4647015"  price="0" >+0.50 </option>
+                <option value="4647016"  price="0" >+0.75 </option>
+                <option value="4647017"  price="0" >+1.00 </option>
+                <option value="4647018"  price="0" >+1.25 </option>
+                <option value="4647019"  price="0" >+1.50 </option>
+                <option value="4647020"  price="0" >+1.75 </option>
+                <option value="4647021"  price="0" >+2.00 </option>
+                <option value="4647022"  price="0" >+2.25 </option>
+                <option value="4647023"  price="0" >+2.50 </option>
+                <option value="4647024"  price="0" >+2.75 </option>
+                <option value="4647025"  price="0" >+3.00 </option>
+                <option value="4647026"  price="0" >+3.25 </option>
+                <option value="4647027"  price="0" >+3.50 </option>
+                <option value="4647028"  price="0" >+3.75 </option>
+                <option value="4647029"  price="0" >+4.00 </option>
+              </select>
+            </div>
+          </dd>
+          </div>
+          </div>
+          
+          <div id="left_eye_presc">
+          <p class="eye_label"><strong>Left Eye:</strong></p>
+          
+          <div class="sph">          
+          <dt>
+            <label class="required"><em>*</em>SPH (Sphere)</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <select name="options[98706]" id="select_98706" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+                <option value="" >-- Please Select --</option>
+                <option value="4647030"  price="0" >+8.00 </option>
+                <option value="4647031"  price="0" >+7.75 </option>
+                <option value="4647032"  price="0" >+7.50 </option>
+                <option value="4647033"  price="0" >+7.25 </option>
+                <option value="4647034"  price="0" >+7.00 </option>
+                <option value="4647035"  price="0" >+6.75 </option>
+                <option value="4647036"  price="0" >+6.50 </option>
+                <option value="4647037"  price="0" >+6.25 </option>
+                <option value="4647038"  price="0" >+6.00 </option>
+                <option value="4647039"  price="0" >+5.75 </option>
+                <option value="4647040"  price="0" >+5.50 </option>
+                <option value="4647041"  price="0" >+5.25 </option>
+                <option value="4647042"  price="0" >+5.00 </option>
+                <option value="4647043"  price="0" >+4.75 </option>
+                <option value="4647044"  price="0" >+4.50 </option>
+                <option value="4647045"  price="0" >+4.25 </option>
+                <option value="4647046"  price="0" >+4.00 </option>
+                <option value="4647047"  price="0" >+3.75 </option>
+                <option value="4647048"  price="0" >+3.50 </option>
+                <option value="4647049"  price="0" >+3.25 </option>
+                <option value="4647050"  price="0" >+3.00 </option>
+                <option value="4647051"  price="0" >+2.75 </option>
+                <option value="4647052"  price="0" >+2.50 </option>
+                <option value="4647053"  price="0" >+2.25 </option>
+                <option value="4647054"  price="0" >+2.00 </option>
+                <option value="4647055"  price="0" >+1.75 </option>
+                <option value="4647056"  price="0" >+1.50 </option>
+                <option value="4647057"  price="0" >+1.25 </option>
+                <option value="4647058"  price="0" >+1.00 </option>
+                <option value="4647059"  price="0" >+0.75 </option>
+                <option value="4647060"  price="0" >+0.50 </option>
+                <option value="4647061"  price="0" >+0.25 </option>
+                <option value="4647062"  price="0" >0.00 </option>
+                <option value="4647063"  price="0" >Plano </option>
+                <option value="4647064"  price="0" >Infinity </option>
+                <option value="4647065"  price="0" >~ </option>
+                <option value="4647066"  price="0" >-0.25 </option>
+                <option value="4647067"  price="0" >-0.50 </option>
+                <option value="4647068"  price="0" >-0.75 </option>
+                <option value="4647069"  price="0" >-1.00 </option>
+                <option value="4647070"  price="0" >-1.25 </option>
+                <option value="4647071"  price="0" >-1.50 </option>
+                <option value="4647072"  price="0" >-1.75 </option>
+                <option value="4647073"  price="0" >-2.00 </option>
+                <option value="4647074"  price="0" >-2.25 </option>
+                <option value="4647075"  price="0" >-2.50 </option>
+                <option value="4647076"  price="0" >-2.75 </option>
+                <option value="4647077"  price="0" >-3.00 </option>
+                <option value="4647078"  price="0" >-3.25 </option>
+                <option value="4647079"  price="0" >-3.50 </option>
+                <option value="4647080"  price="0" >-3.75 </option>
+                <option value="4647081"  price="0" >-4.00 </option>
+                <option value="4647082"  price="0" >-4.25 </option>
+                <option value="4647083"  price="0" >-4.50 </option>
+                <option value="4647084"  price="0" >-4.75 </option>
+                <option value="4647085"  price="0" >-5.00 </option>
+                <option value="4647086"  price="0" >-5.25 </option>
+                <option value="4647087"  price="0" >-5.50 </option>
+                <option value="4647088"  price="0" >-5.75 </option>
+                <option value="4647089"  price="0" >-6.00 </option>
+                <option value="4647090"  price="0" >-6.25 </option>
+                <option value="4647091"  price="0" >-6.50 </option>
+                <option value="4647092"  price="0" >-6.75 </option>
+                <option value="4647093"  price="0" >-7.00 </option>
+                <option value="4647094"  price="0" >-7.25 </option>
+                <option value="4647095"  price="0" >-7.50 </option>
+                <option value="4647096"  price="0" >-7.75 </option>
+                <option value="4647097"  price="0" >-8.00 </option>
+              </select>
+            </div>
+          </dd>
+          </div>
+          
+          <div class="cyl">          
+          <dt>
+            <label class="required"><em>*</em>CYL (Cylinder)</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <select name="options[98707]" id="select_98707" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+                <option value="" >-- Please Select --</option>
+                <option value="4647098"  price="15" >+6.00 +£15.00</option>
+                <option value="4647099"  price="15" >+5.75 +£15.00</option>
+                <option value="4647100"  price="15" >+5.50 +£15.00</option>
+                <option value="4647101"  price="15" >+5.25 +£15.00</option>
+                <option value="4647102"  price="15" >+5.00 +£15.00</option>
+                <option value="4647103"  price="15" >+4.75 +£15.00</option>
+                <option value="4647104"  price="15" >+4.50 +£15.00</option>
+                <option value="4647105"  price="15" >+4.25 +£15.00</option>
+                <option value="4647106"  price="15" >+4.00 +£15.00</option>
+                <option value="4647107"  price="15" >+3.75 +£15.00</option>
+                <option value="4647108"  price="15" >+3.50 +£15.00</option>
+                <option value="4647109"  price="15" >+3.25 +£15.00</option>
+                <option value="4647110"  price="15" >+3.00 +£15.00</option>
+                <option value="4647111"  price="15" >+2.75 +£15.00</option>
+                <option value="4647112"  price="15" >+2.50 +£15.00</option>
+                <option value="4647113"  price="15" >+2.25 +£15.00</option>
+                <option value="4647114"  price="0" >+2.00 </option>
+                <option value="4647115"  price="0" >+1.75 </option>
+                <option value="4647116"  price="0" >+1.50 </option>
+                <option value="4647117"  price="0" >+1.25 </option>
+                <option value="4647118"  price="0" >+1.00 </option>
+                <option value="4647119"  price="0" >+0.75 </option>
+                <option value="4647120"  price="0" >+0.50 </option>
+                <option value="4647121"  price="0" >+0.25 </option>
+                <option value="4647122"  price="0" >None </option>
+                <option value="4647123"  price="0" >DS </option>
+                <option value="4647124"  price="0" >Plano </option>
+                <option value="4647125"  price="0" >Infinity </option>
+                <option value="4647126"  price="0" >~ </option>
+                <option value="4647127"  price="0" >-0.25 </option>
+                <option value="4647128"  price="0" >-0.50 </option>
+                <option value="4647129"  price="0" >-0.75 </option>
+                <option value="4647130"  price="0" >-1.00 </option>
+                <option value="4647131"  price="0" >-1.25 </option>
+                <option value="4647132"  price="0" >-1.50 </option>
+                <option value="4647133"  price="0" >-1.75 </option>
+                <option value="4647134"  price="0" >-2.00 </option>
+                <option value="4647135"  price="15" >-2.25 +£15.00</option>
+                <option value="4647136"  price="15" >-2.50 +£15.00</option>
+                <option value="4647137"  price="15" >-2.75 +£15.00</option>
+                <option value="4647138"  price="15" >-3.00 +£15.00</option>
+                <option value="4647139"  price="15" >-3.25 +£15.00</option>
+                <option value="4647140"  price="15" >-3.50 +£15.00</option>
+                <option value="4647141"  price="15" >-3.75 +£15.00</option>
+                <option value="4647142"  price="15" >-4.00 +£15.00</option>
+                <option value="4647143"  price="15" >-4.25 +£15.00</option>
+                <option value="4647144"  price="15" >-4.50 +£15.00</option>
+                <option value="4647145"  price="15" >-4.75 +£15.00</option>
+                <option value="4647146"  price="15" >-5.00 +£15.00</option>
+                <option value="4647147"  price="15" >-5.25 +£15.00</option>
+                <option value="4647148"  price="15" >-5.50 +£15.00</option>
+                <option value="4647149"  price="15" >-5.75 +£15.00</option>
+                <option value="4647150"  price="15" >-6.00 +£15.00</option>
+              </select>
+            </div>
+          </dd>
+          </div>
+          
+          <div class="axis">          
+          <dt>
+            <label class="required"><em>*</em>Axis</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <select name="options[98708]" id="select_98708" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+                <option value="" >-- Please Select --</option>
+                <option value="4647151"  price="0" >0 </option>
+                <option value="4647152"  price="0" >1 </option>
+                <option value="4647153"  price="0" >2 </option>
+                <option value="4647154"  price="0" >3 </option>
+                <option value="4647155"  price="0" >4 </option>
+                <option value="4647156"  price="0" >5 </option>
+                <option value="4647157"  price="0" >6 </option>
+                <option value="4647158"  price="0" >7 </option>
+                <option value="4647159"  price="0" >8 </option>
+                <option value="4647160"  price="0" >9 </option>
+                <option value="4647161"  price="0" >10 </option>
+                <option value="4647162"  price="0" >11 </option>
+                <option value="4647163"  price="0" >12 </option>
+                <option value="4647164"  price="0" >13 </option>
+                <option value="4647165"  price="0" >14 </option>
+                <option value="4647166"  price="0" >15 </option>
+                <option value="4647167"  price="0" >16 </option>
+                <option value="4647168"  price="0" >17 </option>
+                <option value="4647169"  price="0" >18 </option>
+                <option value="4647170"  price="0" >19 </option>
+                <option value="4647171"  price="0" >20 </option>
+                <option value="4647172"  price="0" >21 </option>
+                <option value="4647173"  price="0" >22 </option>
+                <option value="4647174"  price="0" >23 </option>
+                <option value="4647175"  price="0" >24 </option>
+                <option value="4647176"  price="0" >25 </option>
+                <option value="4647177"  price="0" >26 </option>
+                <option value="4647178"  price="0" >27 </option>
+                <option value="4647179"  price="0" >28 </option>
+                <option value="4647180"  price="0" >29 </option>
+                <option value="4647181"  price="0" >30 </option>
+                <option value="4647182"  price="0" >31 </option>
+                <option value="4647183"  price="0" >32 </option>
+                <option value="4647184"  price="0" >33 </option>
+                <option value="4647185"  price="0" >34 </option>
+                <option value="4647186"  price="0" >35 </option>
+                <option value="4647187"  price="0" >36 </option>
+                <option value="4647188"  price="0" >37 </option>
+                <option value="4647189"  price="0" >38 </option>
+                <option value="4647190"  price="0" >39 </option>
+                <option value="4647191"  price="0" >40 </option>
+                <option value="4647192"  price="0" >41 </option>
+                <option value="4647193"  price="0" >42 </option>
+                <option value="4647194"  price="0" >43 </option>
+                <option value="4647195"  price="0" >44 </option>
+                <option value="4647196"  price="0" >45 </option>
+                <option value="4647197"  price="0" >46 </option>
+                <option value="4647198"  price="0" >47 </option>
+                <option value="4647199"  price="0" >48 </option>
+                <option value="4647200"  price="0" >49 </option>
+                <option value="4647201"  price="0" >50 </option>
+                <option value="4647202"  price="0" >51 </option>
+                <option value="4647203"  price="0" >52 </option>
+                <option value="4647204"  price="0" >53 </option>
+                <option value="4647205"  price="0" >54 </option>
+                <option value="4647206"  price="0" >55 </option>
+                <option value="4647207"  price="0" >56 </option>
+                <option value="4647208"  price="0" >57 </option>
+                <option value="4647209"  price="0" >58 </option>
+                <option value="4647210"  price="0" >59 </option>
+                <option value="4647211"  price="0" >60 </option>
+                <option value="4647212"  price="0" >61 </option>
+                <option value="4647213"  price="0" >62 </option>
+                <option value="4647214"  price="0" >63 </option>
+                <option value="4647215"  price="0" >64 </option>
+                <option value="4647216"  price="0" >65 </option>
+                <option value="4647217"  price="0" >66 </option>
+                <option value="4647218"  price="0" >67 </option>
+                <option value="4647219"  price="0" >68 </option>
+                <option value="4647220"  price="0" >69 </option>
+                <option value="4647221"  price="0" >70 </option>
+                <option value="4647222"  price="0" >71 </option>
+                <option value="4647223"  price="0" >72 </option>
+                <option value="4647224"  price="0" >73 </option>
+                <option value="4647225"  price="0" >74 </option>
+                <option value="4647226"  price="0" >75 </option>
+                <option value="4647227"  price="0" >76 </option>
+                <option value="4647228"  price="0" >77 </option>
+                <option value="4647229"  price="0" >78 </option>
+                <option value="4647230"  price="0" >79 </option>
+                <option value="4647231"  price="0" >80 </option>
+                <option value="4647232"  price="0" >81 </option>
+                <option value="4647233"  price="0" >82 </option>
+                <option value="4647234"  price="0" >83 </option>
+                <option value="4647235"  price="0" >84 </option>
+                <option value="4647236"  price="0" >85 </option>
+                <option value="4647237"  price="0" >86 </option>
+                <option value="4647238"  price="0" >87 </option>
+                <option value="4647239"  price="0" >88 </option>
+                <option value="4647240"  price="0" >89 </option>
+                <option value="4647241"  price="0" >90 </option>
+                <option value="4647242"  price="0" >91 </option>
+                <option value="4647243"  price="0" >92 </option>
+                <option value="4647244"  price="0" >93 </option>
+                <option value="4647245"  price="0" >94 </option>
+                <option value="4647246"  price="0" >95 </option>
+                <option value="4647247"  price="0" >96 </option>
+                <option value="4647248"  price="0" >97 </option>
+                <option value="4647249"  price="0" >98 </option>
+                <option value="4647250"  price="0" >99 </option>
+                <option value="4647251"  price="0" >100 </option>
+                <option value="4647252"  price="0" >101 </option>
+                <option value="4647253"  price="0" >102 </option>
+                <option value="4647254"  price="0" >103 </option>
+                <option value="4647255"  price="0" >104 </option>
+                <option value="4647256"  price="0" >105 </option>
+                <option value="4647257"  price="0" >106 </option>
+                <option value="4647258"  price="0" >107 </option>
+                <option value="4647259"  price="0" >108 </option>
+                <option value="4647260"  price="0" >109 </option>
+                <option value="4647261"  price="0" >110 </option>
+                <option value="4647262"  price="0" >111 </option>
+                <option value="4647263"  price="0" >112 </option>
+                <option value="4647264"  price="0" >113 </option>
+                <option value="4647265"  price="0" >114 </option>
+                <option value="4647266"  price="0" >115 </option>
+                <option value="4647267"  price="0" >116 </option>
+                <option value="4647268"  price="0" >117 </option>
+                <option value="4647269"  price="0" >118 </option>
+                <option value="4647270"  price="0" >119 </option>
+                <option value="4647271"  price="0" >120 </option>
+                <option value="4647272"  price="0" >121 </option>
+                <option value="4647273"  price="0" >122 </option>
+                <option value="4647274"  price="0" >123 </option>
+                <option value="4647275"  price="0" >124 </option>
+                <option value="4647276"  price="0" >125 </option>
+                <option value="4647277"  price="0" >126 </option>
+                <option value="4647278"  price="0" >127 </option>
+                <option value="4647279"  price="0" >128 </option>
+                <option value="4647280"  price="0" >129 </option>
+                <option value="4647281"  price="0" >130 </option>
+                <option value="4647282"  price="0" >131 </option>
+                <option value="4647283"  price="0" >132 </option>
+                <option value="4647284"  price="0" >133 </option>
+                <option value="4647285"  price="0" >134 </option>
+                <option value="4647286"  price="0" >135 </option>
+                <option value="4647287"  price="0" >136 </option>
+                <option value="4647288"  price="0" >137 </option>
+                <option value="4647289"  price="0" >138 </option>
+                <option value="4647290"  price="0" >139 </option>
+                <option value="4647291"  price="0" >140 </option>
+                <option value="4647292"  price="0" >141 </option>
+                <option value="4647293"  price="0" >142 </option>
+                <option value="4647294"  price="0" >143 </option>
+                <option value="4647295"  price="0" >144 </option>
+                <option value="4647296"  price="0" >145 </option>
+                <option value="4647297"  price="0" >146 </option>
+                <option value="4647298"  price="0" >147 </option>
+                <option value="4647299"  price="0" >148 </option>
+                <option value="4647300"  price="0" >149 </option>
+                <option value="4647301"  price="0" >150 </option>
+                <option value="4647302"  price="0" >151 </option>
+                <option value="4647303"  price="0" >152 </option>
+                <option value="4647304"  price="0" >153 </option>
+                <option value="4647305"  price="0" >154 </option>
+                <option value="4647306"  price="0" >155 </option>
+                <option value="4647307"  price="0" >156 </option>
+                <option value="4647308"  price="0" >157 </option>
+                <option value="4647309"  price="0" >158 </option>
+                <option value="4647310"  price="0" >159 </option>
+                <option value="4647311"  price="0" >160 </option>
+                <option value="4647312"  price="0" >161 </option>
+                <option value="4647313"  price="0" >162 </option>
+                <option value="4647314"  price="0" >163 </option>
+                <option value="4647315"  price="0" >164 </option>
+                <option value="4647316"  price="0" >165 </option>
+                <option value="4647317"  price="0" >166 </option>
+                <option value="4647318"  price="0" >167 </option>
+                <option value="4647319"  price="0" >168 </option>
+                <option value="4647320"  price="0" >169 </option>
+                <option value="4647321"  price="0" >170 </option>
+                <option value="4647322"  price="0" >171 </option>
+                <option value="4647323"  price="0" >172 </option>
+                <option value="4647324"  price="0" >173 </option>
+                <option value="4647325"  price="0" >174 </option>
+                <option value="4647326"  price="0" >175 </option>
+                <option value="4647327"  price="0" >176 </option>
+                <option value="4647328"  price="0" >177 </option>
+                <option value="4647329"  price="0" >178 </option>
+                <option value="4647330"  price="0" >179 </option>
+                <option value="4647331"  price="0" >180 </option>
+              </select>
+            </div>
+          </dd>
+          </div>
+          
+          <div class="near_add">          
+          <dt>
+            <label class="required"><em>*</em>Near / Add</label>
+          </dt>
+          <dd>
+            <div class="input-box">
+              <select name="options[98709]" id="select_98709" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+                <option value="" >-- Please Select --</option>
+                <option value="4647332"  price="0" >+0.00 </option>
+                <option value="4647333"  price="0" >+0.25 </option>
+                <option value="4647334"  price="0" >+0.50 </option>
+                <option value="4647335"  price="0" >+0.75 </option>
+                <option value="4647336"  price="0" >+1.00 </option>
+                <option value="4647337"  price="0" >+1.25 </option>
+                <option value="4647338"  price="0" >+1.50 </option>
+                <option value="4647339"  price="0" >+1.75 </option>
+                <option value="4647340"  price="0" >+2.00 </option>
+                <option value="4647341"  price="0" >+2.25 </option>
+                <option value="4647342"  price="0" >+2.50 </option>
+                <option value="4647343"  price="0" >+2.75 </option>
+                <option value="4647344"  price="0" >+3.00 </option>
+                <option value="4647345"  price="0" >+3.25 </option>
+                <option value="4647346"  price="0" >+3.50 </option>
+                <option value="4647347"  price="0" >+3.75 </option>
+                <option value="4647348"  price="0" >+4.00 </option>
+              </select>
+            </div>
+          </dd>
+          </div>
+          </div>
+          
+          
+          <dt>
+            <label class="required"><em>*</em>PD (Pupil Distance)</label>
+          </dt>
+          <dd class="last">
+            <div class="input-box">
+              <select name="options[98710]" id="select_98710" class=" required-entry product-custom-option" title=""  onchange="opConfig.reloadPrice()">
+                <option value="" >-- Please Select --</option>
+                <option value="4647349"  price="0" >52 </option>
+                <option value="4647350"  price="0" >53 </option>
+                <option value="4647351"  price="0" >54 </option>
+                <option value="4647352"  price="0" >55 </option>
+                <option value="4647353"  price="0" >56 </option>
+                <option value="4647354"  price="0" >57 </option>
+                <option value="4647355"  price="0" >58 </option>
+                <option value="4647356"  price="0" >59 </option>
+                <option value="4647357"  price="0" >60 </option>
+                <option value="4647358"  price="0" >61 </option>
+                <option value="4647359"  price="0" >62 </option>
+                <option value="4647360"  price="0" >63 (average) </option>
+                <option value="4647361"  price="0" >64 </option>
+                <option value="4647362"  price="0" >65 </option>
+                <option value="4647363"  price="0" >66 </option>
+                <option value="4647364"  price="0" >67 </option>
+                <option value="4647365"  price="0" >68 </option>
+                <option value="4647366"  price="0" >69 </option>
+                <option value="4647367"  price="0" >70 </option>
+                <option value="4647368"  price="0" >71 </option>
+                <option value="4647369"  price="0" >72 </option>
+                <option value="4647370"  price="0" >73 </option>
+                <option value="4647371"  price="0" >74 </option>
+                <option value="4647372"  price="0" >75 </option>
+              </select>
+            </div>
+          </dd>
+          
+          <div id="presc_help">
+          <!--<p>If you are unable to enter your prescription please <a href="mailto:info@fashioneyewear.co.uk?subject=<?php echo $_product->getProductUrl() ?>">click here</a> and one of our experienced prescription team will contact you to discuss your requirements. Alternatively contact our practice on 
+08448 870840. <a href="#">Click here</a> to view a prescription example.</p>-->
+          </div>
+          
+        </dl>
+        <script type="text/javascript">
+//<![CDATA[
+enUS = {"m":{"wide":["January","February","March","April","May","June","July","August","September","October","November","December"],"abbr":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}}; // en_US locale reference
+Calendar._DN = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]; // full day names
+Calendar._SDN = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; // short day names
+Calendar._FD = 0; // First day of the week. "0" means display Sunday first, "1" means display Monday first, etc.
+Calendar._MN = ["January","February","March","April","May","June","July","August","September","October","November","December"]; // full month names
+Calendar._SMN = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]; // short month names
+Calendar._am = "AM"; // am/pm
+Calendar._pm = "PM";
+
+// tooltips
+Calendar._TT = {};
+Calendar._TT["INFO"] = "About the calendar";
+
+Calendar._TT["ABOUT"] =
+"DHTML Date/Time Selector\n" +
+"(c) dynarch.com 2002-2005 / Author: Mihai Bazon\n" +
+"For latest version visit: http://www.dynarch.com/projects/calendar/\n" +
+"Distributed under GNU LGPL. See http://gnu.org/licenses/lgpl.html for details." +
+"\n\n" +
+"Date selection:\n" +
+"- Use the \xab, \xbb buttons to select year\n" +
+"- Use the " + String.fromCharCode(0x2039) + ", " + String.fromCharCode(0x203a) + " buttons to select month\n" +
+"- Hold mouse button on any of the above buttons for faster selection.";
+Calendar._TT["ABOUT_TIME"] = "\n\n" +
+"Time selection:\n" +
+"- Click on any of the time parts to increase it\n" +
+"- or Shift-click to decrease it\n" +
+"- or click and drag for faster selection.";
+
+Calendar._TT["PREV_YEAR"] = "Prev. year (hold for menu)";
+Calendar._TT["PREV_MONTH"] = "Prev. month (hold for menu)";
+Calendar._TT["GO_TODAY"] = "Go Today";
+Calendar._TT["NEXT_MONTH"] = "Next month (hold for menu)";
+Calendar._TT["NEXT_YEAR"] = "Next year (hold for menu)";
+Calendar._TT["SEL_DATE"] = "Select date";
+Calendar._TT["DRAG_TO_MOVE"] = "Drag to move";
+Calendar._TT["PART_TODAY"] = ' (' + "Today" + ')';
+
+// the following is to inform that "%s" is to be the first day of week
+Calendar._TT["DAY_FIRST"] = "Display %s first";
+
+// This may be locale-dependent. It specifies the week-end days, as an array
+// of comma-separated numbers. The numbers are from 0 to 6: 0 means Sunday, 1
+// means Monday, etc.
+Calendar._TT["WEEKEND"] = "0,6";
+
+Calendar._TT["CLOSE"] = "Close";
+Calendar._TT["TODAY"] = "Today";
+Calendar._TT["TIME_PART"] = "(Shift-)Click or drag to change value";
+
+// date formats
+Calendar._TT["DEF_DATE_FORMAT"] = "%e %b %Y";
+Calendar._TT["TT_DATE_FORMAT"] = "%e %B %Y";
+
+Calendar._TT["WK"] = "Week";
+Calendar._TT["TIME"] = "Time:";
+//]]>
+</script>
+        <p class="required">* Required Fields</p>
+      </div>
+
+<?php 
+//-------------------------------------------------------
+// Like Digital Options End
+//-------------------------------------------------------            
+?>
+      <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+      <?php endif;?>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                   form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+    //]]>
+    </script> 
+  </div>
+</div>  

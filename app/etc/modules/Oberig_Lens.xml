@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oberig_Lens>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Oberig_Lens>
+    </modules>
+</config>

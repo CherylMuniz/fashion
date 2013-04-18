@@ -1,0 +1,11 @@
+<config>
+    <modules>
+        <DevNick_AsknFeedback>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment />
+            </depends>
+        </DevNick_AsknFeedback>
+    </modules>
+</config>

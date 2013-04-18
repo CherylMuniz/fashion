@@ -1,0 +1,8 @@
+what devNick module uses it? 
+
+skin/frontend/default/likedigital/devnick
+skin/frontend/base/default/images/devnick
+
+TODO: add this folder to some installator module
+
+/home/www/production/Profile.xml - for rotate360 module

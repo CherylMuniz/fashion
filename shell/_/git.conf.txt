@@ -1,0 +1,4 @@
+original:
+[root@www demo]# git config -l
+user.name=Fashion Eye Wear Production
+user.email=git@fashioneyewear.co.uk

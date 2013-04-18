@@ -1,0 +1,12 @@
+Add to catalog.xml
+<catalog_product_view translate="label">
+    <reference name="content">
+        <block type="catalog/product_list_related" name="catalog.product.lenses" as="related_products" template="catalog/product/list/lenses.phtml"/>
+        
+        and remove or comment 
+        <block type="catalog/product_list_related" name="catalog.product.related" before="-" template="catalog/product/list/related.phtml"/>
+        
+        
+        add to page.xml before prototype.js :
+             <block type="page/html_head" name="head" as="head">
+                <action method="addJs"><script>jquery/jquery-1.8.0.js</script></action>

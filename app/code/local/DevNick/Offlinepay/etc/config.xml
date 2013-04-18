@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+       <DevNick_OfflinePay>
+          <version>0.0.3</version>
+       </DevNick_OfflinePay>
+    </modules>
+    <frontend>
+        <routers>
+            <offlinepay>
+                <use>standard</use>
+                <args>
+                    <module>DevNick_Offlinepay</module>
+                    <frontName>offlinepay</frontName>
+                </args>
+            </offlinepay>
+        </routers>
+    </frontend>
+    <global>
+        <blocks>
+            <offlinepay>
+                <class>DevNick_Offlinepay_Block</class>
+            </offlinepay>
+        </blocks>
+        <helpers>
+            <offlinepay>
+                <class>DevNick_Offlinepay_Helper</class>
+            </offlinepay>
+        </helpers>
+        <models>
+            <sales>
+                <rewrite>
+                    <order>DevNick_Offlinepay_Model_Order</order>
+                </rewrite>
+            </sales>
+            <offlinepay>
+                <class>DevNick_Offlinepay_Model</class>
+            </offlinepay>
+        </models>
+ 
+        <resources>
+            <offlinepay_setup>
+                <setup>
+                    <module>DevNick_Offlinepay</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </offlinepay_setup>
+            <offlinepay_write>
+                <connection>
+                  <use>core_write</use>
+                </connection>
+            </offlinepay_write>
+            <offlinepay_read>
+               <connection>
+                <use>core_read</use>
+              </connection>
+            </offlinepay_read>
+        </resources>
+        <!--<events>
+            <sales_order_save_after>
+                <observers>
+                    <customer_order_observer>
+                        <type>singleton</type>
+                        <class>offlinepay/observer</class>
+                        <method>offpayoption</method>
+                    </customer_order_observer>
+                </observers>
+            </sales_order_save_after>
+        </events>-->
+        
+        <template>
+            <email>
+                <offline_payment_tpl module="offlinepay">
+                    <label>Fashion Eyewear Payment</label>
+                    <file>offlinepayment.html</file>
+                    <type>html</type>
+                </offline_payment_tpl>
+            </email>
+        </template>
+    </global>
+ 
+    <default>
+        <payment>
+            <offlinepay>
+                <active>1</active>
+                <model>offlinepay/paymentMethod</model>
+                <order_status>pending</order_status>
+                <title>Offline Payment (card)</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </offlinepay>
+            <offpaypal>
+                <active>1</active>
+                <model>offlinepay/paypalMethod</model>
+                <order_status>pending</order_status>
+                <title>Paypal Payment (admin)</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </offpaypal>
+            <offsagepay>
+                <active>1</active>
+                <model>offlinepay/sagepayMethod</model>
+                <order_status>pending</order_status>
+                <title>Offline Payment SagePay/PayPal</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </offsagepay>
+         </payment>
+    </default>
+</config>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Oberig_Shipmentmass>
+            <version>0.1.1</version>
+        </Oberig_Shipmentmass>
+    </modules>
+    <adminhtml>
+        <events>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <shipmentmass_core_block_abstract_prepare_layout_before>
+                        <class>shipmentmass/observer</class>
+                        <method>addMassAction</method>
+                    </shipmentmass_core_block_abstract_prepare_layout_before>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+        </events>
+    </adminhtml>
+    <admin>
+        <routers>
+            <the_name_of_this_element_is_not_important_it_should_be_unique>
+                <use>admin</use>
+                <args>
+                    <module>Oberig_Shipmentmass</module>
+                    <frontName>shipmentmass</frontName>
+                </args>
+            </the_name_of_this_element_is_not_important_it_should_be_unique>
+        </routers>
+    </admin>
+    <global>
+        <routers>
+            <shipmentmass>
+            <use>admin</use>
+            <args>
+                <module>Oberig_Shipmentmass</module>
+                <frontName>shipmentmass</frontName>
+            </args>
+            </shipmentmass>
+        </routers>
+        <models>
+            <shipmentmass>
+                <class>Oberig_Shipmentmass_Model</class>
+            </shipmentmass>
+        </models>
+    </global>
+</config>

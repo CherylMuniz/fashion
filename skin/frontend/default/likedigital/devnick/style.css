@@ -1,0 +1,26 @@
+.sidetabs {
+    position: fixed;
+    z-index: 1000;
+    left: 0px;
+    display: block;
+}
+#fancybox-content .main {
+    border: none;
+    width: auto;
+}
+.sidetabs a {
+    height: 116px;
+    display: block;
+    width: 41px;
+    /*border: 1px solid #040507;*/
+    border-left: 0px !important;
+    margin-bottom: 5px;
+}
+
+.ask-us-dev {
+    background: #040507 url('ask.png');
+}
+
+.feed-us-dev {
+    background: #040507 url('feedback.png');
+}

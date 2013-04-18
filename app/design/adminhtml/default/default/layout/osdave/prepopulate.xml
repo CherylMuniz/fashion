@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <prepopulate_adminhtml_prepopulate_index>
+        <reference name="content">
+            <block type="prepopulate/adminhtml_prepopulate" name="prepopulate" />
+        </reference>
+    </prepopulate_adminhtml_prepopulate_index>
+    
+    <adminhtml_sales_order_view>
+        <reference name="head">
+            <action method="addJs"><file>osdave/prepopulate/order_messages.js</file></action>
+        </reference>
+    </adminhtml_sales_order_view>
+    
+    <prepopulate_messages_dropdown>
+        <block type="prepopulate/adminhtml_order_messages" name="dropdown" as="dropdown" template="prepopulate/order/dropdown.phtml" output="toHtml" />
+    </prepopulate_messages_dropdown>
+</layout>

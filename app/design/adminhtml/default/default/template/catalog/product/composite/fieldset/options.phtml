@@ -1,0 +1,194 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<?php echo $this->getChildHtml('options_js') ?>
+<?php //$_options = Mage::helper('core')->decorateArray($this->getOptions()) ?>
+<?php $_options = $this->getOptions(); ?>
+<?php if (count($_options)):?>
+    <dl>
+    <?php foreach($_options as &$_option): ?>
+        <?php if( $_option['title'] === 'Please select your frame size' ) : ?>
+            <?php echo $this->getOptionHtml($_option) ?>
+            <?php unset($_option); break; ?>
+        <?php endif ?>
+    <?php endforeach; unset($_option); ?>
+
+    <?php $isLenses = false; foreach($_options as &$_option){ if( $_option['sku'] == 'lens_type' ) { $isLenses = true;} }unset($_option); ?>
+    <?php if($isLenses) : ?>
+        <div class = "tbl" id="lensOptionsTable">
+                <?php foreach($_options as &$_option): ?>
+                    <?php if( $_option['sku'] == 'lens_type' ) : ?>
+                    <?php // mage::d($_option->getData()); ?>
+                        <div class="tr" id="lens_type"><div class="td">
+                            <div class="block-title">
+                                <strong><span><?php if( $_option->getIsRequire() ){ echo '<span class="required"><em>*</em></span>'; } echo $this->__( $_option->getTitle() ) ?></span></strong>
+                                <!-- label<?php if ($_option->getIsRequire()) echo ' class="required"' ?>><?php if ($_option->getIsRequire()) echo '<em>*</em>' ?><?php echo  $this->htmlEscape($_option->getTitle()) ?></label -->
+                            </div>
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div></div>
+                            <?php unset($_option); break; ?>
+                    <?php endif ?>
+                <?php endforeach; unset($_option); ?>
+                <?php foreach($_options as &$_option): ?>
+                    <?php if( $_option['sku'] == 'lens_glasses_for' ) : ?>
+                    <?php // mage::d($_option->getData()); ?>
+                        <div class="tr" id="lens_glasses_for"><div class="td">
+                            <div class="block-title">
+                                <strong><span><?php if( $_option->getIsRequire() ){ echo '<span class="required"><em>*</em></span>'; } echo $this->__( $_option->getTitle() ) ?></span></strong>
+                            </div>
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div></div>
+                            <?php unset($_option); break; ?>
+                    <?php endif ?>
+                <?php endforeach; unset($_option); ?>
+                
+                <?php foreach($_options as &$_option): ?>
+                    <?php if( $_option['sku'] == 'lens_varifocal_type' ) : ?>
+                        <div class="tr" id="lens_varifocal_type"><div class="td">
+                            <div class="block-title">
+                                <strong><span><?php if( $_option->getIsRequire() ){ echo '<span class="required"><em>*</em></span>'; } if( $_option->getIsRequire() ){ echo '<span class="required"><em>*</em></span>'; } echo $this->__( $_option->getTitle() ) ?></span></strong>
+                            </div>
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div></div>
+                            <?php unset($_option); break; ?>
+                    <?php endif ?>
+                <?php endforeach; unset($_option); ?>
+
+                <?php foreach($_options as &$_option): ?>
+                    <?php if( $_option['sku'] == 'lens_thickness' ) : ?>
+                        <div class="tr" id="lens_thickness"><div class="td">
+                            <div class="block-title">
+                                <strong><span><?php if( $_option->getIsRequire() ){ echo '<span class="required"><em>*</em></span>'; } echo $this->__( $_option->getTitle() ) ?></span></strong>
+                            </div>
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div></div>
+                            <?php unset($_option); break; ?>
+                    <?php endif ?>
+                <?php endforeach; unset($_option); ?>
+                
+                <?php foreach($_options as &$_option): ?>
+                    <?php if( $_option['sku'] == 'lens_tint' ) : ?>
+                        <div class="tr" id="lens_tint"><div class="td">
+                            <div class="block-title">
+                                <strong><span><?php if( $_option->getIsRequire() ){ echo '<span class="required"><em>*</em></span>'; } echo $this->__( $_option->getTitle() ) ?></span></strong>
+                            </div>
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div></div>
+                            <?php unset($_option); break; ?>
+                    <?php endif ?>
+                <?php endforeach; unset($_option); ?>
+                
+                <?php foreach($_options as &$_option): ?>
+                    <?php if( $_option['sku'] == 'lens_color' ) : ?>
+                        <div class="tr" id="lens_color"><div class="td">
+                            <div class="block-title">
+                                <strong><span><?php if( $_option->getIsRequire() ){ echo '<span class="required"><em>*</em></span>'; } echo $this->__( $_option->getTitle() ) ?></span></strong>
+                            </div>
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div></div>
+                            <?php unset($_option); break; ?>
+                    <?php endif ?>
+                <?php endforeach; unset($_option); ?>
+                
+                <?php foreach($_options as &$_option): ?>
+                    <?php if( $_option['sku'] == 'lens_tint_depth' ) : ?>
+                        <div class="tr" id="lens_tint_depth"><div class="td">
+                            <div class="block-title">
+                                <strong><span><?php if( $_option->getIsRequire() ){ echo '<span class="required"><em>*</em></span>'; } echo $this->__( $_option->getTitle() ) ?></span></strong>
+                            </div>
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div></div>
+                            <?php unset($_option); break; ?>
+                    <?php endif ?>
+                <?php endforeach; unset($_option); ?>
+                
+                <?php foreach($_options as &$_option): ?>
+                    <?php if( $_option['sku'] == 'lens_coating' ) : ?>
+                        <div class="tr" id="lens_coating"><div class="td">
+                            <div class="block-title">
+                                <strong><span><?php if( $_option->getIsRequire() ){ echo '<span class="required"><em>*</em></span>'; } echo $this->__( $_option->getTitle() ) ?></span></strong>
+                            </div>
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div></div>
+                            <?php unset($_option); break; ?>
+                    <?php endif ?>
+                <?php endforeach; unset($_option); ?>
+        </div>
+    <?php endif; //if($isLenses) ?>
+
+     <?php $prescription = false; foreach($_options as &$_option){ if( $_option['sku'] == 'pupil_distance' ) { $prescription = true;} }unset($_option); ?>
+     <?php if($prescription) : ?>
+        <div class="clearer"></div>
+        <div class="block-title">
+            <strong><span><?php echo $this->__('PLEASE ADD YOUR PRESCRIPTION BELOW') ?></span></strong>
+        </div>
+        <div class="prescription-advise">
+            <span><?php echo $this->__('Please ensure all + or - values are correct') ?></span>
+        </div>
+                
+        <table id="lensPrescriptionTable">
+            <tr class="eyestitle"><td colspan="4"><span><label><?php echo $this->__('Right eye') ?>:</label></span></td></tr>
+            <tr class="eyes">
+            <?php foreach($_options as &$_option): ?>
+            <?php if( strpos($_option['sku'], 'right') !== false ):  $_option['title'] = str_replace("right", "", $_option['title']); ?>
+                <td><?php echo $this->getOptionHtml($_option) ?></td>
+                <?php unset($_option); ?>
+               <?php endif ?>
+            <?php endforeach; unset($_option); ?>
+            </tr>
+            <tr class="eyestitle"><td colspan="4"><span><label><?php echo $this->__('Left eye') ?>:</label></span></td></tr>
+            <tr class="eyes">
+            <?php foreach($_options as &$_option): ?>
+            <?php if( strpos($_option['sku'], 'left') !== false ):  $_option['title'] = str_replace("left", "", $_option['title']); ?>
+                <td><?php echo $this->getOptionHtml($_option) ?></td>
+                <?php unset($_option); ?>
+               <?php endif ?>
+            <?php endforeach; unset($_option);  ?>
+            </tr>
+            <tr><td colspan="4">
+            <?php foreach($_options as &$_option): ?>
+                <?php if( 'lens_for_product' == $_option['sku'] ): ?>
+                    <?php $this->addOptionRenderer('text', 'catalog/product_view_options_type_text', 'catalog/product/view/options/type/text3.phtml');
+                    echo $this->getOptionHtml($_option) ?>
+                    <?php unset($_option); break; ?>
+                <?php endif ?>
+            <?php endforeach; unset($_option); ?>
+            </td></tr>
+            <tr><td colspan="4">
+            <?php foreach($_options as &$_option): ?>
+                <?php if( 'prescription_notes' == $_option['sku'] ): ?>
+                    <?php 
+                    $this->addOptionRenderer('text', 'catalog/product_view_options_type_text', 'catalog/product/view/options/type/text1.phtml');
+                    echo $this->getOptionHtml($_option) ?>
+                    <?php unset($_option); break; ?>
+                <?php endif ?>
+            <?php endforeach; unset($_option); ?>
+            </td></tr>
+        </table>
+    <?php endif //if($prescription) ?>
+    </dl>
+<?php endif; //count($options) ?>

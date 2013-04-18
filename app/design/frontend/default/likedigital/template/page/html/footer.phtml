@@ -1,0 +1,372 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $product = mage::registry('product'); $controllerName = $this->getRequest()->getControllerName(); ?>
+    <div class="footer-container">
+      <div class="footer">
+        <?php if ( 'cart' != $controllerName  && 'onepage' != $controllerName ) : ?>
+            <div class="footer_banner"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_banner')->toHtml() ?> </div>
+            <?php echo $this->getChildHtml() ?>
+            <!-- div id="footer_payment_methods"><img style="margin: 30px 0 20px 0;" src="{{skin url='images/footer_payment2.gif'}}" alt="Payment methods" /></div -->
+            <div id="footer_cat_links">
+                <p><?php
+                $cat = Mage::getModel('catalog/category')->loadByAttribute('name', 'Designer Spectacles' );
+                $subcats = $cat->getCategories($cat->getId(), 0, true, true, true);
+                $delim = '';
+                foreach($subcats as $_category) {
+                    if ($delim) {
+                        echo $delim; 
+                    } else {
+                        $delim = ' | ';
+                    }
+                    if($_category->getIsActive()) {
+                        if($_category->getUrlKey() === 'armani-frames'){ echo "<a href='{$this->getUrl()}./clearance.html?manufacturer=75'>{$_category->getName()}</a>"; continue; }
+                        $caturl = $this->getUrl().'designer-spectacles/'.$_category->getUrlKey().'.html';
+                        $catname = str_replace(' ', '&nbsp;', $_category->getName());
+                        echo "<a href='$caturl'>$catname</a>"; 
+
+                    }
+                }
+                ?></p>
+                <p>Fashion Eyewear is proud to help you save money on <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>">Designer Glasses</a> and <a href="<?php echo Mage::getModel('core/url')->getBaseUrl(); ?>prescription-sunglasses.html">Prescription Sunglasses</a>, whilst making sure you receive the latest in eye care protection from our qualified opticians.&nbsp;<br /><br />&copy; Fashion Eyewear 2011</p>
+                </div>
+            <!--<p class="bugs"><?php echo $this->__('Help Us to Keep Magento Healthy') ?> - <a href="http://www.magentocommerce.com/bug-tracking" onclick="this.target='_blank'"><strong><?php echo $this->__('Report All Bugs') ?></strong></a> <?php echo $this->__('(ver. %s)', Mage::getVersion()) ?></p>-->
+        <address>
+        <?php echo $this->getCopyright() ?>
+        </address>
+        <?php endif //( 'cart' == $controllerName ) : ?>
+      </div>
+    </div>
+
+<?php if (Mage::getStoreConfig('oberigtab/mchimp/enabled',Mage::app()->getStore()) == 1): ?>
+<!-- Begin MailChimp Signup Form -->
+<link href="http://cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,.8);display:none;z-index:10000; }
+	#mc_embed_signup form{position:fixed; top:10%; left:58%; width:425px; margin-left:-25%; font:normal 100% Helvetica,Arial,sans-serif; font-size:14px; border-radius:4px; border:none; padding:10px 20px; background-color:#fff; color:#000; text-align:left;}
+	#mc_embed_signup a.mc_embed_close{background:transparent url(http://downloads.mailchimp.com/img/closebox.png) no-repeat; display:block; height:30px; width:30px; text-indent:-999em; position:absolute; top:-10px; right:-10px; display:none; }
+    .bodyText {margin-top: 20px;}
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="<?php echo $this->getUrl('oberigfashion/mailchimp/add') ?>" method="post" id="mc-oberig-form"> <!--id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"-->
+<div style="text-align: center;" class="af-element">
+<img alt="New Graphic" src="http://www.fashion-glasses.co.uk/images/banner.png">
+<div class="af-clear"></div>
+</div>
+<div class="bodyText">
+    <p>
+        <span style="font-size: 16px; font-family: arial,helvetica,sans-serif;">
+            <span style="color: #333333;">Get an additional
+            <span style="color: #ff0000;">
+                <strong>£10 Off Discount Code</strong>
+            </span> for your order today.
+            </span>
+        </span>
+        <span style="font-size: 16px; font-family: arial,helvetica,sans-serif;">
+            <span style="color: #333333;"></span>
+        </span>
+    </p>
+    <p>
+        <span style="font-size: 16px;">
+            <span style="font-family: helvetica;">
+                <strong>
+                    <span style="font-family: arial,helvetica,sans-serif; font-size: 14px;">* Plus Other Exclusive Discounts</span>
+                </strong>
+            </span>
+        </span>
+    </p>
+<p></p>
+    <p style="text-align: center;">(Minimum order of £100)
+        <span style="font-size: 16px;">
+            <span style="font-family: helvetica;">
+                <strong><span style="font-family: arial,helvetica,sans-serif; font-size: 14px;"></span></strong>
+            </span>
+        </span>
+    </p>
+</div>
+<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+	<label for="mce-EMAIL">First Name *
+</label>
+	<input value="" name="firstname" class="input-text required-entry"/>
+    <label for="mce-EMAIL">Email Address *
+    </label>
+	<input type="email" value="" name="email" class="input-text required-entry validate-email" id="mce-EMAIL">
+</div>
+<input type="hidden" value="html" name="EMAILTYPE" id="mce-EMAILTYPE-0">
+<!--<div class="mc-field-group input-group">
+    <strong>Email Format </strong>
+    <ul><li><input type="radio" value="html" name="EMAILTYPE" id="mce-EMAILTYPE-0"><label for="mce-EMAILTYPE-0">html</label></li>
+<li><input type="radio" value="text" name="EMAILTYPE" id="mce-EMAILTYPE-1"><label for="mce-EMAILTYPE-1">text</label></li>
+<li><input type="radio" value="mobile" name="EMAILTYPE" id="mce-EMAILTYPE-2"><label for="mce-EMAILTYPE-2">mobile</label></li>
+</ul>
+</div>-->
+<a href="#" id="mc_embed_close" class="mc_embed_close">Close</a>	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>	<div class="clear"><input type="submit" value="Yes - Email me the discount code" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+</div>
+<script type="text/javascript">// <![CDATA[
+          var varOberigFrom = new VarienForm('mc-oberig-form', true); // --
+// ]]></script>
+<!--
+<script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.form-n-validate.js"></script>
+-->
+<script type="text/javascript">
+ jQuery.noConflict();
+</script>
+<script type="text/javascript">
+var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='MMERGE1';ftypes[1]='text';
+try {
+    var jqueryLoaded=jQuery;
+    jqueryLoaded=true;
+} catch(err) {
+    var jqueryLoaded=false;
+}
+/*var head= document.getElementsByTagName('head')[0];
+if (!jqueryLoaded) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js';
+    head.appendChild(script);
+    if (script.readyState && script.onload!==null){
+        script.onreadystatechange= function () {
+              if (this.readyState == 'complete') mce_preload_check();
+        }    
+    }
+}
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'http://downloads.mailchimp.com/js/jquery.form-n-validate.js';
+head.appendChild(script);*/
+var err_style = '';
+try{
+    err_style = mc_custom_error_style;
+} catch(e){
+    err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
+}
+var head= document.getElementsByTagName('head')[0];
+var style= document.createElement('style');
+style.type= 'text/css';
+if (style.styleSheet) {
+  style.styleSheet.cssText = err_style;
+} else {
+  style.appendChild(document.createTextNode(err_style));
+}
+head.appendChild(style);
+
+setTimeout('mce_preload_check();', 250);
+
+var mce_preload_checks = 0;
+function mce_preload_check(){
+    if (mce_preload_checks>40) return;
+    mce_preload_checks++;
+    try {
+        var jqueryLoaded=jQuery;
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    try {
+        var validatorLoaded=jQuery("#fake-form").validate({});
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    mce_init_form();
+}
+function mce_init_form(){
+    jQuery(document).ready( function($) {
+        jQuery("#mc-oberig-form").bind("submit", function(){mcEvilPopupClose();})
+      var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
+      var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
+      $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
+      options = { url: 'http://FashionEyewear.us2.list-manage.com/subscribe/post-json?u=a33479c47349dbf5f4b3062eb&id=89b47cfe7e&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+                    beforeSubmit: function(){
+                        $('#mce_tmp_error_msg').remove();
+                        $('.datefield','#mc_embed_signup').each(
+                            function(){
+                                var txt = 'filled';
+                                var fields = new Array();
+                                var i = 0;
+                                $(':text', this).each(
+                                    function(){
+                                        fields[i] = this;
+                                        i++;
+                                    });
+                                $(':hidden', this).each(
+                                    function(){
+                                        var bday = false;
+                                        if (fields.length == 2){
+                                            bday = true;
+                                            fields[2] = {'value':1970};//trick birthdays into having years
+                                        }
+                                    	if ( fields[0].value=='MM' && fields[1].value=='DD' && (fields[2].value=='YYYY' || (bday && fields[2].value==1970) ) ){
+                                    		this.value = '';
+									    } else if ( fields[0].value=='' && fields[1].value=='' && (fields[2].value=='' || (bday && fields[2].value==1970) ) ){
+                                    		this.value = '';
+									    } else {
+	                                        this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+	                                    }
+                                    });
+                            });
+                        return mce_validator.form();
+                    }, 
+                    success: mce_success_cb
+                };
+      $('#mc-embedded-subscribe-form').ajaxForm(options);
+      
+              $('#mc_embed_signup').hide();
+        cks = document.cookie.split( ';' );
+        var show=true;
+        for(i=0;i<cks.length;i++){
+            parts = cks[i].split('=');
+            if( parts[0].indexOf('MCEvilPopupClosed')!= -1 ) show = false;
+        }
+        if (show){
+            $('#mc_embed_signup a.mc_embed_close').show();
+            setTimeout( function(){ $('#mc_embed_signup').fadeIn();} , 2000);
+	        $('#mc_embed_signup a.mc_embed_close').click(function(){ mcEvilPopupClose();});
+        }
+
+        $(document).keydown(function(e){
+            if (e == null) { 
+              keycode = event.keyCode;
+            } else { 
+              keycode = e.which;
+            }
+            if(keycode == 27){
+                mcEvilPopupClose();
+            }
+        });
+
+        function mcEvilPopupClose(){
+            $('#mc_embed_signup').hide();
+            var now = new Date();
+            var expires_date = new Date( now.getTime() + 31536000000 );
+            document.cookie = 'MCEvilPopupClosed=yes;expires=' + expires_date.toGMTString()+';path=/';
+        }
+
+    });
+}
+function mce_success_cb(resp){
+    $('#mce-success-response').hide();
+    $('#mce-error-response').hide();
+    if (resp.result=="success"){
+        $('#mce-'+resp.result+'-response').show();
+        $('#mce-'+resp.result+'-response').html(resp.msg);
+        $('#mc-embedded-subscribe-form').each(function(){
+            this.reset();
+    	});
+    } else {
+        var index = -1;
+        var msg;
+        try {
+            var parts = resp.msg.split(' - ',2);
+            if (parts[1]==undefined){
+                msg = resp.msg;
+            } else {
+                i = parseInt(parts[0]);
+                if (i.toString() == parts[0]){
+                    index = parts[0];
+                    msg = parts[1];
+                } else {
+                    index = -1;
+                    msg = resp.msg;
+                }
+            }
+        } catch(e){
+            index = -1;
+            msg = resp.msg;
+        }
+        try{
+            if (index== -1){
+                $('#mce-'+resp.result+'-response').show();
+                $('#mce-'+resp.result+'-response').html(msg);            
+            } else {
+                err_id = 'mce_tmp_error_msg';
+                html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
+                
+                var input_id = '#mc_embed_signup';
+                var f = $(input_id);
+                if (ftypes[index]=='address'){
+                    input_id = '#mce-'+fnames[index]+'-addr1';
+                    f = $(input_id).parent().parent().get(0);
+                } else if (ftypes[index]=='date'){
+                    input_id = '#mce-'+fnames[index]+'-month';
+                    f = $(input_id).parent().parent().get(0);
+                } else {
+                    input_id = '#mce-'+fnames[index];
+                    f = $().parent(input_id).get(0);
+                }
+                if (f){
+                    $(f).append(html);
+                    $(input_id).focus();
+                } else {
+                    $('#mce-'+resp.result+'-response').show();
+                    $('#mce-'+resp.result+'-response').html(msg);
+                }
+            }
+        } catch(e){
+            $('#mce-'+resp.result+'-response').show();
+            $('#mce-'+resp.result+'-response').html(msg);
+        }
+    }
+}
+
+</script>
+<!--End mc_embed_signup-->
+<?php endif; ?>
+<?php try{ $oberigfashion = Mage::helper('oberigfashion'); }catch(Exception $e){ } ?>
+<?php //if ( isset($oberigfashion) &&  Mage::helper('oberigfashion')->isLiveSite()) { ?>
+	<!-- Google Code for Pages  Visit Remarketing List -->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	var google_conversion_id = 1033081007;
+	var google_conversion_language = "en";
+	var google_conversion_format = "3";
+	var google_conversion_color = "666666";
+	var google_conversion_label = "Za-PCPXBvwIQr6HO7AM";
+	var google_conversion_value = 0;
+	/* ]]> */
+	</script>
+	<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+	</script>
+	<noscript>
+	<div style="display:inline;">
+	<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1033081007/?label=Za-PCPXBvwIQr6HO7AM&guid=ON&script=0"/>
+	</div>
+	</noscript>
+<?php //} ?>
+<a id="feedback-button" onclick="window.open('<?php echo $this->getUrl('contacts');?>','popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=700,height=500,screenX=100,screenY=100,top=100,left=100'); return false;" href="<?php echo $this->getUrl('contacts');?>"></a>
+<script type="text/javascript">
+    if ( $('footer_cat_links') ){
+        $('feedback-button').style.left = $('footer_cat_links').cumulativeOffset()[0] + $('footer_cat_links').getWidth() - 120 + 'px';
+    }
+</script>

@@ -1,0 +1,490 @@
+select e.sku from catalog_product_option_type_title t 
+    -> join catalog_product_option_type_value v on t.option_type_id = v.option_type_id 
+    -> join catalog_product_option o on o.option_id = v.option_id 
+    -> join catalog_product_entity e on e.entity_id = o.product_id
+    -> where t.title='One size only';
+
++-------------------+
+| sku               |
++-------------------+
+| BV8052B-6         |
+| BV8064-1          |
+| BV8064-2          |
+| BV8064-3          |
+| BV8064-4          |
+| Bvlgari BV6038B-1 |
+| Bvlgari BV6038B-2 |
+| Bvlgari BV6038B-4 |
+| Bvlgari BV6038B-6 |
+| Bvlgari BV6038B-7 |
+| Bvlgari BV6050B-1 |
+| Bvlgari BV6050B-2 |
+| Bvlgari BV6050B-3 |
+| Bvlgari BV6050B-4 |
+| Bvlgari BV6052B-1 |
+| Bvlgari BV6052B-2 |
+| Bvlgari BV6052B-3 |
+| Bvlgari BV6052B-4 |
+| Bvlgari BV6052B-5 |
+| Bvlgari BV8052B-1 |
+| Bvlgari BV8052B-2 |
+| Bvlgari BV8052B-3 |
+| Bvlgari BV8052B-4 |
+| Bvlgari BV8052B-5 |
+| Bvlgari BV8076-1  |
+| Bvlgari BV8076-2  |
+| Bvlgari BV8076-3  |
+| Bvlgari BV8077-1  |
+| Bvlgari BV8077-2  |
+| Bvlgari BV8077-3  |
+| Bvlgari BV8077-4  |
+| Bvlgari BV8077-5  |
+| Bvlgari BV8078-2  |
+| Bvlgari BV8078-3  |
+| Bvlgari BV8078-4  |
+| Bvlgari BV8078-5  |
+| Bvlgari BV8083B-1 |
+| Bvlgari BV8083B-3 |
+| Bvlgari BV8083B-4 |
+| Bvlgari BV8084-1  |
+| Bvlgari BV8084-2  |
+| Bvlgari BV8084-3  |
+| Bvlgari BV8084-4  |
+| Bvlgari BV8084-5  |
+| Bvlgari BV8085B-1 |
+| Bvlgari BV8085B-2 |
+| Bvlgari BV8085B-3 |
+| Bvlgari BV8085B-4 |
+| Bvlgari BV8086B-1 |
+| Bvlgari BV8086B-2 |
+| Bvlgari BV8086B-3 |
+| Bvlgari BV8086B-4 |
+| Bvlgari BV8086B-5 |
+| psun-2806         |
+| psun-2807         |
+| psun-2808         |
+| psun-2809         |
+| psun-2825         |
+| psun-2827         |
+| psun-2828         |
+| psun-2833         |
+| psun-2834         |
+| psun-2835         |
+| psun-2836         |
+| psun-2839         |
+| psun-2840         |
+| psun-2841         |
+| psun-2842         |
+| psun-2843         |
+| psun-2844         |
+| psun-2845         |
+| psun-2847         |
+| psun-2858         |
+| psun-2859         |
+| psun-2861         |
+| psun-2862         |
+| psun-2864         |
+| psun-2866         |
+| psun-2867         |
+| psun-2869         |
+| psun-2870         |
+| psun-2871         |
+| psun-2872         |
+| psun-2873         |
+| psun-2874         |
+| psun-2875         |
+| psun-2876         |
+| psun-2877         |
+| psun-2878         |
+| psun-2879         |
+| psun-2880         |
+| psun-2881         |
+| psun-2882         |
+| psun-2883         |
+| psun-2884         |
+| psun-2885         |
+| psun-2886         |
+| psun-2898         |
+| psun-2899         |
+| psun-2900         |
+| psun-2901         |
+| psun-2902         |
+| psun-2903         |
+| psun-2904         |
+| psun-2905         |
+| psun-2906         |
+| psun-2907         |
+| psun-2908         |
+| psun-2909         |
+| psun-2910         |
+| psun-2911         |
+| psun-2912         |
+| psun-2913         |
+| psun-2914         |
+| psun-2915         |
+| psun-2916         |
+| psun-2917         |
+| psun-2919         |
+| psun-2921         |
+| psun-2922         |
+| psun-2923         |
+| psun-2925         |
+| psun-5984         |
+| psun-5985         |
+| psun-5986         |
+| psun-5987         |
+| SC-1245           |
+| SC-1246           |
+| SC-1247           |
+| SC-1248           |
+| SC-1249           |
+| SC-1250           |
+| SC-400            |
+| SC-785            |
+| SC-787            |
+| SC-790            |
+| SC-794            |
+| SC-795            |
+| SC-796            |
+| SC-797            |
+| SC-798            |
+| SC-799            |
+| SC-800            |
+| SC-801            |
+| SC-802            |
+| SC-804            |
+| SC-805            |
+| SC-806            |
+| SC-808            |
+| SC-810            |
+| SC-812            |
+| SC-814            |
+| SC-816            |
+| SC-899            |
++-------------------+
+
+
+
+
+mysql>  select * from fashione_magento3.catalog_product_option_type_title  where title='One size only';
++----------------------+----------------+----------+---------------+
+| option_type_title_id | option_type_id | store_id | title         |
++----------------------+----------------+----------+---------------+
+|                48052 |          30802 |        0 | One size only |
+|                48053 |          30803 |        0 | One size only |
+|                48055 |          30805 |        0 | One size only |
+|                48058 |          30808 |        0 | One size only |
+|                48061 |          30811 |        0 | One size only |
+|                48062 |          30812 |        0 | One size only |
+|                48063 |          30813 |        0 | One size only |
+|                48064 |          30814 |        0 | One size only |
+|                48080 |          30830 |        0 | One size only |
+|                48081 |          30831 |        0 | One size only |
+|                48086 |          30836 |        0 | One size only |
+|                48087 |          30837 |        0 | One size only |
+|                48088 |          30838 |        0 | One size only |
+|                48095 |          30845 |        0 | One size only |
+|                48172 |          30922 |        0 | One size only |
+|                48173 |          30923 |        0 | One size only |
+|                48174 |          30924 |        0 | One size only |
+|                48177 |          30927 |        0 | One size only |
+|                48178 |          30928 |        0 | One size only |
+|                48198 |          30948 |        0 | One size only |
+|                48199 |          30949 |        0 | One size only |
+|                48200 |          30950 |        0 | One size only |
+|                48201 |          30951 |        0 | One size only |
+|                48202 |          30952 |        0 | One size only |
+|                48203 |          30953 |        0 | One size only |
+|                48204 |          30954 |        0 | One size only |
+|                48205 |          30955 |        0 | One size only |
+|                48207 |          30957 |        0 | One size only |
+|                48208 |          30958 |        0 | One size only |
+|                48209 |          30959 |        0 | One size only |
+|                48210 |          30960 |        0 | One size only |
+|                48221 |          30971 |        0 | One size only |
+|                48222 |          30972 |        0 | One size only |
+|                48224 |          30974 |        0 | One size only |
+|                48225 |          30975 |        0 | One size only |
+|                48226 |          30976 |        0 | One size only |
+|                48227 |          30977 |        0 | One size only |
+|                48228 |          30978 |        0 | One size only |
+|                48229 |          30979 |        0 | One size only |
+|                48230 |          30980 |        0 | One size only |
+|                48232 |          30982 |        0 | One size only |
+|                48233 |          30983 |        0 | One size only |
+|                48234 |          30984 |        0 | One size only |
+|                48235 |          30985 |        0 | One size only |
+|                48236 |          30986 |        0 | One size only |
+|                48237 |          30987 |        0 | One size only |
+|                48238 |          30988 |        0 | One size only |
+|                48239 |          30989 |        0 | One size only |
+|                48252 |          31002 |        0 | One size only |
+|                48253 |          31003 |        0 | One size only |
+|                48254 |          31004 |        0 | One size only |
+|                48255 |          31005 |        0 | One size only |
+|                56092 |          38693 |        0 | ONE SIZE ONLY |
+|                56094 |          38695 |        0 | ONE SIZE ONLY |
+|                56097 |          38698 |        0 | ONE SIZE ONLY |
+|                56101 |          38702 |        0 | ONE SIZE ONLY |
+|                56102 |          38703 |        0 | ONE SIZE ONLY |
+|                56103 |          38704 |        0 | ONE SIZE ONLY |
+|                56104 |          38705 |        0 | ONE SIZE ONLY |
+|                56105 |          38706 |        0 | ONE SIZE ONLY |
+|                56106 |          38707 |        0 | ONE SIZE ONLY |
+|                56107 |          38708 |        0 | ONE SIZE ONLY |
+|                56108 |          38709 |        0 | ONE SIZE ONLY |
+|                56109 |          38710 |        0 | ONE SIZE ONLY |
+|                56111 |          38712 |        0 | ONE SIZE ONLY |
+|                56112 |          38713 |        0 | ONE SIZE ONLY |
+|                56113 |          38714 |        0 | ONE SIZE ONLY |
+|                56115 |          38716 |        0 | ONE SIZE ONLY |
+|                56118 |          38719 |        0 | ONE SIZE ONLY |
+|                56120 |          38721 |        0 | ONE SIZE ONLY |
+|                56122 |          38723 |        0 | ONE SIZE ONLY |
+|                56124 |          38725 |        0 | ONE SIZE ONLY |
+|                63427 |          43984 |        0 | One size only |
+|                63428 |          43985 |        0 | One size only |
+|                63429 |          43986 |        0 | One size only |
+|                63430 |          43987 |        0 | One size only |
+|                63446 |          44003 |        0 | One size only |
+|                63448 |          44005 |        0 | One size only |
+|                63449 |          44006 |        0 | One size only |
+|                63454 |          44011 |        0 | One size only |
+|                63455 |          44012 |        0 | One size only |
+|                63456 |          44013 |        0 | One size only |
+|                63457 |          44014 |        0 | One size only |
+|                63460 |          44017 |        0 | One size only |
+|                63461 |          44018 |        0 | One size only |
+|                63462 |          44019 |        0 | One size only |
+|                63463 |          44020 |        0 | One size only |
+|                63464 |          44021 |        0 | One size only |
+|                63465 |          44022 |        0 | One size only |
+|                63466 |          44023 |        0 | One size only |
+|                63468 |          44025 |        0 | One size only |
+|                63509 |          44046 |        0 | One size only |
+|                63510 |          44047 |        0 | One size only |
+|                63512 |          44049 |        0 | One size only |
+|                63513 |          44050 |        0 | One size only |
+|                63515 |          44052 |        0 | One size only |
+|                63517 |          44054 |        0 | One size only |
+|                63518 |          44055 |        0 | One size only |
+|                63520 |          44057 |        0 | One size only |
+|                63521 |          44058 |        0 | One size only |
+|                63522 |          44059 |        0 | One size only |
+|                63523 |          44060 |        0 | One size only |
+|                63524 |          44061 |        0 | One size only |
+|                63525 |          44062 |        0 | One size only |
+|                63526 |          44063 |        0 | One size only |
+|                63527 |          44064 |        0 | One size only |
+|                63528 |          44065 |        0 | One size only |
+|                63529 |          44066 |        0 | One size only |
+|                63530 |          44067 |        0 | One size only |
+|                63531 |          44068 |        0 | One size only |
+|                63532 |          44069 |        0 | One size only |
+|                63533 |          44070 |        0 | One size only |
+|                63534 |          44071 |        0 | One size only |
+|                63535 |          44072 |        0 | One size only |
+|                63536 |          44073 |        0 | One size only |
+|                63537 |          44074 |        0 | One size only |
+|                63549 |          44086 |        0 | One size only |
+|                63550 |          44087 |        0 | One size only |
+|                63551 |          44088 |        0 | One size only |
+|                63552 |          44089 |        0 | One size only |
+|                63553 |          44090 |        0 | One size only |
+|                63554 |          44091 |        0 | One size only |
+|                63555 |          44092 |        0 | One size only |
+|                63556 |          44093 |        0 | One size only |
+|                63557 |          44094 |        0 | One size only |
+|                63558 |          44095 |        0 | One size only |
+|                63559 |          44096 |        0 | One size only |
+|                63560 |          44097 |        0 | One size only |
+|                63561 |          44098 |        0 | One size only |
+|                63562 |          44099 |        0 | One size only |
+|                63563 |          44100 |        0 | One size only |
+|                63564 |          44101 |        0 | One size only |
+|                63565 |          44102 |        0 | One size only |
+|                63566 |          44103 |        0 | One size only |
+|                63567 |          44104 |        0 | One size only |
+|                63568 |          44105 |        0 | One size only |
+|                63570 |          44107 |        0 | One size only |
+|                63572 |          44109 |        0 | One size only |
+|                63573 |          44110 |        0 | One size only |
+|                63574 |          44111 |        0 | One size only |
+|                63576 |          44113 |        0 | One size only |
+|                63579 |          44116 |        0 | One size only |
+|                63580 |          44117 |        0 | One size only |
+|                63581 |          44118 |        0 | One size only |
+|                63582 |          44119 |        0 | One size only |
+|                83533 |          59477 |        0 | One size only |
+|                90157 |          66025 |        0 | One size only |
+|                92093 |          67961 |        0 | ONE SIZE ONLY |
+|                92094 |          67962 |        0 | ONE SIZE ONLY |
+|                92095 |          67963 |        0 | ONE SIZE ONLY |
+|                92096 |          67964 |        0 | ONE SIZE ONLY |
+|                92097 |          67965 |        0 | ONE SIZE ONLY |
+|                92106 |          67974 |        0 | ONE SIZE ONLY |
+|                92879 |          68747 |        0 | ONE SIZE ONLY |
++----------------------+----------------+----------+---------------+
+
+
+
+// live
+mysql> select e.entity_id, e.sku from catalog_product_option_type_title t  join catalog_product_option_type_value v on t.option_type_id = v.option_type_id  join catalog_product_option o on o.option_id = v.option_id  join catalog_product_entity e on e.entity_id = o.product_id where t.title='One size only';
++-----------+-------------------+
+| entity_id | sku               |
++-----------+-------------------+
+|     31477 | BV8052B-6         |
+|     13784 | BV8064-1          |
+|     13787 | BV8064-2          |
+|     13786 | BV8064-3          |
+|     13785 | BV8064-4          |
+|      5830 | Bvlgari BV6038B-1 |
+|      5831 | Bvlgari BV6038B-2 |
+|      5833 | Bvlgari BV6038B-4 |
+|      5835 | Bvlgari BV6038B-6 |
+|      5836 | Bvlgari BV6038B-7 |
+|      5841 | Bvlgari BV6050B-1 |
+|      5842 | Bvlgari BV6050B-2 |
+|      5843 | Bvlgari BV6050B-3 |
+|      5844 | Bvlgari BV6050B-4 |
+|      5850 | Bvlgari BV6052B-1 |
+|      5851 | Bvlgari BV6052B-2 |
+|      5852 | Bvlgari BV6052B-3 |
+|      5853 | Bvlgari BV6052B-4 |
+|      5854 | Bvlgari BV6052B-5 |
+|      5865 | Bvlgari BV8052B-1 |
+|      5866 | Bvlgari BV8052B-2 |
+|      5867 | Bvlgari BV8052B-3 |
+|      5868 | Bvlgari BV8052B-4 |
+|      5869 | Bvlgari BV8052B-5 |
+|      5902 | Bvlgari BV8076-1  |
+|      5903 | Bvlgari BV8076-2  |
+|      5904 | Bvlgari BV8076-3  |
+|      5906 | Bvlgari BV8077-1  |
+|      5907 | Bvlgari BV8077-2  |
+|      5908 | Bvlgari BV8077-3  |
+|      5909 | Bvlgari BV8077-4  |
+|      5910 | Bvlgari BV8077-5  |
+|      5912 | Bvlgari BV8078-2  |
+|      5913 | Bvlgari BV8078-3  |
+|      5914 | Bvlgari BV8078-4  |
+|      5915 | Bvlgari BV8078-5  |
+|      5930 | Bvlgari BV8083B-1 |
+|      5932 | Bvlgari BV8083B-3 |
+|      5933 | Bvlgari BV8083B-4 |
+|      5934 | Bvlgari BV8084-1  |
+|      5935 | Bvlgari BV8084-2  |
+|      5936 | Bvlgari BV8084-3  |
+|      5937 | Bvlgari BV8084-4  |
+|      5938 | Bvlgari BV8084-5  |
+|      5939 | Bvlgari BV8085B-1 |
+|      5940 | Bvlgari BV8085B-2 |
+|      5941 | Bvlgari BV8085B-3 |
+|      5942 | Bvlgari BV8085B-4 |
+|      5943 | Bvlgari BV8086B-1 |
+|      5944 | Bvlgari BV8086B-2 |
+|      5945 | Bvlgari BV8086B-3 |
+|      5946 | Bvlgari BV8086B-4 |
+|      5947 | Bvlgari BV8086B-5 |
+|     21192 | psun-2806         |
+|     21193 | psun-2807         |
+|     21194 | psun-2808         |
+|     21195 | psun-2809         |
+|     21211 | psun-2825         |
+|     21213 | psun-2827         |
+|     21214 | psun-2828         |
+|     21219 | psun-2833         |
+|     21220 | psun-2834         |
+|     21221 | psun-2835         |
+|     21222 | psun-2836         |
+|     21225 | psun-2839         |
+|     21226 | psun-2840         |
+|     21227 | psun-2841         |
+|     21228 | psun-2842         |
+|     21229 | psun-2843         |
+|     21230 | psun-2844         |
+|     21231 | psun-2845         |
+|     21233 | psun-2847         |
+|     21244 | psun-2858         |
+|     21245 | psun-2859         |
+|     21247 | psun-2861         |
+|     21248 | psun-2862         |
+|     21250 | psun-2864         |
+|     21252 | psun-2866         |
+|     21253 | psun-2867         |
+|     21255 | psun-2869         |
+|     21256 | psun-2870         |
+|     21257 | psun-2871         |
+|     21258 | psun-2872         |
+|     21259 | psun-2873         |
+|     21260 | psun-2874         |
+|     21261 | psun-2875         |
+|     21262 | psun-2876         |
+|     21263 | psun-2877         |
+|     21264 | psun-2878         |
+|     21265 | psun-2879         |
+|     21266 | psun-2880         |
+|     21267 | psun-2881         |
+|     21268 | psun-2882         |
+|     21269 | psun-2883         |
+|     21270 | psun-2884         |
+|     21271 | psun-2885         |
+|     21272 | psun-2886         |
+|     21284 | psun-2898         |
+|     21285 | psun-2899         |
+|     21286 | psun-2900         |
+|     21287 | psun-2901         |
+|     21288 | psun-2902         |
+|     21289 | psun-2903         |
+|     21290 | psun-2904         |
+|     21291 | psun-2905         |
+|     21292 | psun-2906         |
+|     21293 | psun-2907         |
+|     21294 | psun-2908         |
+|     21295 | psun-2909         |
+|     21296 | psun-2910         |
+|     21297 | psun-2911         |
+|     21298 | psun-2912         |
+|     21299 | psun-2913         |
+|     21300 | psun-2914         |
+|     21301 | psun-2915         |
+|     21302 | psun-2916         |
+|     21303 | psun-2917         |
+|     21305 | psun-2919         |
+|     21307 | psun-2921         |
+|     21308 | psun-2922         |
+|     21309 | psun-2923         |
+|     21311 | psun-2925         |
+|     21314 | psun-5984         |
+|     21315 | psun-5985         |
+|     21316 | psun-5986         |
+|     21317 | psun-5987         |
+|     37473 | SC-1245           |
+|     37474 | SC-1246           |
+|     37475 | SC-1247           |
+|     37476 | SC-1248           |
+|     37477 | SC-1249           |
+|     37484 | SC-1250           |
+|     37996 | SC-400            |
+|     17659 | SC-785            |
+|     17661 | SC-787            |
+|     17664 | SC-790            |
+|     17668 | SC-794            |
+|     17669 | SC-795            |
+|     17670 | SC-796            |
+|     17671 | SC-797            |
+|     17672 | SC-798            |
+|     17673 | SC-799            |
+|     17674 | SC-800            |
+|     17675 | SC-801            |
+|     17676 | SC-802            |
+|     17678 | SC-804            |
+|     17679 | SC-805            |
+|     17680 | SC-806            |
+|     17682 | SC-808            |
+|     17685 | SC-810            |
+|     17687 | SC-812            |
+|     17689 | SC-814            |
+|     17691 | SC-816            |
+|     36146 | SC-899            |
++-----------+-------------------+

@@ -1,0 +1,19 @@
+vi /etc/httpd/conf/httpd.conf
+/etc/init.d/httpd configtest
+/etc/init.d/httpd stop
+/etc/init.d/httpd start
+
+update core_config_data set value='http://demo.fashioneyewear.co.uk/' where path in('web/unsecure/base_url', 'web/secure/base_url');
+
+update eav_entity_store set increment_last_id= 100024020 where entity_type_id=5;
+update eav_entity_store set increment_last_id= 100017777 where entity_type_id=6;
+
+id/21797 Bench BCH-251 C3 Green          53.64
+Tag Heuer Spring TH0303 008 Pure/ Red Black     303.27 designer glasses 10%
+
+
+Shipping Methods 
+Table Rates  enabled yes
+Free shipping remove Ukraine. set enabled no
+
+[12:54:49] Valeria Savenko: там спрашивают, нужны ои нам для тестов еще какие-то карточки другие... и в лайве можно тестить с 12 ночи до 7 утра (это с 2 до 9 утра по Киеву)

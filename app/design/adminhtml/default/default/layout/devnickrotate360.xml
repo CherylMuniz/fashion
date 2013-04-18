@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_catalog_product_edit>
+        <reference name="head">
+            <action method="addJs"><script>devnick/jquery-1.6.2.min.js</script></action>
+            <action method="addJs"><script>devnick/img360/jquery-ui.min.js</script></action>
+            <action method="addJs"><script>devnick/img360/jquery.tmpl.min.js</script></action>
+            <action method="addJs"><script>devnick/img360/jquery.iframe-transport.js</script></action>
+            <action method="addJs"><script>devnick/img360/jquery.fileupload.js</script></action>
+            <action method="addJs"><script>devnick/img360/jquery.fileupload-ui.js</script></action>
+            <action method="addJs"><script>devnick/img360/application.js</script></action>
+            <action method="addJs"><script>devnick/asknfeed.js</script></action>
+            <action method="addCss"><name>devnick/img360/style.css</name></action>
+            <action method="addCss"><name>devnick/img360/jquery.fileupload-ui.css</name></action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+</layout>

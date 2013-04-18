@@ -1,0 +1,189 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+$_customerId = Mage::getSingleton('customer/session')->getCustomerId();
+$lastOrderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+$order = Mage::getSingleton('sales/order'); 
+$order->load($lastOrderId);
+$_totalData =$order->getData();  
+?>
+<?php
+//-------------------------------------------
+$lastOrderId = Mage::getSingleton('checkout/session')->getLastOrderId(); 
+ 
+$_products = Mage::getSingleton('sales/order')->getItemsCollection()->getData(); 
+ 
+$order = Mage::getSingleton('sales/order'); 
+$order->load($lastOrderId);
+ 
+$_totalData = $order->getData();
+$_grand = $_totalData['grand_total']; 
+$_sub = $_totalData['subtotal']; 
+$_ship = $_totalData['shipping_amount']; 
+$_discount = $_totalData['discount_amount'];
+$_voucher = $_totalData['coupon_code'];
+$_total = ( ($_sub + $_discount) < 0) ? 0 : $_sub + $_discount; //$_total = $_sub + $_discount;
+?>
+ 
+<img src="https://www.awin1.com/sread.img?tt=ns&amp;tv=2&amp;merchant=4622&amp;amount=<?php echo $_total; ?>&amp;ref=<?php echo $this->getOrderId(); ?>&amp;parts=DEFAULT:<?php echo $_total; ?>&amp;vc=<?php echo $_voucher; ?>&amp;testmode=0&amp;cr=GBP" />
+ 
+<form style="display:none;" name="aw_basket_form">
+ <textarea wrap="physical" id="aw_basket">
+<?php 
+foreach($_products as $p) {
+    if($p['order_id'] == $lastOrderId) {
+        echo 'AW:P|4622|' . $this->getOrderId() . '|' . $p['product_id'] . '|' . $p['name'] . '|' . $p['price'] . '|' . round($p['qty_ordered'], 0) . '|' . $p['sku'] . '|DEFAULT|CATEGORY' . "\r\n";
+    }
+}
+?>
+</textarea>
+ </form>
+ 
+<script type="text/javascript">
+        //<![CDATA[
+        var AWIN = {};
+        AWIN.Tracking = {};
+        AWIN.Tracking.Sale = {};
+ 
+        AWIN.Tracking.Sale.amount = '<?php echo $_total; ?>';
+        AWIN.Tracking.Sale.currency = 'GBP';
+        AWIN.Tracking.Sale.orderRef = '<?php echo $this->getOrderId(); ?>';
+        AWIN.Tracking.Sale.parts = 'DEFAULT:<?php echo $_total; ?>';
+        AWIN.Tracking.Sale.voucher = '<?php echo $_voucher; ?>';
+        AWIN.Tracking.Sale.test = '0';
+        //]]>
+</script>
+<!------------------------------------------->
+<div id="mc_data" style="display:none;">
+    <div class="mc_event">PURCHASE</div>
+    <div class="mc_order_ref"><?php echo $this->getOrderId() ?></div>
+    <div class="mc_retailer">FASHEYE_MCMJ12</div>
+    <?php $test = $order->getAllItems(); ?>
+    <?php foreach ($order->getAllItems() as $item): ?>
+    <div class="mc_sku"><?php echo $item->getSku() ?></div>
+    <?php endforeach; ?>
+</div>
+<script type="text/javascript">
+    var mc_api_url = "api.merchenta.com/merchenta/t";
+    (function() {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    var secure = 
+    (window.parent.document.location.protocol=="https:");
+    if (secure) {
+        script.src = "https://api.merchenta.com/track/t.js";
+    } else {
+        script.src = "http://cdn.merchenta.com/track/t.js";
+    }
+    document.getElementsByTagName('head')[0].appendChild(script);
+    })();
+</script> 
+<div class="page-title">
+    <h1><?php echo $this->__('Your order has been received') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<h2 class="sub-title"><?php echo $this->__('Thank you for your purchase!') ?></h2>
+
+<?php if ($this->getOrderId()):?>
+<?php if ($this->getCanViewOrder()) :?>
+    <p><?php echo $this->__('Your order # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></p>
+<?php  else :?>
+    <p><?php echo $this->__('Your order # is: %s.', $this->escapeHtml($this->getOrderId())) ?>.</p>
+<?php endif;?>
+    <p><?php echo $this->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?></p>
+<?php if ($this->getViewOrder() && $this->getCanPrintOrder()) :?>
+    <p>
+        <?php echo $this->__('Click <a href="%s" onclick="this.target=\'_blank\'">here to print</a> a copy of your order confirmation.', $this->getPrintUrl()) ?>
+        <?php echo $this->getChildHtml() ?>
+    </p>
+<?php endif;?>
+<?php endif;?>
+
+<?php if ($this->getAgreementRefId()): ?>
+    <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
+<?php endif;?>
+
+<?php if ($profiles = $this->getRecurringProfiles()):?>
+<p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
+<ul class="disc">
+<?php foreach($profiles as $profile):?>
+<?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id')));?>
+    <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description')))?></li>
+<?php endforeach;?>
+</ul>
+<?php endif;?>
+
+
+<div class="buttons-set">
+    <button type="button" class="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+</div>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<img src="https://www.emjcd.com/u?AMOUNT=<?=$_total ?>&CID=1526732&OID=<?=$lastOrderId ?>&TYPE=359178&CURRENCY=GBP&METHOD=IMG" height="1" width="20">
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+<?php if (Mage::helper('oberigfashion')->isLiveSite()) { ?>
+    <!-- Google Code for Fashion SALE* Conversion Page -->
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 1033081007;
+    var google_conversion_language = "en";
+    var google_conversion_format = "3";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "vuTdCJ2quAIQr6HO7AM";
+    var google_conversion_value = 0;
+    if (1) {
+      google_conversion_value = 1;
+    }
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="https://www.googleadservices.com/pagead/conversion/1033081007/?value=1&amp;label=vuTdCJ2quAIQr6HO7AM&amp;guid=ON&amp;script=0"/>
+    </div>
+    </noscript>
+
+    <!-- Google Code for buy Remarketing List -->
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 1033081007;
+    var google_conversion_language = "en";
+    var google_conversion_format = 3;
+    var google_conversion_color = "666666";
+    var google_conversion_label = "7h36CJ2VpgIQr6HO7AM";
+    var google_conversion_value = 0;
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+    <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="https://www.googleadservices.com/pagead/conversion/1033081007/?label=7h36CJ2VpgIQr6HO7AM&guid=ON&script=0"/>
+    </div>
+    </noscript>
+<?php } ?>

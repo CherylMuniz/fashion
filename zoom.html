@@ -1,0 +1,205 @@
+<html>
+<head>
+	<title>Image Zoom With jQuery</title>
+	<style type="text/css">
+ 
+		#view {
+			border: 1px solid #333333 ;
+			overflow: hidden ;
+			position: relative ;
+			width: 400px ;
+			}
+ 
+		#image {
+			display: block ;
+			left: 0px ;
+			top: 0px ;
+			}
+ 
+		#zoom {
+			background-image: url( "./white_fade.png" ) ;
+			border: 1px solid #000000 ;
+			cursor: pointer ;
+			display: none ;
+			height: 200px ;
+			position: absolute ;
+			width: 200px ;
+			z-index: 100 ;
+			}
+ 
+	</style>
+	<script type="text/javascript" src="js/jquery/jquery-1.8.0.js"></script>
+	<script type="text/javascript">
+ 
+		jQuery( window ).load(function(){
+			var view = jQuery( "#view" );
+			var image = jQuery( "#image" );
+			var zoom = jQuery( "<a id='zoom'><span><br /></span></a>" );
+ 
+			view.width( image.width() );
+			view.height( image.height() );
+ 
+			image.css( "position", "absolute" );
+			image.height( image.height() );
+ 
+			zoom.width( Math.floor( image.width() / 2 ) );
+			zoom.height( Math.floor( image.height() / 2 ) );
+ 
+			view.append( zoom );
+ 
+			view.hover(
+				function( event ){
+					zoom.show();
+				},
+				function( event ){
+					zoom.hide();
+				}
+			);
+
+			viewOffset = view.offset();
+ 
+			var window = jQuery( window );
+ 
+ 
+			view.mousemove(
+				function( event ){
+					var windowScrollTop = window.scrollTop();
+					var windowScrollLeft = window.scrollLeft();
+					setZoomPosition(
+						Math.floor(
+							event.clientX - viewOffset.left + windowScrollLeft
+						),
+						Math.floor(
+							event.clientY - viewOffset.top + windowScrollTop
+						)
+					);
+				}
+			);
+ 
+ 
+			var setZoomPosition = function( mouseLeft, mouseTop ){
+				var zoomLeft = (mouseLeft - (zoom.width() / 2));
+				var zoomTop = (mouseTop - (zoom.height() / 2))
+ 
+				zoomLeft = Math.max( zoomLeft, 0 );
+				zoomTop = Math.max( zoomTop, 0 );
+ 
+				zoomLeft = Math.min(
+					zoomLeft,
+					(view.width() - zoom.outerWidth())
+					);
+				zoomTop = Math.min(
+					zoomTop,
+					(view.height() - zoom.outerHeight())
+					);
+ 
+				zoom.css({
+					left: (zoomLeft + "px"),
+					top: (zoomTop + "px")
+				});
+			};
+ 
+			image.data({
+				zoomFactor: (view.width() / zoom.width()),
+				zoom: 1,
+				top: 0,
+				left: 0,
+				width: image.width(),
+				height: image.height(),
+				originalWidth: image.width(),
+				originalHeight: image.height()
+			});
+ 
+ 
+
+			zoom.click(
+				function( event ){
+					event.preventDefault();
+					zoomImage(
+						zoom.position().left,
+						zoom.position().top
+					);
+				}
+			);
+ 
+			var zoomImage = function( zoomLeft, zoomTop ){
+				var imageData = image.data();
+ 
+				if (
+					(imageData.zoom == 5) ||
+					(image.is( ":animated" ))
+					){
+					return;
+ 
+				}
+ 
+				imageData.width =
+					(image.width() * imageData.zoomFactor);
+ 
+				imageData.height =
+					(image.height() * imageData.zoomFactor);
+ 
+				imageData.left =
+					((imageData.left - zoomLeft) * imageData.zoomFactor);
+ 
+				imageData.top =
+					((imageData.top - zoomTop) * imageData.zoomFactor);
+ 
+				imageData.zoom++;
+ 
+				image.animate(
+					{
+						width: imageData.width,
+						height: imageData.height,
+						left: imageData.left,
+						top: imageData.top
+					},
+					500
+				);
+			};
+ 
+			var resetZoom = function(){
+				var imageData = image.data();
+ 
+				imageData.zoom = 1;
+				imageData.top = 0;
+				imageData.left = 0;
+				imageData.width = imageData.originalWidth;
+				imageData.height = imageData.originalHeight;
+ 
+				image.animate(
+					{
+						width: imageData.width,
+						height: imageData.height,
+						left: imageData.left,
+						top: imageData.top
+					},
+					300
+				);
+			};
+ 
+			jQuery( document ).mousedown(
+				function( event ){
+					var closestView = jQuery( event.target ).closest( "#view" );
+					if (!closestView.size()){
+						resetZoom();
+					}
+				}
+			);
+ 
+		});
+ 
+	</script>
+</head>
+<body>
+ 
+	<h1>
+		Image Zoom And Clip With jQuery
+	</h1>
+ 
+	<div id="view">
+		<img id="image" src="./media/catalog/img360/2328/Deck_Shoe/Lv1/img01.jpg" width="400" />
+	</div>
+ 
+</body>
+</html>
