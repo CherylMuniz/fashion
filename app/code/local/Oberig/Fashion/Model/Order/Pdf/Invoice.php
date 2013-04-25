@@ -49,11 +49,12 @@ class Oberig_Fashion_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_
             $this->insertTotals($page, $invoice);
 			
             $dy = -40;
+            //$page->setFont(Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA), 10); 
 			$page->setFillColor(new Zend_Pdf_Color_GrayScale(0));
 			$page->setLineColor(new Zend_Pdf_Color_GrayScale(0));
 			$page->setLineWidth(1);
 			$page->drawLine(0, 200+$dy, 595, 200+$dy);
-			$this->_setFontRegular($page, 10);
+			//$this->_setFontRegular($page, 10);
 			if ($order instanceof Mage_Sales_Model_Order) {
 				$shipment = null;
 			} elseif ($order instanceof Mage_Sales_Model_Order_Shipment) {
@@ -80,5 +81,23 @@ class Oberig_Fashion_Model_Order_Pdf_Invoice extends Mage_Sales_Model_Order_Pdf_
         }
         $this->_afterGetPdf();
         return $pdf;
+    }
+    protected function _setFontBold($object, $size = 7)
+    {
+        $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_BOLD);
+        $object->setFont($font, $size);
+        return $font;
+    }
+    protected function _setFontItalic($object, $size = 7)
+    {
+        $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA_ITALIC);
+        $object->setFont($font, $size);
+        return $font;
+    }
+    protected function _setFontRegular($object, $size = 7)
+    {
+        $font = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA);
+        $object->setFont($font, $size);
+        return $font;
     }
 }

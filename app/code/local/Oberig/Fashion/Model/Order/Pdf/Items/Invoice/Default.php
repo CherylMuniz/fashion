@@ -132,6 +132,7 @@ class Oberig_Fashion_Model_Order_Pdf_Items_Invoice_Default extends Mage_Sales_Mo
 	        $page->setFillColor(new Zend_Pdf_Color_GrayScale(1));
 	        $page->setLineColor(new Zend_Pdf_Color_GrayScale(0));
 	        $page->setLineWidth(0.5);
+            //$page->setFont(Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_HELVETICA), 10);
 	        $dy = -17;
 	        $page->drawRectangle(25, $pdf->y + $dy + 110- 2, 310, $pdf->y + $dy + 95 - 2);
 	        $page->drawRectangle(25, $pdf->y + $dy + 95 - 2, 310, $pdf->y + $dy + 80 - 2);

@@ -81,7 +81,7 @@ class DevNick_Offlinepay_Model_Order extends Mage_Sales_Model_Order
     
     public function setState($state, $status = false, $comment = '', $isCustomerNotified = null)
     {
-        if ( !empty($_REQUEST['payment']['method']) && $_REQUEST['payment']['method'] == 'offpaypal') {
+        if (!empty($_REQUEST['payment']['method']) && $_REQUEST['payment']['method'] == 'offpaypal') {
             return $this->_setState(self::STATE_PENDING_PAYMENT, self::STATE_PENDING_PAYMENT, $comment, 0, true);
         }
         else {

@@ -6,7 +6,7 @@ class Oberig_Shipmentmass_Model_Observer
         $block = $observer->getEvent()->getBlock();
         if(
             get_class($block) =='Mage_Adminhtml_Block_Widget_Grid_Massaction'
-            && $block->getRequest()->getControllerName() == 'order'
+            && $block->getRequest()->getControllerName() == 'sales_order'
           )
         {
             $block->addItem('shipmentmass', array(

@@ -12,8 +12,8 @@ class Oberig_Shipmentmass_ShipmentController extends Mage_Adminhtml_Controller_A
         echo "<p>***** Completed *****</p>";
     }
     public function addShipment($id){
-        $item = Mage::getResourceModel('sales/order_collection')->getItemById($id);
-        $item->load();
+        //$item = Mage::getResourceModel('sales/order_collection')->getItemById($id); $item->load();
+        $item = Mage::getModel('sales/order')->load($id);
         $orderIncrementId = $item->getIncrementId();
         $order = Mage::getModel('sales/order')->loadByIncrementId($orderIncrementId);
         try {
@@ -23,7 +23,7 @@ class Oberig_Shipmentmass_ShipmentController extends Mage_Adminhtml_Controller_A
                                 ->create($order->getIncrementId(), array());
                 //#Add tracking information
                 $ship = Mage::getModel('sales/order_shipment_api')
-                                ->addTrack($order->getIncrementId(), array());  
+                                ->addTrack($order->getIncrementId(), null, null, null);  
             }
         }catch (Mage_Core_Exception $e) { }
         return (!empty($shipmentid)) ? $orderIncrementId : false;

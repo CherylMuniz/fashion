@@ -3,7 +3,13 @@ vi /etc/httpd/conf/httpd.conf
 /etc/init.d/httpd stop
 /etc/init.d/httpd start
 
+update core_config_data set value='http://www.fashioneyewear.co.uk/' where path in('web/unsecure/base_url', 'web/secure/base_url');
 update core_config_data set value='http://demo.fashioneyewear.co.uk/' where path in('web/unsecure/base_url', 'web/secure/base_url');
+
+.htaccess
+
+№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№
+
 
 update eav_entity_store set increment_last_id= 100024020 where entity_type_id=5;
 update eav_entity_store set increment_last_id= 100017777 where entity_type_id=6;
