@@ -70,7 +70,7 @@ class Mage_Catalog_Block_Product_List_Related extends Mage_Catalog_Block_Product
         foreach ($this->_itemCollection as $product) {
             $product->setDoNotUseCategoryId(true);
         }
-
+//if( $_SERVER['REMOTE_ADDR'] == '109.86.92.199') { echo($this->_itemCollection->getSelect()->__toString()); }
         return $this;
     }
 

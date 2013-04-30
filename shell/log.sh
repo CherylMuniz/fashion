@@ -1,3 +1,5 @@
+#!bin/bash
+mysql -uroot -pf4sh1oN321 fashion << END
 delete from dataflow_batch_export;
 delete from dataflow_batch_import;
 delete from log_customer;
@@ -14,11 +16,9 @@ delete from report_event;
 delete from report_compared_product_index;
 delete from report_viewed_product_index;
 delete from catalog_compare_item;
--- delete from catalogindex_aggregation;
--- delete from catalogindex_aggregation_tag;
--- delete from catalogindex_aggregation_to_tag;
 delete from am_email_log;
 delete from am_notfound_log;
 delete from captcha_log;
 delete from magenotification_log;
 delete from sendfriend_log;
+END

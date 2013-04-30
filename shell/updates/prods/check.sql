@@ -47,3 +47,10 @@ select count(*) from customer_entity;
 
 
 update core_config_data set value='http://www.fashioneyewear.co.uk/' where path in('web/unsecure/base_url', 'web/secure/base_url');
+
+
+---  categories ---
+select p.* from catalog_category_product p left join catalog_product_entity e on e.entity_id=p.product_id  where e.entity_id is null and e.sku not in('lens-fullyrimmed','lens-rimless','lens-specialty','lens-standard','lens-oakley');
+select p.* from catalog_category_product p left join catalog_category_entity e on e.entity_id=p.category_id  where e.entity_id is null;
+
+delete p.* from catalog_category_product p left join catalog_category_entity e on e.entity_id=p.category_id  where e.entity_id is null;

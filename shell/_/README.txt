@@ -10,6 +10,9 @@ For new import fix :
         Method Name: Standard
         Condition: Price vs. Destination
 5. Copy table: shipping_tablerate
+6. /home/www/demo/app/code/local/Oberig/Fashion/Helper/Data.php set isLiveSite fashioneyewear.co.uk
+7. Oberig_LightImportExport_Helper_Data  hardcode: static $aAttributeSetInUse = array(9,10,12);
+
 
 
 !!! Bugs !!!

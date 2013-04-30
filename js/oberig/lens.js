@@ -55,7 +55,9 @@ function uncheck_options(obj){
                 jQuery("#lens_varifocal_type").find(':checked').attr('checked', false);
                 break;
         }
-        opConfig.reloadPrice();
+        if (typeof opConfig !== 'undefined' ){
+            opConfig.reloadPrice();
+        }
 }
 function uncheck_oakley_options(obj){
     if(!obj.id){ return; }

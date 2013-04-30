@@ -6,7 +6,7 @@ ini_set("memory_limit","-1");
 echo date("\nY-d-m H:i:s\n");
 require '/home/www/demo/app/Mage.php';
 Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
-die;
+//die;
 $connection = Mage::getSingleton('core/resource')->getConnection('core_read');
 
 $select = $connection->query("
