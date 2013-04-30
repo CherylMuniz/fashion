@@ -1,4 +1,4 @@
-For new import fix :
+***** For new import fix *******
 
 1. demo.cms.sql - open and replace domen htttp://demo.fash.. on new domen
 2. In admin - change currency: $ on funt.
