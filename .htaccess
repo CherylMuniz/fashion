@@ -1,7 +1,7 @@
- AuthType Basic
- AuthName "staging"
- AuthUserFile "/home/www/.htpasswds/staging/passwd"
- require valid-user
+# AuthType Basic
+# AuthName "staging"
+# AuthUserFile "/home/www/.htpasswds/staging/passwd"
+# require valid-user
 
 Redirect 301 /prescription-sunglasses-c-614.html http://www.fashioneyewear.co.uk/prescription-sunglasses.html
 Redirect 301 /designer-frames-bvlgari-glasses-c-2_220.html http://www.fashioneyewear.co.uk/designer-frames-1/bvlgari-glasses.html

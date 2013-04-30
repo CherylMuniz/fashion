@@ -140,7 +140,7 @@
         </div>
     <?php endif; //if($isLenses) ?>
 
-     <?php $prescription = false; foreach($_options as &$_option){ if( $_option['sku'] == 'pupil_distance' ) { $prescription = true;} }unset($_option); ?>
+     <?php $prescription = false; foreach($_options as $_option){ if( $_option['sku'] == 'pupil_distance' ) { $prescription = true;} } ?>
      <?php if($prescription) : ?>
         <div class="clearer"></div>
         <div class="block-title">
@@ -169,6 +169,14 @@
                <?php endif ?>
             <?php endforeach; unset($_option);  ?>
             </tr>
+            <tr><td colspan="4">
+            <?php foreach($_options as &$_option): ?>
+                <?php if( strpos($_option['sku'], 'pupil_distance') !== false ): ?>
+                    <?php echo $this->getOptionHtml($_option) ?>
+                    <?php unset($_option); break; ?>
+                <?php endif ?>
+            <?php endforeach; unset($_option); ?>
+            </td></tr>
             <tr><td colspan="4">
             <?php foreach($_options as &$_option): ?>
                 <?php if( 'lens_for_product' == $_option['sku'] ): ?>

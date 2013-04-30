@@ -56,33 +56,35 @@ class Lenses{
          array('Computer', '0.00', 'fixed', 'glassesfor_computer', '2'),
      );
      public $values_lens_varifocal_type = array(
-         array('Basic', '49.00', 'fixed', 'varifocal_basic', '0'),
-         array('Advanced', '99.00', 'fixed', 'varifocal_advanced', '1'),
-         array('Premium', '149.00', 'fixed', 'varifocal_premium', '2'),
-         array('Elite', '199.00', 'fixed', 'varifocal_elite', '3'),
+         array('Basic', '44.55', 'fixed', 'varifocal_basic', '0'),
+         array('Advanced', '90.00', 'fixed', 'varifocal_advanced', '1'),
+         array('Premium', '135.45', 'fixed', 'varifocal_premium', '2'),
+         array('Elite', '180.91', 'fixed', 'varifocal_elite', '3'),
      );
     public $values_lens_thickness = array(
-         array('1.6 - Thin', '39.00', 'fixed', 'thickness_thin_sv', '0'),
-         array('1.67 - Thinner', '69.00', 'fixed', 'thickness_thinner_sv', '1'),
-         array('1.74 - Thinnest', '99.00', 'fixed', 'thickness_thinnest_sv', '2'),
+         array('1.6 - Thin', '35.45', 'fixed', 'thickness_thin_sv', '0'),
+         array('1.67 - Thinner', '62.73', 'fixed', 'thickness_thinner_sv', '1'),
+         array('1.74 - Thinnest', '90.00', 'fixed', 'thickness_thinnest_sv', '2'),
          
-         array('1.6 - Thin', '39.00', 'fixed', 'thickness_thin_vf', '3'),
-         array('1.67 - Thinner', '69.00', 'fixed', 'thickness_thinner_vf', '4'),
-         array('1.74 - Thinnest', '99.00', 'fixed', 'thickness_thinnest_vf', '5'),
+         array('1.6 - Thin', '35.45', 'fixed', 'thickness_thin_vf', '3'),
+         array('1.67 - Thinner', '62.73', 'fixed', 'thickness_thinner_vf', '4'),
+         array('1.74 - Thinnest', '90.00', 'fixed', 'thickness_thinnest_vf', '5'),
      );
      public $values_lens_tint = array(
          array('None', '0.00', 'fixed', 'tint_none', '0'),
-         array('Transitions Brown', '50.00', 'fixed', 'tint_brown_sv', '1'),
-         array('Transitions Grey', '50.00', 'fixed', 'tint_grey_sv', '2'),
+         array('Transitions Brown', '45.00', 'fixed', 'tint_brown_sv', '1'),
+         array('Transitions Grey', '45.00', 'fixed', 'tint_grey_sv', '2'),
      );
      public $values_lens_coating = array(
-         array('Anti-scratch/Anti-glare', '0.00', 'fixed', 'coating_anti_sv', '0'),
-         array('Premium Coatings', '25.00', 'fixed', 'coating_premium_sv', '1'),
-         array('Elite Coatings', '50.00', 'fixed', 'coating_elite_sv', '2'),
-         
-         array('Anti-scratch/Anti-glare', '0.00', 'fixed', 'coating_anti_vf', '3'),
-         array('Premium Coatings', '25.00', 'fixed', 'coating_premium_vf', '4'),
-         array('Elite Coatings', '50.00', 'fixed', 'coating_elite_vf', '5'),
+		 array('Uncoated', '0.00', 'fixed', 'coating_unco_sv', '0'),
+         array('Anti-scratch/Anti-glare', '0.00', 'fixed', 'coating_anti_sv', '1'),
+         array('Premium Coatings', '22.73', 'fixed', 'coating_premium_sv', '2'),
+         array('Elite Coatings', '45.45', 'fixed', 'coating_elite_sv', '3'),
+        
+		 array('Uncoated', '0.00', 'fixed', 'coating_unco_vf', '4'),
+         array('Anti-scratch/Anti-glare', '0.00', 'fixed', 'coating_anti_vf', '5'),
+         array('Premium Coatings', '22.73', 'fixed', 'coating_premium_vf', '6'),
+         array('Elite Coatings', '45.45', 'fixed', 'coating_elite_vf', '7'),
      );
     
 
@@ -163,7 +165,7 @@ class Lenses{
         $j=0; 
         for( $i=8; $i <= 6, $i >= -6; $i=$i-0.25, $j++ ){
             $plus =  ( $i > 0 ) ? "+" : null;
-            $values_cylinder[] = ( abs($i) > 2 ) ? array($plus.number_format($i, 2, '.', ''),'15','fixed','',$j,) : array($plus.number_format($i, 2, '.', ''),'','fixed','',$j,);
+            $values_cylinder[] = ( abs($i) > 2 ) ? array($plus.number_format($i, 2, '.', ''),'13.63','fixed','',$j,) : array($plus.number_format($i, 2, '.', ''),'','fixed','',$j,);
         }
         //$values_cylinder[] = array('None','','fixed','',$j++);
         $values_cylinder[] = array('DS','','fixed','',$j++);
@@ -541,34 +543,34 @@ echo date("\nY-d-m H:i:s")." - LENS START\n";
 #$attrId = Mage::getModel('eav/entity_attribute_set')->getCollection()->setEntityTypeFilter( Mage::getModel('eav/entity')->setType('catalog_product')->getTypeId() )->addFilter('attribute_set_name', 'Lenses')->getFirstItem()->getId();
 #Mage::getModel('catalog/product')->getCollection()->addFieldToFilter('attribute_set_id', $attrId)->delete();
 $l = new Lenses();
-$catId = $l->createCategory();
+//$catId = $l->createCategory();
 //$setId = $l->createAttributeSetOnSkeletonSet();
 //$l->createAttributeGroup($setId);
 //$l->addImages();
 //$l->addLenses();
 //$l->changeData(); die;
     //add options 
-    //$l->deleteOptions();
-    //$l->prepare($l->header_lens_type, $l->values_lens_type);
-    //$l->prepare($l->header_lens_thickness, $l->values_lens_thickness);
-    //$l->prepare($l->header_lens_tint, $l->values_lens_tint);
-    //$l->prepare($l->header_lens_coating, $l->values_lens_coating);
-    //$l->prepare($l->header_lens_glasses_for, $l->values_lens_glasses_for);
-    //$l->prepare($l->header_lens_varifocal_type, $l->values_lens_varifocal_type);
+    $l->deleteOptions();
+    $l->prepare($l->header_lens_type, $l->values_lens_type);
+    $l->prepare($l->header_lens_thickness, $l->values_lens_thickness);
+    $l->prepare($l->header_lens_tint, $l->values_lens_tint);
+    $l->prepare($l->header_lens_coating, $l->values_lens_coating);
+    $l->prepare($l->header_lens_glasses_for, $l->values_lens_glasses_for);
+    $l->prepare($l->header_lens_varifocal_type, $l->values_lens_varifocal_type);
 
     //add prescripted options 
-    //$l->prepare($l->header_sphere_right, $l->values_sphere_right);
-    //$l->prepare($l->header_cylinder_right, $l->values_cylinder_right);
-    //$l->prepare($l->header_axis_right, $l->values_axis_right);
-    //$l->prepare($l->header_nearadd_right, $l->values_nearadd_right);
-    //$l->prepare($l->header_sphere_left, $l->values_sphere_left);
-    //$l->prepare($l->header_cylinder_left, $l->values_cylinder_left);
-    //$l->prepare($l->header_axis_left, $l->values_axis_left);
-    //$l->prepare($l->header_nearadd_left, $l->values_nearadd_left);
-    //$l->prepare($l->header_pd, $l->values_pd);
-    //$l->prepare($l->header_lens_for_product, $l->values_lens_for_product, 'text');
-    //$l->prepare($l->header_prescription_notes, $l->values_prescription_notes, 'area');
+    $l->prepare($l->header_sphere_right, $l->values_sphere_right);
+    $l->prepare($l->header_cylinder_right, $l->values_cylinder_right);
+    $l->prepare($l->header_axis_right, $l->values_axis_right);
+    $l->prepare($l->header_nearadd_right, $l->values_nearadd_right);
+    $l->prepare($l->header_sphere_left, $l->values_sphere_left);
+    $l->prepare($l->header_cylinder_left, $l->values_cylinder_left);
+    $l->prepare($l->header_axis_left, $l->values_axis_left);
+    $l->prepare($l->header_nearadd_left, $l->values_nearadd_left);
+    $l->prepare($l->header_pd, $l->values_pd);
+    $l->prepare($l->header_lens_for_product, $l->values_lens_for_product, 'text');
+    $l->prepare($l->header_prescription_notes, $l->values_prescription_notes, 'area');
 
 //$l->addProductsToCategory($catId);
 
-$l->setRelatedProducts();
+//$l->setRelatedProducts();

@@ -1,0 +1,71 @@
+<?php $_option = $this->getOption(); ?>
+<?php  
+$text = $area = false; 
+if ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_FIELD){ 
+    $text = true; 
+}elseif($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_AREA) { 
+    $area = true; 
+}
+
+$className = $mess2 = $mess = $classMess = '';
+    if($text){
+        $className = 'prescription_name';
+        $mess = 'You\'ll select your prescription later on, and maybe even next time you visit us, so give it a name that makes it easy to identify.';
+        $classMess = 'presciption-note1';
+    }else{
+        $className = 'prescription_note';
+        $mess2 = 'Anything else you need to tell us? Write it in the box below:';
+        $classMess = 'presciption-note2';
+    }
+?>
+<?php if ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_FIELD): ?>
+    <table id="presription_name">
+        <tr>
+            <td class = "prescr-name" >
+                <div class="label"><label<?php if ($_option->getIsRequire()) echo ' class="required"' ?>><?php if ($_option->getIsRequire()) echo '<em>*</em>' ?><?php echo  $this->htmlEscape($_option->getTitle()) ?></label>
+                    <?php echo $this->getFormatedPrice() ?>
+                </div>
+                <p><?= $mess2 ?>
+            </td>
+            <td class="input-prescr-name">
+                <div class="input-box">
+                    <?php if ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_FIELD): ?>
+                        <input type="text" onchange="opConfig.reloadPrice()" id="options_<?php echo $_option->getId() ?>_text" class="input-text<?php echo $_option->getIsRequire() ? ' required-entry' : '' ?> <?php echo $_option->getMaxCharacters() ? ' validate-length maximum-length-'.$_option->getMaxCharacters() : '' ?> product-custom-option" name="options[<?php echo $_option->getId() ?>]" value="<?php echo $this->escapeHtml($this->getDefaultValue()) ?>" />
+                    <?php elseif ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_AREA): ?>
+                        <textarea id="options_<?php echo $_option->getId() ?>_text" onchange="opConfig.reloadPrice()" class="<?php echo $_option->getIsRequire() ? ' required-entry' : '' ?> <?php echo $_option->getMaxCharacters() ? ' validate-length maximum-length-'.$_option->getMaxCharacters() : '' ?> product-custom-option" name="options[<?php echo $_option->getId() ?>]" rows="5" cols="25"><?php echo $this->escapeHtml($this->getDefaultValue()) ?></textarea>
+                    <?php endif; ?>
+                    <?php if ($_option->getMaxCharacters()): ?>
+                        <p class="note"><?php echo Mage::helper('catalog')->__('Maximum number of characters:')?> <strong><?php echo $_option->getMaxCharacters() ?></strong></p>
+                    <?php endif; ?>
+                </div>
+            </td>
+            <td  class="input-prescr-info lens-info" >
+                    
+                    <?php echo $this->__('You\'ll select your prescription later on, and maybe even next time you visit us, so give it a name that makes it easy to identify.') ?>
+            </td>
+        </tr>
+        <tr><td colspan="3">&nbsp;</td></tr>
+    </table>
+
+<?php elseif ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_AREA): ?>
+    <table style="width:100%">
+        <tr>
+            <td class = "prescr-note">
+                <div class="label"><label<?php if ($_option->getIsRequire()) echo ' class="required"' ?>><?php if ($_option->getIsRequire()) echo '<em>*</em>' ?><?php echo  $this->htmlEscape($_option->getTitle()) ?></label>
+                    <?php echo $this->getFormatedPrice() ?>
+                </div>
+                <p><?= $mess2 ?>
+                <div class="input-box">
+                    <?php if ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_FIELD): ?>
+                        <input type="text" onchange="opConfig.reloadPrice()" id="options_<?php echo $_option->getId() ?>_text" class="input-text<?php echo $_option->getIsRequire() ? ' required-entry' : '' ?> <?php echo $_option->getMaxCharacters() ? ' validate-length maximum-length-'.$_option->getMaxCharacters() : '' ?> product-custom-option" name="options[<?php echo $_option->getId() ?>]" value="<?php echo $this->escapeHtml($this->getDefaultValue()) ?>" />
+                    <?php elseif ($_option->getType() == Mage_Catalog_Model_Product_Option::OPTION_TYPE_AREA): ?>
+                        <textarea id="options_<?php echo $_option->getId() ?>_text" onchange="opConfig.reloadPrice()" class="<?php echo $_option->getIsRequire() ? ' required-entry' : '' ?> <?php echo $_option->getMaxCharacters() ? ' validate-length maximum-length-'.$_option->getMaxCharacters() : '' ?> product-custom-option" name="options[<?php echo $_option->getId() ?>]" rows="5" cols="25"><?php echo $this->escapeHtml($this->getDefaultValue()) ?></textarea>
+                    <?php endif; ?>
+                    <?php if ($_option->getMaxCharacters()): ?>
+                        <p class="note"><?php echo Mage::helper('catalog')->__('Maximum number of characters:')?> <strong><?php echo $_option->getMaxCharacters() ?></strong></p>
+                    <?php endif; ?>
+                </div>
+            </td>
+        </tr>
+    </table>
+<?php endif ?>

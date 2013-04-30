@@ -66,7 +66,6 @@ class Category_Export{
             */
             
         }
-        //echo "\nAssigned {$j} products";
     }
     
     public function synchronizeProdsInCats(){
@@ -258,33 +257,6 @@ class Category_Export{
     }
     
     
-    // create table and fill category_id and name-path 
-    public function catalog_category_product_synch(){
-        $connection = Mage::getModel('core/resource')->getConnection('core_write');
-        $connection->exec("DROP TABLE catalog_category_product_synch");
-        $connection->exec("
-            CREATE TABLE IF NOT EXISTS `catalog_category_product_synch` (
-              `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID demo site',
-              `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-              `live_category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID live site',
-              UNIQUE KEY (`category_id`,`value`),
-              UNIQUE KEY (`value`,`live_category_id`),
-              UNIQUE KEY `UNQ_CAT_ID_VAL_LIVE_CAT_ID` (`category_id`,`value`,`live_category_id`),
-              KEY `IDX_CATALOG_CATEGORY_PRODUCT_SYNCH_CATEGORY_ID` (`category_id`),
-              KEY `IDX_CATALOG_CATEGORY_PRODUCT_SYNCH_VALUE` (`value`),
-              KEY `IDX_CATALOG_CATEGORY_PRODUCT_SYNCH_LIVE_CATEGORY_ID` (`live_category_id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='For synchronize catalog_category_product'
-        ");
-        foreach($this->allCatsPath as $k => $v){
-            $query = "INSERT INTO catalog_category_product_synch (category_id, value) VALUES ({$connection->quote($k)},{$connection->quote($v)})";
-            try{
-                $connection->exec($query);
-            }catch(Exception $e){
-                echo $query."\n";
-                echo $e->getMessage();
-            }
-        }
-    }
     
     public function assignProduct($categoryId, $object){
         $products = array();
@@ -302,30 +274,10 @@ class Category_Export{
         echo "\n{$object['name']} assigned\n";
     }
     
-    public function _beforeImport(){
-        //disable indexes
-        $processes = Mage::getSingleton('index/indexer')->getProcessesCollection();
-        $processes->walk('setMode', array(Mage_Index_Model_Process::MODE_MANUAL));
-        $processes->walk('save');
-    }
-    public function _afterImport(){
-        //enable indexes
-        $processes = Mage::getSingleton('index/indexer')->getProcessesCollection();
-        $processes->walk('setMode', array(Mage_Index_Model_Process::MODE_REAL_TIME));
-        $processes->walk('save'); 
-        
-        //echo date("\nY-d-m H:i:s")." - reindex start\n";
-        //passthru("php indexer.php reindexall");
-        //echo date("\nY-d-m H:i:s")." - reindex finish\n";
-    }
 }
 echo date("\nY-d-m H:i:s")." - catalog category import start\n";
 $imp = new Category_Export();
-//$imp->_beforeImport();
-//$imp->synchronizeProdsInCats();
-//$imp->catalog_category_product_synch();
 $imp->load();
-//$imp->_afterImport();
 echo date("\nY-d-m H:i:s")." - catalog category import completed\n";
 
 

@@ -4,7 +4,7 @@ ini_set("memory_limit","1000M");
 require_once "/home/www/production/app/Mage.php";
 umask(0);
 Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID); 
-$catName = 'Paul Smith';
+$catName = 'Designer Eyewear';
 $catId = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('name')->addAttributeToFilter('name', $catName)->getFirstItem()->getId();
 //$collection = array();
     //set products

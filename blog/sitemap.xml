@@ -1,15 +1,783 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://www.fashioneyewear.co.uk/blog/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.5.1" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.2.9" -->
-<!-- generated-on="February 15, 2013 5:55 pm" -->
+<!-- generated-on="April 29, 2013 10:29 am" -->
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/</loc>
-		<lastmod>2013-02-15T17:53:56+00:00</lastmod>
+		<lastmod>2013-04-29T10:29:21+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
 	</url>
 	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dg-glasses/the-dg-5010/</loc>
+		<lastmod>2013-04-29T10:29:21+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-new-wayfarer-rb2132-review/</loc>
+		<lastmod>2013-04-29T10:25:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/carrera-glasses-2/the-carrera-7557/</loc>
+		<lastmod>2013-04-29T10:19:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/persol-po3007v/</loc>
+		<lastmod>2013-04-29T09:59:23+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/designer-frames/fashion-eyewear-launches-new-website-phones-go-crazy-for-first-24-hours/</loc>
+		<lastmod>2013-04-29T09:42:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/london-optician/opticians-in-london-what-to-look-for/</loc>
+		<lastmod>2013-04-29T09:31:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/carrera-sunglasses/carrera-13-sunglasses/</loc>
+		<lastmod>2013-04-29T09:24:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/original-ray-ban-aviators-review/</loc>
+		<lastmod>2013-04-29T09:16:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-crosslink-sweep-ox8031-review/</loc>
+		<lastmod>2013-04-26T15:11:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-crosslink-ox8030-review/</loc>
+		<lastmod>2013-04-26T15:10:04+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-original-wayfarer-rb2140-10013f-in-top-black-on-azurecrystal-light-blue/</loc>
+		<lastmod>2013-04-18T09:38:08+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/style/discover-the-hottest-coloured-sunglasses-seen-at-fashion-week/</loc>
+		<lastmod>2013-04-17T08:42:05+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dior-sunglasses/new-the-christian-dior-demoiselle-sunglasses-collection/</loc>
+		<lastmod>2013-04-15T16:19:13+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/gucci-glasses/gg-1009-review/</loc>
+		<lastmod>2013-04-12T12:27:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/prada-sunglasses/prada-pr27ls-2au6s1-in-havanabrown-gradient-review/</loc>
+		<lastmod>2013-04-12T08:41:15+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/gucci-glasses/the-gucci-gg2902/</loc>
+		<lastmod>2013-04-12T08:40:34+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/ray-ban-rx5169/</loc>
+		<lastmod>2013-04-12T08:39:55+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/tiffany-sunglasses/tf3024b-review/</loc>
+		<lastmod>2013-04-09T11:22:30+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/tiffany-sunglasses/tf4055b-review/</loc>
+		<lastmod>2013-04-09T10:53:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/gucci-glasses/gg1013s-review/</loc>
+		<lastmod>2013-04-08T10:23:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/rb-4125-review/</loc>
+		<lastmod>2013-04-08T10:14:27+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/carrera-glasses-2/the-carrera-7554/</loc>
+		<lastmod>2013-04-08T08:35:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/swarovski-glasses/the-swarovski-sk5021/</loc>
+		<lastmod>2013-04-08T08:34:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/swarovski-glasses/the-swarovski-sk5022/</loc>
+		<lastmod>2013-04-05T11:59:08+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/carrera-glasses-2/ca-6163-review/</loc>
+		<lastmod>2013-04-05T11:47:24+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/persol-reflex-edition-po3046s-review/</loc>
+		<lastmod>2013-04-05T11:11:39+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/rayban-rb5244-in-2034-top-black-on-transparent-review/</loc>
+		<lastmod>2013-04-05T08:38:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/discount-codes/fashion-eyewear-brands-discount-code/</loc>
+		<lastmod>2013-04-04T11:27:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/discount-codes/fashioneyewear-co-uk-discount-code/</loc>
+		<lastmod>2013-04-04T11:22:38+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/bvlgari-glasses/bv4065b-review/</loc>
+		<lastmod>2013-04-04T10:05:26+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/prada-sport-glasses/prada-vps-51b-review/</loc>
+		<lastmod>2013-04-04T09:40:34+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/persol-reflex-edition-review/</loc>
+		<lastmod>2013-04-03T11:59:40+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/carrera-sunglasses/carrera-34-review/</loc>
+		<lastmod>2013-04-03T09:45:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/hugo-boss-glasses/hugo-boss-0462-review/</loc>
+		<lastmod>2013-04-03T08:49:46+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/prada-sunglasses/pr57ls-review/</loc>
+		<lastmod>2013-04-02T16:24:59+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/facebook-competition/congratulations-to-our-lucky-facebook-winner/</loc>
+		<lastmod>2013-03-28T10:36:24+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/the-oakley-crosslink-is-one-of-the-best-selling-prescription-glasses/</loc>
+		<lastmod>2013-03-27T17:37:04+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/hugo-boss-glasses/the-hugo-boss-0362/</loc>
+		<lastmod>2013-03-27T16:57:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dior-sunglasses/dior-zemire-2-review/</loc>
+		<lastmod>2013-03-27T11:15:09+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/tiffany-sunglasses/tf4067-review/</loc>
+		<lastmod>2013-03-27T11:08:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/persol-sunglasses/po3018s-review/</loc>
+		<lastmod>2013-03-26T12:09:15+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/bvulgari-sunglasses/bv8099b-review/</loc>
+		<lastmod>2013-03-26T12:08:43+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dior-sunglasses/dior-croisette-3-review/</loc>
+		<lastmod>2013-03-25T13:56:05+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/prada-sport-sunglasses/ps54is-review/</loc>
+		<lastmod>2013-03-25T12:37:44+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/designer-sunglasses-2/why-the-prada-sport-ps54is-is-one-of-the-best-selling-sunglasses-for-men/</loc>
+		<lastmod>2013-03-25T11:24:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ralph-lauren-glasses/ph2039-review/</loc>
+		<lastmod>2013-03-21T10:44:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/ox5079-review/</loc>
+		<lastmod>2013-03-21T10:34:02+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/gucci-sunglasses/gucci-gg3509s-review/</loc>
+		<lastmod>2013-03-21T10:00:50+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/persol-po2945v-review/</loc>
+		<lastmod>2013-03-21T09:59:38+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/bvlgari-glasses/bvlgari-4058b/</loc>
+		<lastmod>2013-03-21T09:44:41+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/persol-po2945v/</loc>
+		<lastmod>2013-03-21T09:43:24+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/diesel-glasses/diesel-dl5012-review/</loc>
+		<lastmod>2013-03-20T11:54:43+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-metal-plate-ox5038/</loc>
+		<lastmod>2013-03-19T17:51:48+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-frag-ox5045/</loc>
+		<lastmod>2013-03-19T17:50:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-evade-ox5031/</loc>
+		<lastmod>2013-03-19T17:49:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/hugo-boss-glasses/the-hugo-boss-0369/</loc>
+		<lastmod>2013-03-19T17:48:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/carrera-glasses-2/the-carrera-6170/</loc>
+		<lastmod>2013-03-19T17:40:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/designer-frames/the-secret-to-saving-on-your-designer-glasses/</loc>
+		<lastmod>2013-03-19T17:36:53+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/ray-ban-rb5246-2034-in-top-black-on-transparent-review/</loc>
+		<lastmod>2013-03-19T17:36:13+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/po3030v-review/</loc>
-		<lastmod>2013-02-15T17:53:56+00:00</lastmod>
+		<lastmod>2013-03-19T17:35:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-riley-r-ov5004-review/</loc>
+		<lastmod>2013-03-19T17:35:01+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-broxwood-pm8135-review/</loc>
+		<lastmod>2013-03-19T17:34:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-arielle-pm8120-review/</loc>
+		<lastmod>2013-03-19T17:33:44+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-alix-ov5164-review/</loc>
+		<lastmod>2013-03-19T17:32:53+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-zuko-r-ov5001-review/</loc>
+		<lastmod>2013-03-19T17:32:08+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-lance-r-ov5003-review/</loc>
+		<lastmod>2013-03-19T17:31:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/oliver-peoples-nanny-b-ov5201s-review/</loc>
+		<lastmod>2013-03-19T17:30:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-ashton-ov5224-review/</loc>
+		<lastmod>2013-03-19T17:29:35+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-luv-ov5161-review/</loc>
+		<lastmod>2013-03-19T13:38:50+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-denison-ov5102/</loc>
+		<lastmod>2013-03-19T13:38:38+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/a-review-on-the-oliver-peoples-james-ov5226/</loc>
+		<lastmod>2013-03-19T13:38:30+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/discover-the-oliver-peoples-ndg-ov5031/</loc>
+		<lastmod>2013-03-19T13:38:26+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/a-review-on-the-oliver-peoples-follies-ov5194/</loc>
+		<lastmod>2013-03-19T13:37:38+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/the-oliver-peoples-strummer-ov1004s-review/</loc>
+		<lastmod>2013-03-19T13:37:12+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/the-oliver-peoples-benedict-ov1002s-review/</loc>
+		<lastmod>2013-03-19T13:37:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/the-oliver-peoples-farrell-ov1003s-review/</loc>
+		<lastmod>2013-03-19T13:36:59+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/the-oliver-peoples-linford-ov1097s-review/</loc>
+		<lastmod>2013-03-19T13:36:24+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-fairmont-ov5219-review/</loc>
+		<lastmod>2013-03-19T13:36:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-gregory-peck-ov5186-review/</loc>
+		<lastmod>2013-03-19T13:36:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-diandra-ov1126t-review/</loc>
+		<lastmod>2013-03-19T13:35:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-larrabee-ov5005-review/</loc>
+		<lastmod>2013-03-19T13:35:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/oliver-peoples-daddy-b-4590-review/</loc>
+		<lastmod>2013-03-19T13:34:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/oliver-peoples-xxv-s-ov5227s-review/</loc>
+		<lastmod>2013-03-19T13:34:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/oliver-peoples-dbs-ov5206s-review/</loc>
+		<lastmod>2013-03-19T13:33:23+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-xxv-rx-25th-anniversary-special-edition/</loc>
+		<lastmod>2013-03-19T13:32:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dior-sunglasses/dior-volute-3str-review/</loc>
+		<lastmod>2013-03-19T10:38:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dior-sunglasses/dior-summerset-2-review/</loc>
+		<lastmod>2013-03-18T12:34:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dg-sunglasses/dg-dd3065-review/</loc>
+		<lastmod>2013-03-18T10:38:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ralph-lauren-glasses/ph1075-review/</loc>
+		<lastmod>2013-03-18T10:35:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/carrera-sunglasses/carrera-tekno-sunglasses/</loc>
+		<lastmod>2013-03-18T09:41:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/chanel-glasses/chanel-3254h-review/</loc>
+		<lastmod>2013-03-15T12:02:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/gucci-sunglasses/gg1622s-review/</loc>
+		<lastmod>2013-03-14T13:25:40+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/style/which-celebrities-are-wearing-miu-miu-sunglasses/</loc>
+		<lastmod>2013-03-14T10:50:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/chanel-sunglasses/chanel-ch5248-review/</loc>
+		<lastmod>2013-03-14T09:46:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/armani-sunglasses/top-10-armani-sunglasses-for-men/</loc>
+		<lastmod>2013-03-13T13:43:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/rb4105-review/</loc>
+		<lastmod>2013-03-13T11:21:32+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/ray-ban-rb5187-2012-in-dark-havana-review/</loc>
+		<lastmod>2013-03-13T09:46:24+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/christian-dior-glasses/christian-dior-cd3215-review/</loc>
+		<lastmod>2013-03-11T13:36:06+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/ray-ban-aviator-rb3025-w3274-gold-crystalgold-mirror-review/</loc>
+		<lastmod>2013-03-07T13:46:50+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/ray-ban-original-wayfarer-rb2140-90257-in-tortoisepolarized-crystal-brown-review/</loc>
+		<lastmod>2013-03-07T13:45:09+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-rb4068-64257-in-havanapolarized-crystal-brown/</loc>
+		<lastmod>2013-03-07T13:43:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-aviator-rb3025-00458-in-gunmetalpolarized-crystal-green/</loc>
+		<lastmod>2013-03-07T13:41:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/ray-ban-rb3479-folding-aviator-review/</loc>
+		<lastmod>2013-03-07T12:31:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dior-sunglasses/dior-flanelle-3-review/</loc>
+		<lastmod>2013-03-07T10:25:54+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/chanel-sunglasses/chanel-ch6041-review/</loc>
+		<lastmod>2013-03-06T12:02:12+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ralph-lauren-glasses/ph2088-review/</loc>
+		<lastmod>2013-03-05T10:42:55+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-shovel-ox5046/</loc>
+		<lastmod>2013-03-05T10:00:15+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dg-sunglasses/dd8095-review/</loc>
+		<lastmod>2013-02-28T17:37:09+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/gucci-sunglasses/gg4209s-review/</loc>
+		<lastmod>2013-02-28T16:27:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/prada-sport-sunglasses/ps07hs-review/</loc>
+		<lastmod>2013-02-28T10:28:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dior-sunglasses/dior-frisson-1-review/</loc>
+		<lastmod>2013-02-26T11:07:42+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-crosslink-switch-ox3128-review/</loc>
+		<lastmod>2013-02-25T15:51:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/rb8678-review/</loc>
+		<lastmod>2013-02-25T13:35:56+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/prada-sunglasses/spr06m-review/</loc>
+		<lastmod>2013-02-25T10:24:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-folding-wayfarer-rb4105-60158-in-blackpolarized-crystal-green/</loc>
+		<lastmod>2013-02-25T10:13:01+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-new-wayfarer-rb2132-90258-in-tortoisepolarized-crystal-green/</loc>
+		<lastmod>2013-02-25T10:11:15+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/style/the-battle-of-the-best-ray-ban-wayfarer-sunglasses/</loc>
+		<lastmod>2013-02-25T09:37:23+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/dg-glasses/dd5074-review/</loc>
+		<lastmod>2013-02-22T09:47:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/bvlgari-glasses/bv3014-review/</loc>
+		<lastmod>2013-02-21T12:11:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-ps-423-pm8056-review/</loc>
+		<lastmod>2013-02-21T10:46:50+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-glyn-pm8126-1005-in-black/</loc>
+		<lastmod>2013-02-21T10:46:04+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-woodley-pm8140-review/</loc>
+		<lastmod>2013-02-21T10:44:54+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-darley-pm8139-review/</loc>
+		<lastmod>2013-02-21T10:44:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/paul-smith-dandee-ps8190-pm8190-review/</loc>
+		<lastmod>2013-02-21T10:43:51+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/sunglasses-trends/tom-ford-lydia-tf-228-sunglasses/</loc>
+		<lastmod>2013-02-21T10:36:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/paul-smith-butler-pm8031-review/</loc>
+		<lastmod>2013-02-21T10:35:09+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/tag-heuer-sunglasses/tag-heuer-sunglasses-review/</loc>
+		<lastmod>2013-02-21T10:17:41+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/christian-dior-glasses/cd3213-review/</loc>
+		<lastmod>2013-02-20T10:13:44+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/new-wayfarer-rb2132-review/</loc>
+		<lastmod>2013-02-18T17:07:20+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -22,12 +790,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/bvlgari-glasses/bv4047-review/</loc>
 		<lastmod>2013-02-14T12:24:19+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-glyn-pm8126-1005-in-black/</loc>
-		<lastmod>2013-02-14T10:52:39+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -56,114 +818,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-ps-423-pm8056-review/</loc>
-		<lastmod>2013-02-11T11:05:54+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-arielle-pm8120-review/</loc>
-		<lastmod>2013-02-11T11:03:29+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-broxwood-pm8135-review/</loc>
-		<lastmod>2013-02-11T11:01:22+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-woodley-pm8140-review/</loc>
-		<lastmod>2013-02-11T10:59:25+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/the-paul-smith-darley-pm8139-review/</loc>
-		<lastmod>2013-02-11T10:58:30+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/paul-smith-dandee-ps8190-pm8190-review/</loc>
-		<lastmod>2013-02-11T10:56:13+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-luv-ov5161-review/</loc>
-		<lastmod>2013-02-11T10:53:25+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-ashton-ov5224-review/</loc>
-		<lastmod>2013-02-11T10:51:38+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-denison-ov5102/</loc>
-		<lastmod>2013-02-11T10:48:53+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/a-review-on-the-oliver-peoples-james-ov5226/</loc>
-		<lastmod>2013-02-11T10:44:15+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/discover-the-oliver-peoples-ndg-ov5031/</loc>
-		<lastmod>2013-02-11T10:41:26+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/a-review-on-the-oliver-peoples-follies-ov5194/</loc>
-		<lastmod>2013-02-11T10:38:41+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/the-oliver-peoples-strummer-ov1004s-review/</loc>
-		<lastmod>2013-02-11T10:35:22+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/the-oliver-peoples-linford-ov1097s-review/</loc>
-		<lastmod>2013-02-11T10:34:15+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/oliver-peoples-nanny-b-ov5201s-review/</loc>
-		<lastmod>2013-02-11T10:30:38+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/oliver-peoples-xxv-s-ov5227s-review/</loc>
-		<lastmod>2013-02-11T10:28:01+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-larrabee-ov5005-review/</loc>
-		<lastmod>2013-02-11T10:24:08+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/oliver-peoples-daddy-b-4590-review/</loc>
-		<lastmod>2013-02-11T10:23:12+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/tiffany-glasses/tiffany-2047b/</loc>
 		<lastmod>2013-02-11T09:35:46+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -184,42 +838,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/tiffany-glasses/tf1057g-review/</loc>
 		<lastmod>2013-02-08T12:24:30+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-fairmont-ov5219-review/</loc>
-		<lastmod>2013-02-08T09:43:56+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/the-oliver-peoples-benedict-ov1002s-review/</loc>
-		<lastmod>2013-02-08T09:40:25+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-gregory-peck-ov5186-review/</loc>
-		<lastmod>2013-02-07T17:53:11+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/oliver-peoples-diandra-ov1126t-review/</loc>
-		<lastmod>2013-02-07T17:50:30+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/oliver-peoples-dbs-ov5206s-review/</loc>
-		<lastmod>2013-02-07T17:46:37+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/paul-smith-glasses/paul-smith-butler-pm8031-review/</loc>
-		<lastmod>2013-02-07T17:25:12+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -284,12 +902,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-crosslink-switch-ox3128-review/</loc>
-		<lastmod>2013-02-05T10:51:14+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/ray-ban-rb6182-2502-in-gunmetal-top-black-review/</loc>
 		<lastmod>2013-02-05T09:37:56+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -304,12 +916,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/dg-sunglasses/dg-dd3065-in-50213-havanabrown-gradient-review/</loc>
 		<lastmod>2013-02-04T11:04:41+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/the-oakley-crosslink-is-one-of-the-best-selling-prescription-glasses/</loc>
-		<lastmod>2013-02-04T10:25:30+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -458,20 +1064,8 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/designer-sunglasses-2/why-the-prada-sport-ps54is-is-one-of-the-best-selling-sunglasses-for-men/</loc>
-		<lastmod>2013-01-30T13:04:24+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/gucci-glasses/the-gucci-gg3201/</loc>
 		<lastmod>2013-01-30T12:59:08+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/gucci-glasses/the-gucci-gg2902/</loc>
-		<lastmod>2013-01-30T12:58:24+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -506,12 +1100,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/swarovski-glasses/the-swarovski-sk5022/</loc>
-		<lastmod>2013-01-30T12:52:27+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/swarovski-glasses/the-swarovski-amazone-sk5013/</loc>
 		<lastmod>2013-01-30T12:51:04+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -520,12 +1108,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/carrera-sunglasses/carrera-sunglasses-of-the-week-the-carrera-38/</loc>
 		<lastmod>2013-01-30T12:50:46+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/swarovski-glasses/the-swarovski-sk5021/</loc>
-		<lastmod>2013-01-30T12:50:16+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -584,26 +1166,8 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/carrera-glasses-2/the-carrera-7554/</loc>
-		<lastmod>2013-01-30T12:41:34+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/carrera-glasses-2/the-carrera-6170/</loc>
-		<lastmod>2013-01-30T12:40:49+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/persol-sunglasses/just-in-new-persol-po3034s-sunglasses-now-at-fashion-eyewear/</loc>
 		<lastmod>2013-01-30T12:40:42+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/carrera-glasses-2/the-carrera-7557/</loc>
-		<lastmod>2013-01-30T12:40:06+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -644,12 +1208,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/carrera-sunglasses/carrera-13-sunglasses/</loc>
-		<lastmod>2013-01-30T12:31:39+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/carrera-sunglasses/carrera-endurance-sunglasses/</loc>
 		<lastmod>2013-01-30T12:30:55+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -670,12 +1228,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/carrera-sunglasses/carrera-champion-sunglasses/</loc>
 		<lastmod>2013-01-30T12:27:38+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/carrera-sunglasses/carrera-tekno-sunglasses/</loc>
-		<lastmod>2013-01-30T12:24:25+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -788,13 +1340,13 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/hugo-boss-glasses/the-hugo-boss-0248/</loc>
+		<loc>http://www.fashioneyewear.co.uk/blog/style/discover-ray-bans-best-selling-sunglasses-the-rb3801/</loc>
 		<lastmod>2013-01-30T12:02:12+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/style/discover-ray-bans-best-selling-sunglasses-the-rb3801/</loc>
+		<loc>http://www.fashioneyewear.co.uk/blog/hugo-boss-glasses/the-hugo-boss-0248/</loc>
 		<lastmod>2013-01-30T12:02:12+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -830,20 +1382,8 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/hugo-boss-glasses/the-hugo-boss-0369/</loc>
-		<lastmod>2013-01-30T11:55:25+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/tag-heuer-sunglasses/the-tag-heuer-racer-collection/</loc>
 		<lastmod>2013-01-30T11:54:48+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/hugo-boss-glasses/the-hugo-boss-0362/</loc>
-		<lastmod>2013-01-30T11:53:29+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -874,12 +1414,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/designer-sunglasses-2/the-tag-heuer-27-degree-sunglasses-collection/</loc>
 		<lastmod>2013-01-30T11:32:42+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/dg-glasses/the-dg-5010/</loc>
-		<lastmod>2013-01-30T11:32:36+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -998,12 +1532,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/ray-ban-rx5169/</loc>
-		<lastmod>2013-01-29T17:50:25+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/ray-ban-rx5228/</loc>
 		<lastmod>2013-01-29T17:49:29+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1046,12 +1574,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/persol-po2945v/</loc>
-		<lastmod>2013-01-29T17:30:57+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/persol-po2374v/</loc>
 		<lastmod>2013-01-29T17:30:08+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1072,12 +1594,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/persol-po2965v/</loc>
 		<lastmod>2013-01-29T17:27:43+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/persol-glasses/persol-po3007v/</loc>
-		<lastmod>2013-01-29T17:26:56+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1148,12 +1664,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/bvlgari-glasses/bvlgari-4058b/</loc>
-		<lastmod>2013-01-29T17:05:36+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/bvlgari-glasses/bvlgari-4045b/</loc>
 		<lastmod>2013-01-29T16:59:56+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1190,12 +1700,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-shovel-ox5046/</loc>
-		<lastmod>2013-01-29T16:26:36+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-whisker-prescription-ox3107/</loc>
 		<lastmod>2013-01-29T16:24:28+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1214,12 +1718,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-evade-ox5031/</loc>
-		<lastmod>2013-01-29T16:20:36+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-jackknife-ox3024/</loc>
 		<lastmod>2013-01-29T16:19:37+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1228,18 +1726,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-sculpt-6-ox3073/</loc>
 		<lastmod>2013-01-29T16:18:38+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-frag-ox5045/</loc>
-		<lastmod>2013-01-29T16:16:59+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-metal-plate-ox5038/</loc>
-		<lastmod>2013-01-29T16:16:06+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1304,12 +1790,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/ray-ban-rb5246-2034-in-top-black-on-transparent-review/</loc>
-		<lastmod>2013-01-23T12:24:01+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/prada-sport-sunglasses/prada-sport-ps56ms-5av9p1-in-gunmetalblue-mirror-review/</loc>
 		<lastmod>2013-01-23T12:19:57+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1328,18 +1808,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/ray-ban-rb5187-2012-in-dark-havana-review/</loc>
-		<lastmod>2013-01-22T17:53:32+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/ray-ban-original-wayfarer-rb2140-90257-in-tortoisepolarized-crystal-brown-review/</loc>
-		<lastmod>2013-01-22T17:47:10+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/ray-ban-original-wayfarer-rb2140-902-in-tortoisecrystal-green-review/</loc>
 		<lastmod>2013-01-22T17:44:26+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1348,12 +1816,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/rb2140-ray-ban-original-wayfarer-901-in-blackcrystal-green-review/</loc>
 		<lastmod>2013-01-22T17:43:07+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/ray-ban-aviator-rb3025-w3274-gold-crystalgold-mirror-review/</loc>
-		<lastmod>2013-01-22T17:41:54+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1370,12 +1832,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-aviator-rb3025-00458-in-gunmetalpolarized-crystal-green/</loc>
-		<lastmod>2013-01-22T17:21:54+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/prada-sunglasses/the-prada-pr57ls-zva6s1-in-ivorybrown-gradient/</loc>
 		<lastmod>2013-01-22T17:20:32+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1384,12 +1840,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/oakley-fat-cat-ox1041-in-01-black-review/</loc>
 		<lastmod>2013-01-22T17:17:50+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/rayban-rb5244-in-2034-top-black-on-transparent-review/</loc>
-		<lastmod>2013-01-22T17:16:40+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1436,12 +1886,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-original-wayfarer-rb2140-10013f-in-top-black-on-azurecrystal-light-blue/</loc>
-		<lastmod>2013-01-22T17:11:59+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/dior-sunglasses/dior-mohotani-29aha-in-shiny-blackbrown-sf-review/</loc>
 		<lastmod>2013-01-22T17:11:03+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1474,12 +1918,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/rayban-rb5206-2445-in-havanagreen-review/</loc>
 		<lastmod>2013-01-22T17:07:32+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-rb4068-64257-in-havanapolarized-crystal-brown/</loc>
-		<lastmod>2013-01-22T17:07:27+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1568,12 +2006,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/prada-sunglasses/prada-pr27ls-2au6s1-in-havanabrown-gradient-review/</loc>
-		<lastmod>2013-01-22T16:21:51+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/oakley-glasses/the-oakley-transistor-ox3085-22-149-in-brushed-chrome/</loc>
 		<lastmod>2013-01-22T16:20:54+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1586,20 +2018,8 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-folding-wayfarer-rb4105-60158-in-blackpolarized-crystal-green/</loc>
-		<lastmod>2013-01-22T16:19:17+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/ray-ban-junior-rb1528-3542-in-black-review/</loc>
 		<lastmod>2013-01-22T16:18:29+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-sunglasses/the-oliver-peoples-farrell-ov1003s-review/</loc>
-		<lastmod>2013-01-22T16:17:54+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1664,12 +2084,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-new-wayfarer-rb2132-review/</loc>
-		<lastmod>2013-01-22T15:51:02+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/chanel-glasses/the-chanel-3221q-c622-black-review/</loc>
 		<lastmod>2013-01-22T15:48:57+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1684,12 +2098,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/the-ray-ban-rb5228-2000-in-black/</loc>
 		<lastmod>2013-01-22T13:52:16+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-sunglasses/the-ray-ban-new-wayfarer-rb2132-90258-in-tortoisepolarized-crystal-green/</loc>
-		<lastmod>2013-01-22T13:45:56+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1724,26 +2132,8 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-lance-r-ov5003-review/</loc>
-		<lastmod>2013-01-22T13:39:13+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-zuko-r-ov5001-review/</loc>
-		<lastmod>2013-01-22T13:36:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/sunglasses-trends/the-ray-ban-rb4105-71051-havanabrown-gradient-sunglasses/</loc>
 		<lastmod>2013-01-22T13:35:18+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-riley-r-ov5004-review/</loc>
-		<lastmod>2013-01-22T13:34:43+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1760,12 +2150,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/oliver-peoples-glasses/the-oliver-peoples-alix-ov5164-review/</loc>
-		<lastmod>2013-01-22T13:31:38+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/sunglasses-trends/the-ray-ban-original-wayfarer-rb5121-2012-in-dark-havana/</loc>
 		<lastmod>2013-01-22T13:30:32+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -1774,12 +2158,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/ray-ban-glasses/the-ray-ban-rb5228-2012-in-dark-havana/</loc>
 		<lastmod>2013-01-22T13:21:03+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/sunglasses-trends/tom-ford-lydia-tf-228-sunglasses/</loc>
-		<lastmod>2013-01-22T13:20:31+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1834,18 +2212,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/designer-frames/the-ray-ban-original-wayfarer-rb5121-2000-in-black/</loc>
 		<lastmod>2013-01-22T13:08:50+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/discount-codes/fashioneyewear-co-uk-discount-code/</loc>
-		<lastmod>2013-01-21T17:25:43+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/discount-codes/fashion-eyewear-brands-discount-code/</loc>
-		<lastmod>2013-01-21T17:23:16+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -1912,12 +2278,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/designer-sunglasses-2/new-vogue-sunglasses-eyewear-design-revealed/</loc>
 		<lastmod>2012-12-13T09:39:29+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/armani-sunglasses/top-10-armani-sunglasses-for-men/</loc>
-		<lastmod>2012-12-10T09:50:18+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -2000,12 +2360,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/style/discover-the-hottest-coloured-sunglasses-seen-at-fashion-week/</loc>
-		<lastmod>2012-10-18T08:39:09+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/style/x-factor-style/</loc>
 		<lastmod>2012-10-18T08:33:10+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -2020,12 +2374,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/eye-care/how-does-myopia-develop-in-children/</loc>
 		<lastmod>2012-10-12T12:43:53+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/style/which-celebrities-are-wearing-miu-miu-sunglasses/</loc>
-		<lastmod>2012-10-11T08:41:15+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -2072,12 +2420,6 @@
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/designer-frames/the-secret-to-saving-on-your-designer-glasses/</loc>
-		<lastmod>2012-09-18T08:36:55+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/designer-frames/the-great-investment-that-youre-missing-out-on/</loc>
 		<lastmod>2012-09-17T10:40:44+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -2086,12 +2428,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/style/everywhere-people-are-raving-about-these-ray-ban-aviators/</loc>
 		<lastmod>2012-09-17T08:40:07+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/style/the-battle-of-the-best-ray-ban-wayfarer-sunglasses/</loc>
-		<lastmod>2012-09-11T09:09:20+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -2188,12 +2524,6 @@
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/designer-frames/which-frame-material-is-right-for-you/</loc>
 		<lastmod>2012-08-22T16:52:26+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/london-optician/opticians-in-london-what-to-look-for/</loc>
-		<lastmod>2012-08-21T08:34:17+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -2322,12 +2652,6 @@
 		<lastmod>2011-10-14T15:21:58+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>http://www.fashioneyewear.co.uk/blog/designer-frames/fashion-eyewear-launches-new-website-phones-go-crazy-for-first-24-hours/</loc>
-		<lastmod>2011-09-26T11:03:56+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
 	</url>
 	<url>
 		<loc>http://www.fashioneyewear.co.uk/blog/contact/</loc>

@@ -52,30 +52,30 @@
 // don't try extract category by name. Name isn't unique.
 $carCat1 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'chanel-glasses')->getFirstItem()->getId();
 $catProdIds1 = mage::getModel('catalog/category')->load($carCat1)->getProductCollection()->getAllIds();
-$carCat2 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'tom-ford-glasses')->getFirstItem()->getId();
-$catProdIds2 = mage::getModel('catalog/category')->load($carCat2)->getProductCollection()->getAllIds();
+//$carCat2 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'tom-ford-glasses')->getFirstItem()->getId();
+//$catProdIds2 = mage::getModel('catalog/category')->load($carCat2)->getProductCollection()->getAllIds();
 
 $carCat3 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'chanel-sunglasses')->getFirstItem()->getId();
 $catProdIds3 = mage::getModel('catalog/category')->load($carCat3)->getProductCollection()->getAllIds();
-$carCat4 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'tom-ford-sunglasses')->getFirstItem()->getId();
-$catProdIds4 = mage::getModel('catalog/category')->load($carCat4)->getProductCollection()->getAllIds();
+//$carCat4 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'tom-ford-sunglasses')->getFirstItem()->getId();
+//$catProdIds4 = mage::getModel('catalog/category')->load($carCat4)->getProductCollection()->getAllIds();
 
 $carCat5 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'chanel-prescription-sunglasses')->getFirstItem()->getId();
 $catProdIds5 = mage::getModel('catalog/category')->load($carCat5)->getProductCollection()->getAllIds();
-$carCat6 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'tom-ford-prescription-sunglasses')->getFirstItem()->getId();
-$catProdIds6 = mage::getModel('catalog/category')->load($carCat6)->getProductCollection()->getAllIds();
+//$carCat6 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'tom-ford-prescription-sunglasses')->getFirstItem()->getId();
+//$catProdIds6 = mage::getModel('catalog/category')->load($carCat6)->getProductCollection()->getAllIds();
 
 $carCat7 = Mage::getModel('catalog/category')->getCollection()->setStoreId('0')->addAttributeToSelect('url_key')->addAttributeToFilter('url_key', 'lindberg-glasses')->getFirstItem()->getId();
 $catProdIds7 = mage::getModel('catalog/category')->load($carCat7)->getProductCollection()->getAllIds();
 
 if( !in_array($_product->getId(), $catProdIds1) && 
-    !in_array($_product->getId(), $catProdIds2) && 
+    //!in_array($_product->getId(), $catProdIds2) && 
     !in_array($_product->getId(), $catProdIds3) &&
-    !in_array($_product->getId(), $catProdIds4) &&
+    //!in_array($_product->getId(), $catProdIds4) &&
     !in_array($_product->getId(), $catProdIds5) &&
-    !in_array($_product->getId(), $catProdIds6) &&
+    //!in_array($_product->getId(), $catProdIds6) &&
     !in_array($_product->getId(), $catProdIds7)) { ?>
-
+<!-- div id="order-by-phone"><span><?='Call us to order prescription lenses'; ?></span></div -->
 <?php }else{
      ?>
         <div id="order-by-phone"><span><?= ( in_array($_product->getId(), $catProdIds7) ) ? 'This product can only be bought in the Farnborough store<br />Call 01276 35087 Now For A Consultation' : 'These frames can only be ordered by phone - please call 0208 987 2400'; ?></span></div>

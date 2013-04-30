@@ -218,7 +218,7 @@ class Related_Lens{
             if( $sku ){ echo $sku."\n"; }
             ++$i; echo ' ' . floor($i*100/$count) . '%';
         }
-        echo date("\nY-d-m H:i:s")." - Related products added\n";
+        echo date("\nY-d-m H:i:s")." - Related products added ". __METHOD__ ."\n"; 
         //$this->_afterQuery();
     }
 }
