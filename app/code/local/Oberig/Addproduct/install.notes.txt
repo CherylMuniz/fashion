@@ -9,4 +9,4 @@ Add to catalog.xml
         
         add to page.xml before prototype.js :
              <block type="page/html_head" name="head" as="head">
-                <action method="addJs"><script>jquery/jquery-1.8.0.js</script></action>
+                <action method="addJs"><script>jquery/jquery.js</script></action>
