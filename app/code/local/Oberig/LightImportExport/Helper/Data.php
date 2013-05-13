@@ -2,7 +2,7 @@
 
 class Oberig_LightImportExport_Helper_Data extends Mage_Core_Helper_Abstract
 {
-	static $aAttributeSetInUse = array(10,11,14);
+	static $aAttributeSetInUse = array(10,11,13,14);
     public function getEntityAttributeSetValues(){
     	$entityType = Mage::getModel('catalog/product')->getResource()->getEntityType();
     	
