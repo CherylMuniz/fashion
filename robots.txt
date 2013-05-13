@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /catalogsearch/
+Disallow: /catalogsearch/advanced/
+Disallow: /catalogsearch/term/popular/

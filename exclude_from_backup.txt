@@ -1,0 +1,13 @@
+blog/*
+media/*
+var/debug/*
+var/*cache/*
+var/session/*
+var/backups/*
+var/export/*
+var/report/*
+var/cache/*
+var/log/*
+var/tmp/*
+zbckp/*
+.git
